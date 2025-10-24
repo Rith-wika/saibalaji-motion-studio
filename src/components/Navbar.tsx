@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,26 +17,18 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    "Home",
-    "About Us",
-    "Projects",
-    "Services",
-    "Achievements",
-    "Key Persons",
-    "Gallery",
-    "Careers",
-    "Contact",
-    "Sai Balaji MELLP"
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about" },
+    { label: "Projects", path: "/projects" },
+    { label: "Services", path: "/services" },
+    { label: "Achievements", path: "/achievements" },
+    { label: "Key Persons", path: "/key-persons" },
+    { label: "Gallery", path: "/gallery" },
+    { label: "Careers", path: "/careers" },
+    { label: "Contact", path: "/contact" },
   ];
 
-  const scrollToSection = (item: string) => {
-    const sectionId = item.toLowerCase().replace(/\s+/g, "-");
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsMobileMenuOpen(false);
-    }
-  };
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav
@@ -47,7 +41,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo and Company Info */}
-          <div className="flex items-center space-x-4">
+          <Link to="/" className="flex items-center space-x-4">
             <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow">
               <span className="text-2xl font-bold text-accent-foreground">S</span>
             </div>
@@ -59,19 +53,27 @@ const Navbar = () => {
                 Your Satisfaction Is Our Mission
               </p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="px-3 py-2 text-sm font-medium text-foreground hover:text-accent transition-smooth relative group"
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`px-3 py-2 text-sm font-medium transition-smooth relative group ${
+                  isActive(item.path)
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent"
+                }`}
               >
-                {item}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-accent group-hover:w-full transition-smooth" />
-              </button>
+                {item.label}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-accent transition-smooth ${
+                    isActive(item.path) ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
             ))}
           </div>
 
@@ -91,13 +93,18 @@ const Navbar = () => {
           <div className="lg:hidden py-4 animate-fade-in">
             <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary rounded-lg transition-smooth text-left"
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-smooth text-left ${
+                    isActive(item.path)
+                      ? "bg-accent/10 text-accent"
+                      : "text-foreground hover:bg-secondary"
+                  }`}
                 >
-                  {item}
-                </button>
+                  {item.label}
+                </Link>
               ))}
             </div>
           </div>
