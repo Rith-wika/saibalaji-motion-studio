@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Users, Target, TrendingUp } from "lucide-react";
 
-const AboutPage = () => {
+const ClientList = () => {
   const stats = [
     { icon: Award, value: "40+", label: "Years Experience" },
     { icon: Users, value: "500+", label: "Expert Team" },
@@ -20,8 +20,8 @@ const AboutPage = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">About Us</h1>
-            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
+            <h1 className="text-5xl  text-foreground md:text-6xl font-bold mb-6">About Us</h1>
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
             </p>
           </motion.div>
@@ -40,7 +40,7 @@ const AboutPage = () => {
               className="text-center group"
             >
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Target className="w-10 h-10 text-accent-foreground" />
+                <Target className="w-10 h-10 text-accent" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -56,7 +56,7 @@ const AboutPage = () => {
               className="text-center group"
             >
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <TrendingUp className="w-10 h-10 text-accent-foreground" />
+                <TrendingUp className="w-10 h-10 text-accent" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -72,7 +72,7 @@ const AboutPage = () => {
               className="text-center group"
             >
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Award className="w-10 h-10 text-accent-foreground" />
+                <Award className="w-10 h-10 text-accent" />
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-4">Our Quality</h3>
               <p className="text-muted-foreground leading-relaxed">
@@ -148,7 +148,7 @@ const AboutPage = () => {
                 className="text-center group"
               >
                 <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                  <stat.icon className="w-8 h-8 text-accent-foreground" />
+                  <stat.icon className="w-8 h-8 text-accent" />
                 </div>
                 <h4 className="text-3xl font-bold text-foreground mb-2">{stat.value}</h4>
                 <p className="text-muted-foreground text-sm">{stat.label}</p>
@@ -161,4 +161,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default ClientList;

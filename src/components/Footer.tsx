@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
@@ -73,35 +74,27 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-primary-foreground/70 hover:text-accent text-sm transition-smooth inline-block hover:translate-x-1"
-                  >
-                    {link}
-                  </a>
-                </li>
-              ))}
+             <ul className="space-y-2">
+              <li><Link to="/" className="text-sm hover:text-accent transition-colors">Home</Link></li>
+              <li><Link to="/about/" className="text-sm hover:text-accent transition-colors">About Us</Link></li>
+              <li><Link to="/projects" className="text-sm hover:text-accent transition-colors">Projects</Link></li>
+              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">Services</Link></li>
+              <li><Link to="/gallery" className="text-sm hover:text-accent transition-colors">Gallery</Link></li>
+              <li><Link to="/contact" className="text-sm hover:text-accent transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           {/* Services */}
           <div>
             <h4 className="text-lg font-bold mb-6">Our Services</h4>
-            <ul className="space-y-3">
-              {services.map((service, index) => (
-                <li key={index}>
-                  <a
-                    href="#services"
-                    className="text-primary-foreground/70 hover:text-accent text-sm transition-smooth inline-block hover:translate-x-1"
-                  >
-                    {service}
-                  </a>
-                </li>
-              ))}
+              <ul className="space-y-2">
+              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">Electrical</Link></li>
+              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">Fire Fighting</Link></li>
+              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">CCTV Services</Link></li>
+              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">HAV Service</Link></li>
+              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">Fire Alaram</Link></li>
             </ul>
+            
           </div>
 
           {/* Contact Info */}

@@ -29,8 +29,8 @@ const KeyPersonsPage = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Leadership Team</h1>
-            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
+            <h1 className="text-5xl text-foreground md:text-6xl font-bold mb-6">Leadership Team</h1>
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               Meet the visionaries driving excellence in electrical infrastructure
             </p>
           </motion.div>

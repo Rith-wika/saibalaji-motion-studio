@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Award, Users, Target } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+import ServicesCarousel from "@/pages/Home/ServicesCarousel";
 
 const Home = () => {
   const stats = [
@@ -12,13 +13,28 @@ const Home = () => {
     { icon: Zap, value: "A Grade", label: "MEP License" },
   ];
 
-  const highlights = [
-    "Super grade-1 in EHV & HV Substation Works",
-    "Well Defined and Co-ordinated Process for Seamless Installations",
-    "Technical Expertise and quality that is unsurpassable",
-    "Highest standard in fire safety to save life & Property",
-    "Understanding the needs Exceed the expectations",
-    "In-house Electro Mechanical Engineers who are highly Skilled"
+
+   const projectCategories = [
+    {
+      title: 'IT Commercial',
+      description: 'Modern commercial buildings with extensive MEP/FP systems for optimal workplace environments.',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800'
+    },
+    {
+      title: 'Educational',
+      description: 'Innovative infrastructure solutions for educational institutions with sustainable design.',
+      image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800'
+    },
+    {
+      title: 'Pharma Industries',
+      description: 'Specialized MEP/FP support for pharmaceutical and healthcare facilities.',
+      image: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800'
+    },
+    {
+      title: 'Sub Stations',
+      description: 'Super grade-1 EHV & HV substation works with professional testing capabilities.',
+      image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800'
+    },
   ];
 
   return (
@@ -34,7 +50,7 @@ const Home = () => {
           <div className="absolute inset-0 gradient-hero" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 py-32">
+        {/* <div className="relative z-10 container mx-auto px-4 py-32">
           <div className="max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -102,7 +118,7 @@ const Home = () => {
               </Link>
             </motion.div>
           </div>
-        </div>
+        </div> */}
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -134,7 +150,7 @@ const Home = () => {
                 className="text-center group"
               >
                 <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 group-hover:rotate-6 transition-spring">
-                  <stat.icon className="w-10 h-10 text-accent-foreground" />
+                  <stat.icon className="w-10 h-10 text-accent" />
                 </div>
                 <h3 className="text-4xl font-bold text-foreground mb-2">{stat.value}</h3>
                 <p className="text-muted-foreground font-medium">{stat.label}</p>
@@ -144,45 +160,70 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Highlights Section */}
-      <section className="py-24 bg-background">
+          <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">
-              Why Choose Us
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Excellence in Every Project
-            </h2>
+            <h2 className="text-4xl font-bold mb-2">Our Projects</h2>
+            <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Excellence across multiple sectors with innovative MEP solutions
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {projectCategories.map((project, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
+                key={project.title}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group p-8 rounded-2xl bg-card hover:shadow-large transition-spring border border-border/50 hover:-translate-y-2"
+                transition={{ delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-lg cursor-pointer"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="w-2 h-2 mt-2 rounded-full bg-accent flex-shrink-0 group-hover:scale-150 transition-spring" />
-                  <p className="text-lg text-foreground font-medium leading-relaxed">
-                    {highlight}
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
+                  <h3 className="text-xl font-bold mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    {project.description}
                   </p>
+                </div>
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Zap className="w-6 h-6 text-secondary animate-glow-pulse" />
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* <div className="text-center mt-10">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Link to="/projects">View All Projects</Link>
+            </Button>
+          </div> */}
         </div>
       </section>
+
+          <section className="py-20 bg-secondary">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
+            Our <span className="text-accent">Services</span>
+          </h2>
+          <ServicesCarousel />
+        </div>
+      </section>
+      
 
       {/* CTA Section */}
       <section className="py-24 bg-primary text-primary-foreground">

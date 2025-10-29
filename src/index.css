@@ -41,7 +41,7 @@ All colors MUST be HSL.
     /* Premium gradients */
     --gradient-primary: linear-gradient(135deg, hsl(220 70% 20%) 0%, hsl(220 60% 30%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(35 85% 45%) 100%);
-    --gradient-hero: linear-gradient(to bottom, hsl(220 70% 20% / 0.95), hsl(220 60% 30% / 0.85));
+    --gradient-hero: linear-gradient(to bottom, hsl(220 70% 20% / 0.0), hsl(220 60% 30% / 0.0));
     
     /* Shadows */
     --shadow-soft: 0 4px 20px -2px hsl(220 70% 20% / 0.1);
@@ -100,6 +100,85 @@ All colors MUST be HSL.
   }
 }
 
+/* Electric flow animation */
+.electric-flow-left,
+.electric-flow-right {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.electric-flow-left.active,
+.electric-flow-right.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ensure right side animation works correctly */
+.electric-flow-right .heartbeat-wrap {
+  transform-origin: center;
+}
+
+.electric-flow-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.heartbeat-wrap {
+  fill: none;
+  stroke: hsl(38 92% 50%); /* Orange color from accent */
+  stroke-width: 6; /* Increased base stroke width */
+  filter: drop-shadow(0 0 3px hsl(38 92% 50% / 0.6)); /* Added glow effect */
+}
+
+.heartbeat-path {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+}
+
+.heartbeat-line {
+  stroke-width: 4; /* Increased line thickness */
+}
+
+.heartbeat-pulse {
+  stroke-width: 20; /* Increased pulse thickness */
+  filter: drop-shadow(0 0 5px hsl(38 92% 50% / 0.7)); /* Extra glow for pulse */
+}
+
+.electric-flow-left .heartbeat-path,
+.electric-flow-right .heartbeat-path {
+  /* Slower heartbeat so the pulse travels more slowly to the edges */
+  animation: heartbeat 10s ease-in-out forwards;
+  animation-play-state: paused;
+}
+
+.active .heartbeat-path {
+  animation-play-state: running;
+}
+
+/* Sequence the animations for a flowing effect */
+.heartbeat-line:first-child {
+  animation-delay: 1s;
+}
+
+.heartbeat-pulse {
+  animation-delay: 1.2s;
+}
+
+.heartbeat-line:last-child {
+  animation-delay: 1.4s;
+}
+
+@keyframes heartbeat {
+  0% {
+    stroke-dashoffset: 2000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 @layer utilities {
   .gradient-primary {
     background: var(--gradient-primary);
@@ -136,4 +215,244 @@ All colors MUST be HSL.
   .transition-spring {
     transition: var(--transition-spring);
   }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Custom Electric Field Animation CSS                        */
+/* -------------------------------------------------------------------------- */
+
+/* Get the HSL value for the accent color to use in CSS keyframes */
+/* --accent is 38 92% 50% (A bright yellow/orange, similar to a hot wire) */
+:root {
+  --electric-glow-color: hsl(var(--accent) / 1); /* Use the defined accent color */
+  --electric-glow-shadow-color: hsl(var(--accent) / 0.6); /* A softer glow version */
+}
+.dark {
+  --electric-glow-color: hsl(var(--accent) / 1);
+  --electric-glow-shadow-color: hsl(var(--accent) / 0.6);
+}
+
+@keyframes electric-pulse {
+  0%, 100% {
+    /* Subtle glow, no shift */
+    text-shadow: 
+      0 0 1px currentColor,
+      0 0 5px var(--electric-glow-color),
+      0 0 10px var(--electric-glow-shadow-color); 
+    transform: translate(0, 0);
+  }
+  20% {
+    /* Slight glitch/shift (removes glow momentarily) */
+    text-shadow: none;
+    transform: translate(0.5px, -0.5px);
+  }
+  40% {
+    /* Brighter glow, reversed shift */
+    text-shadow: 
+      0 0 2px currentColor,
+      0 0 8px var(--electric-glow-color);
+    transform: translate(-0.5px, 0.5px);
+  }
+  60% {
+    /* Another shift */
+    text-shadow: none;
+    transform: translate(0, -0.5px);
+  }
+  80% {
+    /* Final slight glow */
+    text-shadow: 
+      0 0 1px currentColor;
+    transform: translate(-0.5px, 0);
+  }
+}
+
+/* The container for the animation. Must be inline-flex or flex to wrap spans correctly */
+.electric-link-container {
+  display: inline-flex; 
+  /* Ensures the animation starts immediately on hover without a transition delay */
+}
+
+/* Apply the animation to each character on container hover */
+.electric-link-container:hover .electric-char {
+  animation: electric-pulse 0.8s ease-in-out infinite alternate;
+  /* Resetting color transition on hover, if any was inherited */
+  transition: none; 
+}
+
+/* STAGGERING: Apply different delays to create the random electric/glitch effect */
+.electric-link-container:hover .electric-char:nth-child(1) { animation-delay: 0.05s; }
+.electric-link-container:hover .electric-char:nth-child(2) { animation-delay: 0.15s; }
+.electric-link-container:hover .electric-char:nth-child(3) { animation-delay: 0.1s; }
+.electric-link-container:hover .electric-char:nth-child(4) { animation-delay: 0.2s; }
+.electric-link-container:hover .electric-char:nth-child(5) { animation-delay: 0.0s; }
+.electric-link-container:hover .electric-char:nth-child(6) { animation-delay: 0.25s; }
+.electric-link-container:hover .electric-char:nth-child(7) { animation-delay: 0.12s; }
+.electric-link-container:hover .electric-char:nth-child(8) { animation-delay: 0.18s; }
+.electric-link-container:hover .electric-char:nth-child(9) { animation-delay: 0.07s; }
+.electric-link-container:hover .electric-char:nth-child(10) { animation-delay: 0.22s; }
+.electric-link-container:hover .electric-char:nth-child(11) { animation-delay: 0.13s; }
+.electric-link-container:hover .electric-char:nth-child(12) { animation-delay: 0.27s; }
+
+/* Electric background flow (orange current moving behind the text) */
+.electric-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.electric-link .electric-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(255,140,0,0) 0%,
+    rgba(255,140,0,0.08) 25%,
+    rgba(255,140,0,0.14) 50%,
+    rgba(255,140,0,0.08) 75%,
+    rgba(255,140,0,0) 100%
+  );
+  transform: translateX(-100%);
+}
+
+.electric-link:hover .electric-bg {
+  animation: electric-flow 1s linear infinite;
+}
+
+@keyframes electric-flow {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* When hovered, make characters adopt the electric glow color */
+.electric-link:hover .electric-char {
+  color: var(--electric-glow-color);
+}
+
+/* Heartbeat flow: pulses that travel outward from hovered link to screen edges */
+.electric-heartbeat {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.electric-heartbeat .pulse {
+  position: absolute;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  background: linear-gradient(to right, transparent 0 42%, rgba(255,140,0,1) 45% 55%, transparent 60%);
+  filter: drop-shadow(0 0 10px rgba(255,140,0,0.45));
+  opacity: 0;
+}
+
+.electric-heartbeat .pulse.delay {
+  animation-delay: 0.28s;
+}
+
+.electric-flow-right .pulse {
+  left: 0;
+  animation: heartbeat-right 1s cubic-bezier(0.2,0.8,0.2,1) infinite;
+}
+.electric-flow-left .pulse {
+  right: 0;
+  animation: heartbeat-left 1s cubic-bezier(0.2,0.8,0.2,1) infinite;
+}
+
+@keyframes heartbeat-right {
+  0% { transform: translateX(0) translateY(-50%) scaleY(1); opacity: 1; }
+  10% { transform: translateX(6%) translateY(-50%) scaleY(1.6); }
+  30% { transform: translateX(22%) translateY(-50%) scaleY(0.9); }
+  60% { transform: translateX(60%) translateY(-50%) scaleY(0.8); opacity: 0.7; }
+  100% { transform: translateX(100%) translateY(-50%) scaleY(0.6); opacity: 0; }
+}
+
+@keyframes heartbeat-left {
+  0% { transform: translateX(0) translateY(-50%) scaleY(1); opacity: 1; }
+  10% { transform: translateX(-6%) translateY(-50%) scaleY(1.6); }
+  30% { transform: translateX(-22%) translateY(-50%) scaleY(0.9); }
+  60% { transform: translateX(-60%) translateY(-50%) scaleY(0.8); opacity: 0.7; }
+  100% { transform: translateX(-100%) translateY(-50%) scaleY(0.6); opacity: 0; }
+}
+
+/* SVG ECG waveform animation (connected heartbeat) */
+.electric-flow-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.electric-flow-svg .wave {
+  stroke: var(--electric-glow-color);
+  stroke-width: 2.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 8px rgba(255,140,0,0.45));
+  opacity: 0.95;
+}
+
+.electric-flow-right .wave-wrap,
+.electric-flow-left .wave-wrap {
+  transform: translateX(0) scaleY(1);
+  transform-origin: left center;
+  animation-play-state: paused; /* keep paused until active */
+  opacity: 0;
+  transition: opacity 200ms ease, transform 260ms cubic-bezier(0.2,0.8,0.2,1);
+}
+
+/* animate only when parent has active */
+.electric-flow-right.active .wave-wrap {
+  animation: wave-move-right 1.0s linear infinite;
+  animation-play-state: running;
+  opacity: 1;
+}
+.electric-flow-left.active .wave-wrap {
+  animation: wave-move-left 1.0s linear infinite;
+  animation-play-state: running;
+  opacity: 1;
+}
+
+@keyframes wave-move-right {
+  0% { transform: translateX(0%) scaleY(1); opacity: 1; }
+  25% { transform: translateX(-12%) scaleY(0.9); }
+  50% { transform: translateX(-28%) scaleY(0.75); opacity: 0.9; }
+  75% { transform: translateX(-40%) scaleY(0.6); }
+  100% { transform: translateX(-50%) scaleY(0.45); opacity: 0; }
+}
+
+@keyframes wave-move-left {
+  0% { transform: translateX(0%) scaleY(1); opacity: 1; }
+  25% { transform: translateX(12%) scaleY(0.9); }
+  50% { transform: translateX(28%) scaleY(0.75); opacity: 0.9; }
+  75% { transform: translateX(40%) scaleY(0.6); }
+  100% { transform: translateX(50%) scaleY(0.45); opacity: 0; }
+}
+
+/* Resistor line styling (zig-zag) */
+.res-wrap {
+  will-change: transform, opacity;
+}
+.res-path {
+  stroke: var(--electric-glow-color);
+  stroke-width: 3.2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 12px rgba(255,140,0,0.5));
+  opacity: 0.95;
+  stroke-dasharray: 10 8;
+  stroke-dashoffset: 0;
+  transition: stroke 200ms ease, opacity 200ms ease;
+}
+
+/* animate dash offset only when active (hover) */
+.electric-flow-right.active .res-path,
+.electric-flow-left.active .res-path {
+  animation: resistor-flow 1.0s linear infinite;
+}
+
+@keyframes resistor-flow {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -36; }
 }

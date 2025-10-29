@@ -4,8 +4,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Home from "./pages/Home";
-import AboutPage from "./pages/AboutPage";
+import ScrollToTop from "./components/ScrollTop";
+import Home from "./pages/Home/Home";
+import AboutPage from "./pages/About/AboutPage";
+import OurStory from "./pages/About/OurStory";
+import WhyUs from "./pages/About/WhyUs";
+import QualityPolicy from "./pages/About/QualityPolicy";
+import ClientList from "./pages/About/ClientList";
 import Projects from "./components/Projects";
 import ServicesPage from "./pages/ServicesPage";
 import Achievements from "./components/Achievements";
@@ -23,10 +28,15 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="about/ourstory" element={<OurStory />} />
+            <Route path="about/whyus" element={<WhyUs />} />
+            <Route path="about/qualitypolicy" element={<QualityPolicy />} />
+            <Route path="about/clientlist" element={<ClientList />} />
             <Route path="projects" element={<div className="pt-24"><Projects /></div>} />
             <Route path="services" element={<ServicesPage />} />
             <Route path="achievements" element={<div className="pt-24"><Achievements /></div>} />

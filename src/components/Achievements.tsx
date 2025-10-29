@@ -95,7 +95,7 @@ const Achievements = () => {
               className="text-center group"
             >
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 group-hover:rotate-12 transition-spring">
-                <achievement.icon className="w-10 h-10 text-accent-foreground" />
+                <achievement.icon className="w-10 h-10 text-accent" />
               </div>
               <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
                 {inView && (

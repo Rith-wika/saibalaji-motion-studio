@@ -6,7 +6,7 @@ const ServicesPage = () => {
   const services = [
     {
       icon: Zap,
-      title: "Electrical Service",
+      title: "Electrical Services",
       description: "Unlike many electrical contractors who only provide a limited range of services, Sai Balaji Infra Private Limited can provide customers with a true one-stop solution for all electrical needs including lighting, power wiring, DB installation, and panel boards.",
     },
     {
@@ -62,8 +62,8 @@ const ServicesPage = () => {
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
+            <h1 className="text-5xl text-foreground md:text-6xl font-bold mb-6">Our Services</h1>
+            <p className="text-xl text-foreground max-w-3xl mx-auto">
               We are 'A' class MEP contractors providing comprehensive electrical, mechanical, and plumbing solutions
             </p>
           </motion.div>
@@ -88,7 +88,7 @@ const ServicesPage = () => {
                 <Card className="group h-full hover:shadow-large transition-spring border-border/50 hover:-translate-y-2">
                   <CardHeader>
                     <div className="w-16 h-16 mb-4 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 group-hover:rotate-6 transition-spring">
-                      <service.icon className="w-8 h-8 text-accent-foreground" />
+                      <service.icon className="w-8 h-8 text-accent" />
                     </div>
                     <CardTitle className="text-xl font-bold group-hover:text-accent transition-smooth">
                       {service.title}

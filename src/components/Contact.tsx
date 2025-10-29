@@ -158,7 +158,7 @@ const Contact = () => {
                 >
                   <CardContent className="p-6 flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-xl bg-gradient-accent flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-spring shadow-soft">
-                      <info.icon className="w-6 h-6 text-accent-foreground" />
+                      <info.icon className="w-6 h-6 text-accent" />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground mb-1">{info.title}</h3>

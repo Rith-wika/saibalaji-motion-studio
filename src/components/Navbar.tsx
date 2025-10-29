@@ -27,6 +27,12 @@ const Navbar = () => {
     { label: "Careers", path: "/careers" },
     { label: "Contact", path: "/contact" },
   ];
+  const aboutUsSubItems = [
+    { name :"Our Story",path:"/about/ourstory"},
+    { name :"Why US",path:"/about/whyus"},
+    { name :"Quality Policy",path:"/about/qualitypolicy"},
+    { name :"Client List",path:"/about/clientlist"},
+  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -34,7 +40,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
         isScrolled
-          ? "bg-card/95 backdrop-blur-lg shadow-medium"
+          ? "bg-white/95 backdrop-blur-lg shadow-medium"
           : "bg-transparent"
       }`}
     >
@@ -45,14 +51,14 @@ const Navbar = () => {
             <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow">
               <span className="text-2xl font-bold text-accent-foreground">S</span>
             </div>
-            <div className="hidden md:block">
-              <h1 className="text-lg font-bold text-foreground leading-tight">
-                SAI BALAJI Infra India Pvt. Ltd.
-              </h1>
-              <p className="text-xs text-muted-foreground italic">
-                Your Satisfaction Is Our Mission
-              </p>
-            </div>
+              <div className="hidden md:block">
+                <h1 className={`text-lg font-bold ${isScrolled ? 'text-black' : 'text-white'} leading-tight`}>
+                  SAI BALAJI Infra India Pvt. Ltd.
+                </h1>
+                <p className={`${isScrolled ? 'text-black/70' : 'text-white/80'} text-xs italic`}>
+                  Your Satisfaction Is Our Mission
+                </p>
+              </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -63,14 +69,16 @@ const Navbar = () => {
                 to={item.path}
                 className={`px-3 py-2 text-sm font-medium transition-smooth relative group ${
                   isActive(item.path)
-                    ? "text-accent"
-                    : "text-foreground hover:text-accent"
+                    ? 'text-accent'
+                    : isScrolled
+                      ? 'text-black hover:text-accent'
+                      : 'text-white hover:text-accent'
                 }`}
               >
                 {item.label}
                 <span
                   className={`absolute bottom-0 left-0 h-0.5 bg-gradient-accent transition-smooth ${
-                    isActive(item.path) ? "w-full" : "w-0 group-hover:w-full"
+                    isActive(item.path) ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                 />
               </Link>
@@ -81,7 +89,7 @@ const Navbar = () => {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className={`lg:hidden ${isScrolled ? 'text-black' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
@@ -99,8 +107,10 @@ const Navbar = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-smooth text-left ${
                     isActive(item.path)
-                      ? "bg-accent/10 text-accent"
-                      : "text-foreground hover:bg-secondary"
+                      ? 'bg-accent/10 text-accent'
+                      : isScrolled
+                        ? 'text-black hover:bg-secondary'
+                        : 'text-white hover:bg-white/5'
                   }`}
                 >
                   {item.label}

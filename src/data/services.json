@@ -1,0 +1,65 @@
+[
+  {
+    "slug": "electrical-service",
+    "title": "Electrical Service",
+    "description": "Complete electrical installation, maintenance, and testing services for commercial, industrial, and residential projects.",
+    "details": "Our electrical services cover design, installation, testing, and commissioning of electrical systems including HT/LT panels, transformers, cable laying, and distribution boards.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "hvac-service",
+    "title": "HVAC Service",
+    "description": "Heating, ventilation, and air conditioning systems design, installation, and maintenance for optimal climate control.",
+    "details": "We provide comprehensive HVAC solutions including central air conditioning, chilled water systems, VRV/VRF systems, and air handling units.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "plumbing",
+    "title": "Plumbing",
+    "description": "Complete plumbing solutions including water supply, drainage, sanitary, and rainwater harvesting systems.",
+    "details": "Our plumbing services encompass design and installation of internal and external plumbing, sewage systems, and water treatment plants.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "fire-fighting",
+    "title": "Fire Fighting",
+    "description": "Advanced fire protection systems including sprinklers, hydrants, and fire alarm networks for comprehensive safety.",
+    "details": "We install and maintain fire sprinkler systems, hydrant systems, fire pumps, detection systems, and emergency lighting.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "elv-systems",
+    "title": "All ELV System",
+    "description": "Extra Low Voltage systems including access control, public address, and building management systems.",
+    "details": "Our ELV solutions cover structured cabling, access control, intercom, CCTV, PA systems, and building automation.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "cctv-service",
+    "title": "CCTV Service",
+    "description": "High-definition surveillance systems with remote monitoring and intelligent video analytics capabilities.",
+    "details": "We design and install IP-based CCTV systems with HD cameras, network video recorders, and advanced analytics.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "networking",
+    "title": "Networking",
+    "description": "Structured cabling and network infrastructure for seamless data connectivity and communication.",
+    "details": "Complete networking solutions including Cat 6/Cat 6A cabling, fiber optics, network racks, and wireless infrastructure.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "fire-alarm",
+    "title": "Fire Alarm System",
+    "description": "Intelligent fire detection and alarm systems with addressable technology for early warning and safety.",
+    "details": "We install addressable fire alarm panels, smoke detectors, heat detectors, manual call points, and hooters.",
+    "images": ["/placeholder.svg"]
+  },
+  {
+    "slug": "pa-system",
+    "title": "PA System",
+    "description": "Public Address systems for clear communication in large venues, campuses, and commercial spaces.",
+    "details": "Our PA systems include amplifiers, speakers, microphones, and zoning controls for effective audio distribution.",
+    "images": ["/placeholder.svg"]
+  }
+]
