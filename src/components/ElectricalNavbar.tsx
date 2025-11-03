@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "./ui/dropdown-menu";
 
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "About Us", path: "/about" },
+  { label: "About Us", path: "/about" }, // Will also have dropdown
   { label: "Projects", path: "/projects" },
   { label: "Services", path: "/services" },
   { label: "Achievements", path: "/achievements" },
@@ -11,6 +17,13 @@ const navItems = [
   { label: "Gallery", path: "/gallery" },
   { label: "Careers", path: "/careers" },
   { label: "Contact", path: "/contact" },
+];
+
+const aboutDropdownItems = [
+  { label: "Our Story", path: "/about/ourstory" },
+  { label: "Why Us", path: "/about/whyus" },
+  { label: "Quality Policy", path: "/about/qualitypolicy" },
+  { label: "Client List", path: "/about/clientlist" },
 ];
 
 function SplitChars({ text }: { text: string }) {
@@ -66,6 +79,7 @@ const ElectricalNavbar: React.FC = () => {
     setHoverActive(false);
   };
 
+     
   return (
     <nav
       ref={navRef}
@@ -100,20 +114,84 @@ const ElectricalNavbar: React.FC = () => {
         </div>
 
         <div className="flex items-center justify-between py-4 relative z-20">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full gradient-accent flex items-center justify-center shadow-glow">
-              <span className={`font-extrabold ${(isScrolled || hoverActive) ? 'text-black' : 'text-white'}`}>E</span>
-            </div>
-            <div className="hidden sm:block">
-              <div className={`${(isScrolled || hoverActive) ? 'text-black' : 'text-white'} font-bold`}>ElectroFlux Energy</div>
-              <div className={`${(isScrolled || hoverActive) ? 'text-black/70' : 'text-white/80'} text-xs`}>Powering Safe & Smart Solutions</div>
-            </div>
-          </Link>
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full gradient-accent flex items-center justify-center shadow-glow">
+                <span className={`font-extrabold ${(isScrolled || hoverActive) ? 'text-black' : 'text-white'}`}>S</span>
+              </div>
+              <div className="hidden sm:block">
+                <div className={`${(isScrolled || hoverActive) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
+                <div className={`${(isScrolled || hoverActive) ? 'text-black/70' : 'text-white/80'} text-xs`}>Your Satisfaction Is Our Mission</div>
+              </div>
+            </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-2">
             {navItems.map((item) => {
               const active = isActive(item.path);
+              
+              // Special handling for About Us with dropdown
+              if (item.label === "About Us") {
+                return (
+                  <div key={item.path} className="flex items-center gap-1">
+                    <Link
+                      to={item.path}
+                      onMouseEnter={(e) => handleMouseEnter(e)}
+                      onMouseLeave={handleMouseLeave}
+                      className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${
+                        active 
+                          ? 'text-accent bg-accent/10 hover:bg-accent/20' 
+                          : hoverActive 
+                            ? 'text-black hover:bg-secondary/50' 
+                            : isScrolled 
+                              ? 'text-black hover:bg-secondary/50' 
+                              : 'text-white hover:bg-white/5'
+                      }`}
+                    >
+                      <span className="electric-bg" aria-hidden />
+                      <SplitChars text={item.label} />
+                    </Link>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger 
+                        className={`inline-flex items-center justify-center rounded-md w-6 h-6 transition-colors hover:bg-accent/10 ${
+                          active 
+                            ? 'text-accent' 
+                            : isScrolled || hoverActive
+                              ? 'text-black' 
+                              : 'text-white'
+                        }`}
+                      >
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="16" 
+                          height="16" 
+                          viewBox="0 0 24 24" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="2" 
+                          strokeLinecap="round" 
+                          strokeLinejoin="round"
+                        >
+                          <path d="m6 9 6 6 6-6"/>
+                        </svg>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="start">
+                        {aboutDropdownItems.map((subItem) => (
+                          <DropdownMenuItem key={subItem.path} asChild>
+                            <Link 
+                              to={subItem.path} 
+                              className="w-full block px-2 py-1.5 text-sm hover:text-accent transition-colors"
+                            >
+                              {subItem.label}
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                );
+              }
+
+              // Regular nav items
               return (
                 <Link
                   key={item.path}
@@ -155,6 +233,44 @@ const ElectricalNavbar: React.FC = () => {
             <div className="flex flex-col gap-2">
               {navItems.map((item) => {
                 const active = isActive(item.path);
+                
+                // Special handling for About Us in mobile menu
+                if (item.label === "About Us") {
+                  return (
+                    <div key={item.path} className="space-y-1">
+                      <Link
+                        to={item.path}
+                        onClick={() => setOpen(false)}
+                        className={`px-4 py-2 rounded-lg transition-colors block font-medium ${
+                          active
+                            ? 'text-accent bg-accent/10 hover:bg-accent/20'
+                            : isScrolled
+                              ? 'text-black hover:bg-secondary/50'
+                              : 'text-white hover:bg-white/5'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                      {aboutDropdownItems.map((sub) => (
+                        <Link
+                          key={sub.path}
+                          to={sub.path}
+                          onClick={() => setOpen(false)}
+                          className={`pl-8 py-2 rounded-lg transition-colors block ${
+                            isActive(sub.path)
+                              ? 'text-accent bg-accent/10 hover:bg-accent/20'
+                              : isScrolled
+                                ? 'text-black/80 hover:bg-secondary/50'
+                                : 'text-white/90 hover:bg-white/5'
+                          }`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={item.path}

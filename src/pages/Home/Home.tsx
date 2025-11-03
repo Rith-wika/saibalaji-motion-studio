@@ -45,7 +45,7 @@ const Home = () => {
           <img
             src={heroImage}
             alt="Electrical Infrastructure"
-            className="w-full h-full object-cover"
+            className="w-full h-screen object-cover bg-fixed"
           />
           <div className="absolute inset-0 gradient-hero" />
         </div>

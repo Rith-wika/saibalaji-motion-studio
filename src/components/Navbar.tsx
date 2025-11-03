@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X,ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isAboutUsDropdownOpen, setIsAboutUsDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -29,12 +30,13 @@ const Navbar = () => {
   ];
   const aboutUsSubItems = [
     { name :"Our Story",path:"/about/ourstory"},
-    { name :"Why US",path:"/about/whyus"},
+    { name :"Why Us",path:"/about/whyus"},
     { name :"Quality Policy",path:"/about/qualitypolicy"},
     { name :"Client List",path:"/about/clientlist"},
   ];
 
   const isActive = (path: string) => location.pathname === path;
+  const isAboutUsActive = aboutUsSubItems.some(item => isActive(item.path)) || location.pathname.startsWith('/about');
 
   return (
     <nav

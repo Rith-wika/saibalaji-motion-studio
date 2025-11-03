@@ -16,7 +16,7 @@ export const PageHero = ({
   return (
     <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
       <div 
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: `url('${imageUrl}')`,
         }}

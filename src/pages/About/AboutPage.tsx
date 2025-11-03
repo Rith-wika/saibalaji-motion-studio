@@ -13,25 +13,29 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-primary-foreground">
-        <div className=" absolute inset-0 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <img
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
             src={aboutImage}
             alt="Electrical Infrastructure"
             className="w-full h-full object-cover"
           />
-          <div className="relative z-10 container mx-auto px-4 py-32">
-            <h1 className="text-5xl  text-foreground md:text-6xl font-bold mb-6">About Us</h1>
-            <p className="text-xl text-foreground max-w-3xl mx-auto">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/80" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
+              About Us
+            </h1>
+            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
               One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
             </p>
-            </div>
           </motion.div>
         </div>
       </section>
