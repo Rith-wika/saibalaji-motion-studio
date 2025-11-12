@@ -103,9 +103,14 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start space-x-3 text-sm">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-primary-foreground/70">
-                  123 Industrial Area, Sector 5, Mumbai, Maharashtra 400001
-                </span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=PLOT+NO.135+SAI+BALAJI+HEIGHTS+LAXMI+NAGAR+MIYAPUR+HYDERABAD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary-foreground/70 hover:text-accent transition-smooth cursor-pointer"
+                >
+                  PLOT NO.135 SAI BALAJI HEIGHTS LAXMI NAGAR, MIYAPUR, HYDERABAD.
+                </a>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
@@ -113,16 +118,16 @@ const Footer = () => {
                   href="tel:+912212345678"
                   className="text-primary-foreground/70 hover:text-accent transition-smooth"
                 >
-                  +91 22 1234 5678
+                  +91 9848745295
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                 <a
-                  href="mailto:info@saibalajiinfra.com"
+                  href="mailto:saibalajitechnologies.com"
                   className="text-primary-foreground/70 hover:text-accent transition-smooth"
                 >
-                  info@saibalajiinfra.com
+                  saibalajitechnologies@gmail.com
                 </a>
               </li>
             </ul>

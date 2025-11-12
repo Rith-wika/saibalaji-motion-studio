@@ -1,0 +1,666 @@
+{
+  "ongoingProjects": [
+    {
+      "title": "India bulls Green Panvel Phase II",
+      "location": "Mumbai",
+      "client": "India Bulls",
+      "capacity": "400 MW",
+      "description": "SITC of Electrical, Plumbing, Fire Fighting Works.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Prestige Skytech",
+      "location": "Hyderabad",
+      "client": "M/s Prestige",
+      "capacity": "50 MW",
+      "description": "SITC of External & Internal.",
+      "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=600&q=80",
+      "type": "IT Commercial"
+    },
+    {
+      "title": "India bulls Sierra",
+      "location": "Visakhapatnam",
+      "client": "M/s Indiabulls",
+      "capacity": "220 kV",
+      "description": "Fighting.",
+      "image": "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Embassy Tech Village 3A",
+      "location": "Bangalore",
+      "client": "Embassy",
+      "capacity": "150 MW",
+      "description": "SITC of HVAC and Firefighting",
+      "image": "https://images.unsplash.com/photo-1545208942-73c94239922e?auto=format&fit=crop&w=600&q=80",
+      "type": "IT Commercial"
+    },
+    {
+      "title": "India bulls Sky Forest",
+      "location": "Mumbai",
+      "client": "India Bulls",
+      "capacity": "400 MW",
+      "description": "SITC of Electrical Work.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Commercial Tower"
+    },
+    {
+      "title": "BSCPL Bion",
+      "location": "Hyderabad",
+      "client": "M/s BSCPL",
+      "capacity": "400 MW",
+      "description": "SITC of External & Internal Electrification Works .",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Honer Aquanties",
+      "location": "Hyderabad",
+      "client": "M/s Honer Homes",
+      "capacity": "400 MW",
+      "description": "SITC of Internal Electrification Works",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Brigade Eden block",
+      "location": "Bangalore",
+      "client": "M/s Brigade",
+      "capacity": "400 MW",
+      "description": "SITC of Internal Electrification Works.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Prestige Park Square",
+      "location": "Bangalore",
+      "client": "M/s Prestige",
+      "capacity": "400 MW",
+      "description": "SITC of Internal Electrification Works.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "NSL",
+      "location": "Hyderabad",
+      "client": "NSL",
+      "capacity": "400 MW",
+      "description": "SITC of External & Internal Electrification Works.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Aparna One",
+      "location": "Hyderabad",
+      "client": "M/s. Aparna",
+      "capacity": "400 MW",
+      "description": "SITC of Internal Electrification Works.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Brigade Woods",
+      "location": "Bangalore",
+      "client": "M/s. Brigade",
+      "capacity": "400 MW",
+      "description": "SITC of Internal Electrification Works.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Prestige High Fields",
+      "location": "Hyderabad",
+      "client": "M/s. Prestige",
+      "capacity": "400 MW",
+      "description": "SITC of External & Internal Electrification Works.",
+      "image": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600&q=80",
+      "type": "Residential Tower"
+    }
+  ],
+  "completedProjects": [
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "CIVIL & STRUCTURAL CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Gujarath State Petroleum Corporatiuon Limited",
+      "location": "Tamil Nadu",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "100 MW",
+      "description": "Construction of Gas Terminal Plant.",
+      "image": "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=600&q=80",
+      "contractType": "CIVIL & STRUCTURAL CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "M/s EPR Pharmaceuticals",
+      "location": "Telangana",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "33 kV",
+      "description": "Construction Of Pharmaceuticals Civil & Structures",
+      "image": "https://images.unsplash.com/photo-1548083971-e8c4242c3990?auto=format&fit=crop&w=600&q=80",
+      "contractType": "CIVIL & STRUCTURAL CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Panorama Hills- Vishakapatnam",
+      "location": "Andhra Pradesh",
+      "client": "M/s. Global Entropolis (Vizag) Ltd. (Group of Shriram)",
+      "capacity": "N/A",
+      "description": "Construction Of Villas.",
+      "image": "https://images.unsplash.com/photo-1519442036449-f74a589880ff?auto=format&fit=crop&w=600&q=80",
+      "contractType": "CIVIL & STRUCTURAL CONTRACTS",
+      "type": "Residential Villas"
+    },
+    {
+      "title": "TATA Promont",
+      "location": "Andhra Pradesh",
+      "client": "M/s.Tata Housing Pvt.Ltd",
+      "capacity": "N/A",
+      "description": "Civil & Structural Works.",
+      "image": "https://images.unsplash.com/photo-1519442036449-f74a589880ff?auto=format&fit=crop&w=600&q=80",
+      "contractType": "CIVIL & STRUCTURAL CONTRACTS",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Smart Value Homes Pvt Ltd(Tata Peenya)",
+      "location": "Andhra Pradesh",
+      "client": "M/s.Tata Housing Pvt.Ltd",
+      "capacity": "N/A",
+      "description": "Civil & Structural Works.",
+      "image": "https://images.unsplash.com/photo-1519442036449-f74a589880ff?auto=format&fit=crop&w=600&q=80",
+      "contractType": "CIVIL & STRUCTURAL CONTRACTS",
+      "type": "Residential Tower"
+    },
+    {
+      "title": "Phoneix",
+      "location": "Hyderabad",
+      "client": "Prestige",
+      "capacity": "132 kV",
+      "description": "SITC of MEP works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS"
+    },
+    {
+      "title": "TIFR Research Centre",
+      "location": "Hyderabad",
+      "client": "IVRCL",
+      "capacity": "132 kV",
+      "description": "SITC of MEP works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Crafts Museum",
+      "location": "Varanasi",
+      "client": "TATA NBCC",
+      "capacity": "132 kV",
+      "description": "SITC of Electrical, HVAC, Fire Fighting works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "INOX Corridor",
+      "location": "Lucknow",
+      "client": "DESTINY RETAIL MALL Pvt. Ltd.",
+      "capacity": "132 kV",
+      "description": "SITC of MEP works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Calvary Church",
+      "location": "Bellampalli",
+      "client": "Calvary Ministry",
+      "capacity": "132 kV",
+      "description": "SITC of Electrical, HVAC, Fire Fighting works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Niravana",
+      "location": "Hyderabad",
+      "client": "Prestige",
+      "capacity": "132 kV",
+      "description": "SITC of MEP works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Hiranandani Phase-2 & 3",
+      "location": "Hyderabad",
+      "client": "Adeona Developers",
+      "capacity": "132 kV",
+      "description": "SITC of MEP works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Pranava leaf",
+      "location": "Hyderabad",
+      "client": "Praneeth Group",
+      "capacity": "132 kV",
+      "description": "SITC of HT & external electrification work.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "ZENITH",
+      "location": "Hyderabad",
+      "client": "M/s.Aparna",
+      "capacity": "132 kV",
+      "description": "SITC of Internal Electrification Works",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Seven Gardens",
+      "location": "Bangalore",
+      "client": "M/s.Brigade",
+      "capacity": "132 kV",
+      "description": "SITC of Electrification works",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Venuzia",
+      "location": "Guntur",
+      "client": "Ramakrishna Housing",
+      "capacity": "132 kV",
+      "description": "SITC of Electrical Works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Luxury Towers",
+      "location": "Bangalore",
+      "client": "M/s.PHOENIX",
+      "capacity": "132 kV",
+      "description": "SITC of internal and external Electrification works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Palava II - Sector-III",
+      "location": "MUMBAI",
+      "client": "M/s.LODHA",
+      "capacity": "132 kV",
+      "description": "SITC of Electrification works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "My Home Bhooja",
+      "location": "Hyderabad",
+      "client": "M/s.MYHOME",
+      "capacity": "132 kV",
+      "description": "SITC of Electrification Works",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Provident Kenworth",
+      "location": "Hyderabad",
+      "client": "M/s.TATA",
+      "capacity": "132 kV",
+      "description": "SITC of Electrification Works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Smart value homes",
+      "location": "Bangalore",
+      "client": "TATA",
+      "capacity": "132 kV",
+      "description": "SITC of Electrification works.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "CIVIL & STRUCTURAL CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    },
+    {
+      "title": "Nuclear Fuel Complex",
+      "location": "Karnataka",
+      "client": "M/s. IVRCL Limited",
+      "capacity": "132 kV",
+      "description": "Construction of Civil and Structural Works at Nuclear Fuel Complex.",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
+      "contractType": "MEP CONTRACTS",
+      "type": "Civil and Structural Works"
+    }
+
+    
+    
+
+  ]
+}

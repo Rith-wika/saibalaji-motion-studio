@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Briefcase, ArrowRight } from "lucide-react";
+import clientlistImage from "@/assets/client-list.jpg";
 
 const Careers = () => {
   const [ref, inView] = useInView({
@@ -47,90 +48,120 @@ const Careers = () => {
   ];
 
   return (
-    <section id="careers" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">
-            Careers
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Join Our Team
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Build your career with India's leading electrical infrastructure company. We offer exciting opportunities for talented professionals.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {jobs.map((job, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <Card className="group h-full hover:shadow-large transition-spring border-border/50">
-                <CardHeader>
-                  <div className="flex items-start justify-between mb-4">
-                    <Badge className="bg-accent text-accent-foreground">
-                      {job.department}
-                    </Badge>
-                    <Badge variant="outline" className="border-accent/30 text-accent">
-                      {job.type}
-                    </Badge>
-                  </div>
-                  <CardTitle className="text-2xl font-bold group-hover:text-accent transition-smooth">
-                    {job.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-muted-foreground leading-relaxed">
-                    {job.description}
-                  </p>
-                  <div className="flex flex-wrap gap-4 pt-2">
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <MapPin className="w-4 h-4 text-accent" />
-                      <span>{job.location}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <Briefcase className="w-4 h-4 text-accent" />
-                      <span>{job.experience}</span>
-                    </div>
-                  </div>
-                  <Button className="w-full mt-4 bg-gradient-accent hover:shadow-glow transition-spring group/btn">
-                    Apply Now
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-smooth" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+    <div className="min-h-screen ">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={clientlistImage}
+            alt="Electrical Infrastructure"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/80" />
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center"
-        >
-          <p className="text-muted-foreground mb-4">
-            Don't see a position that fits? Send us your resume at
-          </p>
-          <a
-            href="mailto:careers@saibalajiinfra.com"
-            className="text-accent font-semibold hover:underline text-lg"
+        <div className="relative z-10 container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
           >
-            careers@saibalajiinfra.com
-          </a>
-        </motion.div>
-      </div>
-    </section>
+            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
+              Our Clients
+            </h1>
+            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
+              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+            </p>
+          </motion.div>
+        </div>
+      </section>
+      <section id="careers" className="py-24 bg-secondary/30">
+        <div className="container mx-auto px-4">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">
+              Careers
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Join Our Team
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Build your career with India's leading electrical infrastructure company. We offer exciting opportunities for talented professionals.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            {jobs.map((job, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <Card className="group h-full hover:shadow-large transition-spring border-border/50">
+                  <CardHeader>
+                    <div className="flex items-start justify-between mb-4">
+                      <Badge className="bg-accent text-accent-foreground">
+                        {job.department}
+                      </Badge>
+                      <Badge variant="outline" className="border-accent/30 text-accent">
+                        {job.type}
+                      </Badge>
+                    </div>
+                    <CardTitle className="text-2xl font-bold group-hover:text-accent transition-smooth">
+                      {job.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <p className="text-muted-foreground leading-relaxed">
+                      {job.description}
+                    </p>
+                    <div className="flex flex-wrap gap-4 pt-2">
+                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <MapPin className="w-4 h-4 text-accent" />
+                        <span>{job.location}</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                        <Briefcase className="w-4 h-4 text-accent" />
+                        <span>{job.experience}</span>
+                      </div>
+                    </div>
+                    <Button className="w-full mt-4 bg-gradient-accent hover:shadow-glow transition-spring group/btn">
+                      Apply Now
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-smooth" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center"
+          >
+            <p className="text-muted-foreground mb-4">
+              Don't see a position that fits? Send us your resume at
+            </p>
+            <a
+              href="mailto:careers@saibalajiinfra.com"
+              className="text-accent font-semibold hover:underline text-lg"
+            >
+              careers@saibalajiinfra.com
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+    </div>
+   
   );
 };
 

@@ -1,56 +1,180 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Zap, Sun, Building2, Wrench, Shield, Network, Flame, Cctv, Radio } from "lucide-react";
+import {  Shield, Bolt,Factory,Home,Server,Construction} from "lucide-react";
+import {useState,useMemo} from "react";
 import serviceImage from "@/assets/services.jpg";
+import distributionImage from "@/assets/distribution-system.jpg";
+import industrialImage from "@/assets/industrial.jpg";
+import residentialImage from "@/assets/residential.jpg";
+import datacenterImage from "@/assets/datacenter.jpg";
+import civilprojectImage from "@/assets/civil-project.jpg";
+import substationImage from "@/assets/substation.jpg";
+
 
 const ServicesPage = () => {
-  const services = [
+  const AnimatedServicePoint = ({ points,index,isImageLeft = true,imageSrc,imageAlt }) => {
+    // Parent container variants to stagger children when the section comes into view
+    const containerVariants = {
+      hidden: {},
+      visible: {
+        transition: {
+          staggerChildren: 0.12,
+        },
+      },
+    };
+
+    // Item variants use a custom prop (index) to decide left/right entrance
+    const itemVariants = {
+      hidden: (custom: number) => ({
+        opacity: 0,
+        x: custom % 2 === 0 ? -60 : 60,
+      }),
+      visible: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+    };
+
+    return (
+      <div className="flex flex-col lg:flex-row items-center gap-8 py-12">
+      {/* Image Section (Conditional ordering) */}
+      <motion.div
+        className={`w-full lg:w-1/2 p-4 ${isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <img
+          src={imageSrc || serviceImage} // Use placeholder if specific image is not available
+          alt={imageAlt || "Service Illustration"}
+          className="w-full h-auto object-cover rounded-xl shadow-2xl border-4 border-border/50"
+        />
+      </motion.div>
+
+      {/* Points Section */}
+      <div className={`w-full lg:w-1/2 ${isImageLeft ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
+        <motion.ul
+          className="space-y-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          {points.map((point, i) => {
+            return (
+              <motion.li
+                key={i}
+                custom={i}
+                variants={itemVariants}
+                className={`p-4 rounded-lg shadow-md border-l-4 ${i % 2 === 0 ? 'border-accent bg-card/70' : 'border-primary bg-card/70'}`}
+              >
+                <p className="text-foreground leading-relaxed">
+                  {point}
+                </p>
+              </motion.li>
+            );
+          })}
+        </motion.ul>
+      </div>
+    </div>
+  );
+};
+  const mainServices = useMemo(() => [
     {
-      icon: Zap,
-      title: "Electrical Services",
-      description: "Unlike many electrical contractors who only provide a limited range of services, Sai Balaji Infra Private Limited can provide customers with a true one-stop solution for all electrical needs including lighting, power wiring, DB installation, and panel boards.",
+      id: "distribution-system",
+      title: "Distribution System",
+      icon: Bolt,
+      points: [
+        "33/11kV HT/LT Substation and Distribution line up to consumer metering.",
+        "Supply of equipment.",
+        "Construction including erection, testing and commissioning as **EPC contractor**.",
+        "132kV, 66kV, 33kV & 11kV **UG cable Distribution works**.",
+        "66kV, 33kV & 11kV **overhead line works**.",
+      ],
+      image: distributionImage 
     },
     {
-      icon: Flame,
-      title: "Fire Fighting",
-      description: "Pioneer in the design, installation, testing, commissioning, and ongoing maintenance of fire protection systems. We ensure the highest standard in fire safety to save life & property.",
-    },
-    {
+      id: "substation-projects",
+      title: "Substation Projects",
       icon: Shield,
-      title: "Fire Alarm System",
-      description: "Integrated fire safety company catering to intelligent and safe buildings in the areas of Fire Detection (FAS), Fire Hydrant System, Automatic Fire Sprinkler System, Fire Suppression (FM200), and Portable Fire Extinguishers.",
+      points: [
+        "Substation projects executed from **33kV to 220kV**.",
+        "Supply contracts for major equipment & auxiliary system of S/S.",
+        "Construction including erection, testing and commissioning as **EPC contractor**.",
+        "Our work includes civil construction / control room building / fire fighting system etc.",
+        "Substation modification and **bay extension works**.",
+      ],
+      image: substationImage 
     },
     {
-      icon: Sun,
-      title: "HVAC Service",
-      description: "We service all types of air conditioning systems for homes, offices, and shopping malls, as well as all types of refrigeration systems with minimum temperature requirements. Our technical teams are fully Covid Vaccinated.",
+      id: "industrial-power-distribution",
+      title: "Industrial Power Distribution System",
+      icon: Factory,
+      points: [
+        "**Load distribution centre (LDC)**.",
+        "Underground tunneling and electrical cabling & cable bridge.",
+        "**PLCC & SCADA installations**.",
+        "Ventilation & A/C systems.",
+        "Plant illumination, electrification, **streetlighting**.",
+        "Plant **energy audit**.",
+        "Plant civil foundation for electrical equipment.",
+      ],
+      image: industrialImage 
     },
     {
-      icon: Building2,
-      title: "Plumbing",
-      description: "One-stop-solution for all types of plumbing repair services. We have the tools, skills, and experience to handle Water Pipelines, SWR Pipelines, Commode installations, Flush Systems, Mixers, Shower systems, and all types of plumbing works.",
+      id: "residential-mep",
+      title: "Residential / Commercial / MEP Projects",
+      icon: Home,
+      points: [
+        "Load sanction from local utility department.",
+        "Power distribution from nearest tap point to the premises.",
+        "Erection of HT/LT Panels, **Bus ducts** and Distribution panels.",
+        "Complete **internal wiring system**.",
+        "Laying of cable trays and cables at heights.",
+        "Laying of fire fighting piping systems and **plumbing pipes**.",
+        "Laying of **A/C ducts**.",
+      ],
+      image: residentialImage 
     },
     {
-      icon: Network,
-      title: "Networking",
-      description: "Licensed skilled electricians for lighting wiring, power wiring, speaker wiring, main cables termination, installation of network racks, crimping of I/O's, installation of patch panels, switches and dressing of networking cables.",
+      id: "datacenter-projects",
+      title: "Datacenter Projects",
+      icon: Server,
+      points: [
+        "Civil works includes **raised flooring** and mounting tiles.",
+        "Erection of racks, wire mesh cable trays both over head & underground, **BMS system**.",
+        "Underground A/C ducts with controlled ventilators.",
+        "Complete **HVAC System**.",
+        "Installation of **DG sets; UPS and Earthing system**.",
+        "Low side and external works.",
+      ],
+      image: datacenterImage 
     },
     {
-      icon: Cctv,
-      title: "CCTV Service",
-      description: "Hassle-free installation of security systems, PTZ cameras, wireless WiFi cameras, and CC camera installation. We provide user-friendly installations of all security devices with professional testing capabilities.",
+      id: "civil-infra-projects",
+      title: "Civil Infra Projects",
+      icon: Construction,
+      points: [
+        "Substation equipment footing and foundations.",
+        "Substation earthmat works and cable trenches and platform for mounting HT panels.",
+        "Construction of control room & road work inside the substation.",
+        "Fencing & gravel spreading at substation.",
+        "Construction of **model houses** for AP state Housing corporation Ltd.",
+        "Construction of **schools** and multipurpose activity center.",
+      ],
+      image: civilprojectImage 
     },
-    {
-      icon: Radio,
-      title: "PA System",
-      description: "Providing PA System Services for announcements at colleges, buildings, shopping complexes, medical centers and many more places. Procured from the best vendors with high reliability.",
-    },
-    {
-      icon: Wrench,
-      title: "All ELV System",
-      description: "ELV (Extra Low Voltage) systems cover all modern technologies in buildings such as data network, CCTV, fire alarm systems, public address systems, audio/video solutions, access control and intrusion detection systems, and home automation.",
-    },
-  ];
+  ], []);
+
+  // Use state to manage the active service, though for navigation it's not strictly required
+  const [activeService, setActiveService] = useState(mainServices[0].id);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      // Smooth scroll to the section, offsetting for a fixed header/nav if present
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setActiveService(id);
+    }
+  };
 
   return (
     <div className="min-h-screen ">
@@ -82,41 +206,66 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-24 bg-secondary/30 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <section className="py-24 bg-background relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          {/* Navigation/Menu */}
+          <div className="sticky top-0 z-30 mb-12 py-4 bg-background border-b-2 border-primary/20 shadow-md">
+            <motion.nav
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-wrap justify-center gap-2 md:gap-4"
+            >
+              {mainServices.map((service) => (
+                <a
+                  key={service.id}
+                  href={`#${service.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(service.id);
+                  }}
+                  className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ease-in-out ${
+                    activeService === service.id
+                      ? 'bg-primary text-primary-foreground shadow-lg'
+                      : 'bg-secondary text-foreground hover:bg-primary/10 hover:text-primary'
+                  }`}
+                >
+                  {service.title}
+                </a>
+              ))}
+            </motion.nav>
+          </div>
+          
+          {/* Detailed Service Sections */}
+          <div className="space-y-24 mt-16">
+            {mainServices.map((service, index) => (
+              <div key={service.id} id={service.id} className="pt-10 -mt-10"> {/* Padding/margin for scroll anchor */}
+                <motion.h2
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5 }}
+                  className="text-4xl md:text-5xl font-bold text-center text-primary mb-12"
+                >
+                  <service.icon className="inline-block w-8 h-8 mr-3 text-accent" />
+                  {service.title}
+                </motion.h2>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <Card className="group h-full hover:shadow-large transition-spring border-border/50 hover:-translate-y-2">
-                  <CardHeader>
-                    <div className="w-16 h-16 mb-4 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 group-hover:rotate-6 transition-spring">
-                      <service.icon className="w-8 h-8 text-accent" />
-                    </div>
-                    <CardTitle className="text-xl font-bold group-hover:text-accent transition-smooth">
-                      {service.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+                <AnimatedServicePoint
+                  points={service.points}
+                  index={index}
+                  isImageLeft={index % 2 === 0} // Alternate image position
+                  imageSrc={service.image} // Using placeholder value
+                  imageAlt={service.title}
+                />
+              </div>
             ))}
           </div>
+
         </div>
       </section>
+
+    
 
       {/* Service Areas */}
       <section className="py-24 bg-background">

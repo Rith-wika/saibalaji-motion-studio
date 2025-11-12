@@ -50,8 +50,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between py-4">
           {/* Logo and Company Info */}
           <Link to="/" className="flex items-center space-x-4">
-            <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow">
-              <span className="text-2xl font-bold text-accent-foreground">S</span>
+            <div className="w-16 h-16 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow overflow-hidden">
+              {/* <span className="text-2xl font-bold text-accent-foreground">S</span> */}
+              <img src="/logo.png" alt="SAI BALAJI Logo" className="h-full w-full object-cover rounded-full"/>
             </div>
               <div className="hidden md:block">
                 <h1 className={`text-lg font-bold ${isScrolled ? 'text-black' : 'text-white'} leading-tight`}>

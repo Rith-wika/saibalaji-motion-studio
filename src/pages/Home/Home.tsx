@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Award, Users, Target } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
+import TestimonialSection from "@/components/TestimonialSection";
 
 const Home = () => {
   const stats = [
@@ -215,7 +216,7 @@ const Home = () => {
         </div>
       </section>
 
-          <section className="py-20 bg-secondary">
+      <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
             Our <span className="text-accent">Services</span>
@@ -223,6 +224,17 @@ const Home = () => {
           <ServicesCarousel />
         </div>
       </section>
+
+
+       <section className="py-20 bg-secondary relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
+            Our <span className="text-accent">Clients</span>
+          </h2>
+          <TestimonialSection />
+        </div>
+      </section>
+
       
 
       {/* CTA Section */}

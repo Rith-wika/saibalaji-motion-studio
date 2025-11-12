@@ -1,19 +1,86 @@
-import { motion } from "framer-motion";
-import { Award, Users, Target, TrendingUp } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Award,
+  Users,
+  Target,
+  TrendingUp,
+  Search, // Added
+  X,      // Added
+  FileText// Added
+} from "lucide-react";
 import clientlistImage from "@/assets/client-list.jpg";
 
+// --- HERE IS THE CHANGE ---
+// Import the clientData from your separate file
+// (Adjust the path if you named your file or folder differently)
+import clientsData from "@/data/clients.json";
+
+// --- REGISTRATION DATA ---
+const registrationDetails = [
+  {
+    title: "CERTIFICATE OF INCORPORATION",
+    value: "U45400AP2011PTC078138",
+  },
+  {
+    title: "ELECTRICAL LICENSE NO. (Telengana)",
+    value: "A-7890/2-1221 UP TO 33KV (“A “Grade)",
+  },
+  {
+    title: "ELECTRICAL LICENSE NO. (Karnataka)",
+    value: "1CL 12546BNU UP TO 33KV",
+  },
+  { title: "PAN NO.", value: "A A Q C S 8 0 8 9L" },
+  { title: "TELENGANA (HYDERABAD) GST NO.", value: "3 6 A A Q C S 8 0 8 9 L 1 Z 9" },
+  { title: "KARNATAKA (BANGALORE) GST NO.", value: "2 9A A Q C S 8 0 8 9 L 1 Z4" },
+  { title: "MAHARASHTRA (MUMBAI) GSTNO.", value: "2 7 A A Q C S 8 0 8 9 L 1 Z8" },
+  { title: "UTTRAPRADESH GST NO.", value: "0 9 A AQ C S 8 0 8 9 L 1 Z6" },
+  { title: "PROVIDENT FUND CODE.", value: "AP/SAO/PTC/74048" },
+  { title: "ESI CODE.", value: "52000406870001009" },
+];
+
+// --- Animation Variants ---
+const fadeIn = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: "easeInOut" },
+};
+
+const staggerContainer = {
+  initial: {},
+  whileInView: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const modalBackdrop = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const modalContent = {
+  initial: { opacity: 0, scale: 0.8, y: 50 },
+  animate: { opacity: 1, scale: 1, y: 0 },
+  exit: { opacity: 0, scale: 0.8, y: 50 },
+  transition: { type: "spring", stiffness: 300, damping: 30 },
+};
+
+// --- CLIENT LIST COMPONENT ---
 const ClientList = () => {
-  const stats = [
-    { icon: Award, value: "40+", label: "Years Experience" },
-    { icon: Users, value: "500+", label: "Expert Team" },
-    { icon: Target, value: "1000+", label: "Projects Completed" },
-    { icon: TrendingUp, value: "98%", label: "Client Satisfaction" },
-  ];
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedClient, setSelectedClient] = useState(null);
+
+  const filteredClients = clientsData.filter((client) =>
+    client.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
-    <div className="min-h-screen ">
-      {/* Header */}
-         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-white text-foreground">
+      {/* Header (Your existing code) */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={clientlistImage}
@@ -22,7 +89,6 @@ const ClientList = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/80" />
         </div>
-
         <div className="relative z-10 container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -34,141 +100,171 @@ const ClientList = () => {
               Our Clients
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+              We are proud to have partnered with the industry's leading
+              developers and institutions.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission Vision Quality */}
-      <section className="py-24 bg-secondary/30">
+      {/* --- NEW SECTION: Client Search & Grid --- */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Target className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Our mission is to provide Excellent Quality M.E.P services to our customers by meeting their design, time schedule, and prompt after sales service requirements, resulting in total customer loyalty and repeat business.
-              </p>
-            </motion.div>
+          <motion.div
+            variants={fadeIn}
+            initial="initial"
+            whileInView="whileInView"
+            className="max-w-2xl mx-auto text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Our Esteemed Clients
+            </h2>
+            <p className="text-lg text-gray-700 mb-8">
+              Browse our partial list of valued clients or use the search to
+              find a specific partner.
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <TrendingUp className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To be the largest and most preferred Mechanical, Electrical, Plumbing, and Fire Fighting contractor in India, with the ability to complete a project on time within budget and to the client's satisfaction.
-              </p>
-            </motion.div>
+            {/* Search Bar */}
+            <div className="relative w-full max-w-lg mx-auto mb-16">
+              <input
+                type="text"
+                placeholder="Search clients by name..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-5 py-3 pl-12 rounded-full border-2 border-gray-200 focus:outline-none focus:border-accent transition-colors"
+              />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+            </div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Award className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Quality</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We understand that we are a partner with our customers in delivering high-quality design and services at a reasonable cost. We concentrate on providing exceptional service to our customers and construct with the highest desire to achieve total customer satisfaction.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Company Overview */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-accent opacity-20 blur-2xl rounded-3xl" />
-                <img
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
-                  alt="About SAI BALAJI"
-                  className="relative rounded-2xl shadow-large w-full h-[400px] object-cover"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <h2 className="text-4xl font-bold text-foreground">
-                Multi-Disciplinary Engineering Excellence
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Incorporated in 2011 with an integrated approach to fulfill various needs of utility services to our clients across the country, exclusively dedicated to 5 major states namely Andhra Pradesh, Telangana, Maharashtra, Karnataka and Delhi.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                As an ISO 9001:2015 certified organization, we deliver multi-disciplinary engineering services including Mechanical, Electrical, Plumbing, and Fire Fighting solutions with unwavering commitment to quality and customer satisfaction.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center space-x-2 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-foreground font-medium">ISO 9001:2015 Certified</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-foreground font-medium">'A' Grade MEP License</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-foreground font-medium">Government Approved</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+          {/* Client Grid */}
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"
+          >
+            {filteredClients.map((client) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
+                key={client.name}
+                variants={fadeIn}
+                layout // Animate layout changes when filtering
+                className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer border"
+                onClick={() => setSelectedClient(client)}
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                  <stat.icon className="w-8 h-8 text-accent" />
+                <div className="h-32 p-4 flex items-center justify-center bg-gray-50">
+                  <img
+                    src={client.logo}
+                    alt={`${client.name} Logo`}
+                    className="max-h-20 max-w-full object-contain"
+                  />
                 </div>
-                <h4 className="text-3xl font-bold text-foreground mb-2">{stat.value}</h4>
-                <p className="text-muted-foreground text-sm">{stat.label}</p>
+                <div className="p-4 text-center border-t">
+                  <h3 className="text-sm font-semibold h-10 flex items-center justify-center">
+                    {client.name}
+                  </h3>
+                </div>
               </motion.div>
             ))}
-          </div>
+            
+            {/* Handle No Results */}
+            {filteredClients.length === 0 && searchQuery.length > 0 && (
+              <p className="col-span-full text-center text-gray-500 py-10">
+                No clients found matching your search.
+              </p>
+            )}
+          </motion.div>
         </div>
       </section>
+      
+      {/* --- NEW SECTION: Registration Details --- */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <motion.div
+             variants={fadeIn}
+             initial="initial"
+             whileInView="whileInView"
+             className="text-center mb-12"
+          >
+            <FileText className="w-12 h-12 text-accent mx-auto mb-4" />
+            <h2 className="text-3xl md:text-4xl font-bold">
+              Company Registration Details
+            </h2>
+          </motion.div>
+
+          <motion.div 
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            className="bg-white rounded-lg shadow-xl overflow-hidden border"
+          >
+            <ul className="divide-y divide-gray-200">
+              {registrationDetails.map((item) => (
+                <motion.li
+                  key={item.title}
+                  variants={fadeIn}
+                  className="px-6 py-5 grid grid-cols-1 md:grid-cols-3 gap-2"
+                >
+                  <span className="text-sm font-semibold text-accent">
+                    {item.title}
+                  </span>
+                  <span className="md:col-span-2 text-gray-700 font-mono text-sm">
+                    {item.value}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- MODAL for Client Details --- */}
+      <AnimatePresence>
+        {selectedClient && (
+          <motion.div
+            variants={modalBackdrop}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedClient(null)} // Click background to close
+          >
+            <motion.div
+              variants={modalContent}
+              className="bg-white rounded-lg shadow-xl w-full max-w-lg overflow-hidden"
+              onClick={(e) => e.stopPropagation()} // Prevent closing when clicking modal content
+            >
+              {/* Modal Header */}
+              <div className="p-6 border-b flex justify-between items-center">
+                <h2 className="text-2xl font-bold text-accent">
+                  {selectedClient.name}
+                </h2>
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  className="p-1 rounded-full text-gray-500 hover:text-gray-900"
+                  onClick={() => setSelectedClient(null)}
+                >
+                  <X className="w-6 h-6" />
+                </motion.button>
+              </div>
+              {/* Modal Body */}
+              <div className="p-6">
+                <div className="h-40 flex items-center justify-center bg-gray-50 rounded-lg mb-6">
+                  <img
+                    src={selectedClient.logo}
+                    alt={`${selectedClient.name} Logo`}
+                    className="max-h-24 max-w-full object-contain"
+                  />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">About this Client</h3>
+                <p className="text-gray-700 leading-relaxed">
+                  {selectedClient.description}
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

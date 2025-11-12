@@ -1,19 +1,91 @@
 import { motion } from "framer-motion";
-import { Award, Users, Target, TrendingUp } from "lucide-react";
+import {
+  Award,
+  Users,
+  Target,
+  TrendingUp,
+  CheckSquare, // Added icon
+  FileText,    // Added icon
+  Check,       // Added icon
+} from "lucide-react";
 import qualitypolicyImage from "@/assets/quality-policy.jpg";
 
-const QualityPolicy = () => {
-  const stats = [
-    { icon: Award, value: "40+", label: "Years Experience" },
-    { icon: Users, value: "500+", label: "Expert Team" },
-    { icon: Target, value: "1000+", label: "Projects Completed" },
-    { icon: TrendingUp, value: "98%", label: "Client Satisfaction" },
-  ];
+// --- ADD YOUR PICTORIAL REPRESENTATIONS HERE ---
+// 1. Add an image for the "Quality Assurance Programme" section
+import qaProgramImage from "@/assets/civil-project.jpg"; // <-- REPLACE THIS
+// 2. Add an image for the "Capabilities" section
+import capabilitiesImage from "@/assets/civil-project.jpg"; // <-- REPLACE THIS
 
+// Animation variants for Framer Motion
+const fadeIn = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.7, ease: "easeInOut" },
+};
+
+const staggerContainer = {
+  initial: {},
+  whileInView: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+// Data for the 6-point grid (from your text)
+const qaPoints = [
+  {
+    icon: Target,
+    title: "Planned & Disciplined Approach",
+    description:
+      "Our system provides a planned & disciplined approach for the achievement of the quality objectives of Sai Balaji Infra (India) Private Limited.",
+  },
+  {
+    icon: Users,
+    title: "Verification & Prevention",
+    description:
+      "This Programme emphasizes the use of various verification activities which are to be performed by assigned personnel to monitor, report, prevent, deflect and correct conditions adverse to quality.",
+  },
+  {
+    icon: CheckSquare,
+    title: "Policies & General Practices",
+    description:
+      "The document describes the policies and general practices which are to be followed on all projects to implement actions required to comply with the honest possible quality, appropriate to the project.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Periodic Review",
+    description:
+      "The Quality Assurance programme is required to be periodically reviewed and if necessary, revised to meet any changes in contact requirements.",
+  },
+  {
+    icon: FileText,
+    title: "Objective Documentation",
+    description:
+      "The programme will provide for the generation of documentation necessary to provide objective evidence of achievement of quality objectives in all phases of the project.",
+  },
+  {
+    icon: Award,
+    title: "Transparent Records",
+    description:
+      "Document & Quality records testifying to the satisfactory execution of required activities will be readily available to authorized personnel.",
+  },
+];
+
+// Data for the capabilities list (from your text)
+const capabilities = [
+  "With its computing facilities engineering exports, own construction equipments and advice from senior level consultants. SAI BALAJI INFRA (INDIA) PRIVATE LIMITED has the capability and experience has been providing the best results for its valued clients.",
+  "Now within a short span. The SAI BALAJI INFRA (INDIA) PRIVATE LIMITED has a fast growing group offers wide range of engineering services in power sector, infra and commercial construction sector.",
+  "The continued patronage and faith respond by our customers in the proof of our credentials and capacity.",
+  "Contracting with us gives you access to an in over 200 capable workers trained in all aspects of their industry we provide quick transportation of this work force along with machinery and materials.",
+  "We have the experts to meet the varying needs of many customers, from concept of MEP Engineering activities, including commissioning of Heavy Equipment’s, power installations, instrumentation, Trouble shooting, operations and maintenance.",
+];
+
+const QualityPolicy = () => {
   return (
-    <div className="min-h-screen ">
-      {/* Header */}
-        <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
+    <div className="min-h-screen bg-white">
+      {/* Header (Your existing code) */}
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={qualitypolicyImage}
@@ -34,139 +106,125 @@ const QualityPolicy = () => {
               Quality Policy
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+              One of the most reliable & eligible Electrical 'A' Grade License
+              Holder MEP Contractors having ISO-9001:2015 Certified
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Mission Vision Quality */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Target className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Our mission is to provide Excellent Quality M.E.P services to our customers by meeting their design, time schedule, and prompt after sales service requirements, resulting in total customer loyalty and repeat business.
-              </p>
-            </motion.div>
+      {/* --- NEW SECTION 1: Quality Assurance Programme Intro --- */}
+      <section className="py-16 md:py-24 bg-white text-foreground">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          {/* Pictorial Representation (Image) */}
+          <motion.div
+            variants={fadeIn}
+            initial="initial"
+            whileInView="whileInView"
+            className="rounded-lg overflow-hidden shadow-xl"
+          >
+            <img
+              src={qaProgramImage} // <-- YOUR NEW IMAGE
+              alt="Quality Assurance in action"
+              className="w-full h-full object-cover aspect-[4/3]"
+            />
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <TrendingUp className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To be the largest and most preferred Mechanical, Electrical, Plumbing, and Fire Fighting contractor in India, with the ability to complete a project on time within budget and to the client's satisfaction.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Award className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Quality</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We understand that we are a partner with our customers in delivering high-quality design and services at a reasonable cost. We concentrate on providing exceptional service to our customers and construct with the highest desire to achieve total customer satisfaction.
-              </p>
-            </motion.div>
-          </div>
+          {/* Content */}
+          <motion.div
+            variants={fadeIn}
+            initial="initial"
+            whileInView="whileInView"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-accent">
+              QUALITY ASSURANCE PROGRAMME
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Electrician is your single source for a complete range of
+              high-quality electrical services, including design/build,
+              engineering and maintenance.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Company Overview */}
-      <section className="py-24 bg-background">
+      {/* --- NEW SECTION 2: QA Points Grid --- */}
+      <section className="py-16 md:py-24 bg-gray-50 text-foreground">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-accent opacity-20 blur-2xl rounded-3xl" />
-                <img
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
-                  alt="About SAI BALAJI"
-                  className="relative rounded-2xl shadow-large w-full h-[400px] object-cover"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-6"
-            >
-              <h2 className="text-4xl font-bold text-foreground">
-                Multi-Disciplinary Engineering Excellence
-              </h2>
-              <p className="text-muted-foreground leading-relaxed">
-                Incorporated in 2011 with an integrated approach to fulfill various needs of utility services to our clients across the country, exclusively dedicated to 5 major states namely Andhra Pradesh, Telangana, Maharashtra, Karnataka and Delhi.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                As an ISO 9001:2015 certified organization, we deliver multi-disciplinary engineering services including Mechanical, Electrical, Plumbing, and Fire Fighting solutions with unwavering commitment to quality and customer satisfaction.
-              </p>
-              <div className="flex flex-wrap gap-4 pt-4">
-                <div className="flex items-center space-x-2 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-foreground font-medium">ISO 9001:2015 Certified</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-foreground font-medium">'A' Grade MEP License</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm">
-                  <div className="w-2 h-2 bg-accent rounded-full" />
-                  <span className="text-foreground font-medium">Government Approved</span>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+          <motion.h2
+            variants={fadeIn}
+            initial="initial"
+            whileInView="whileInView"
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+          >
+            Our Quality Assurance Approach
+          </motion.h2>
+          
+          {/* Animated Staggered Grid */}
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {qaPoints.map((point) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
+                key={point.title}
+                variants={fadeIn}
+                className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-accent"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                  <stat.icon className="w-8 h-8 text-accent" />
-                </div>
-                <h4 className="text-3xl font-bold text-foreground mb-2">{stat.value}</h4>
-                <p className="text-muted-foreground text-sm">{stat.label}</p>
+                <point.icon className="w-10 h-10 text-accent mb-4" />
+                <h3 className="text-xl font-semibold mb-2">{point.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {point.description}
+                </p>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* --- NEW SECTION 3: Capabilities & Experience --- */}
+      <section className="py-16 md:py-24 bg-white text-foreground">
+        <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          {/* Content */}
+          <motion.div
+            variants={staggerContainer}
+            initial="initial"
+            whileInView="whileInView"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              Our Capabilities & Experience
+            </h2>
+            <ul className="space-y-5">
+              {capabilities.map((item, index) => (
+                <motion.li
+                  key={index}
+                  variants={fadeIn}
+                  className="flex items-start"
+                >
+                  <Check className="w-6 h-6 text-accent mr-3 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700 leading-relaxed">
+                    {item}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Pictorial Representation (Image) */}
+          <motion.div
+            variants={fadeIn}
+            initial="initial"
+            whileInView="whileInView"
+            className="rounded-lg overflow-hidden shadow-xl"
+          >
+            <img
+              src={capabilitiesImage} // <-- YOUR NEW IMAGE
+              alt="Our capable workforce and equipment"
+              className="w-full h-full object-cover aspect-[4/3]"
+            />
+          </motion.div>
         </div>
       </section>
     </div>

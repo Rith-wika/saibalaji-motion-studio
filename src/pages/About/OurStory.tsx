@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Award, Users, Target, TrendingUp } from "lucide-react";
 import ourStoryImage from "@/assets/our-story.jpg";
 
@@ -9,6 +10,91 @@ const OurStory = () => {
     { icon: Target, value: "1000+", label: "Projects Completed" },
     { icon: TrendingUp, value: "98%", label: "Client Satisfaction" },
   ];
+
+  // Carousel slides for company overview (left image, right description)
+  const slides = [
+    {
+      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=80",
+      title: "Early years (1995)",
+      text: (
+        <>
+          I take the privilege of briefing you about the profile of my business entity which I had started in the year <b>1995</b> as a small concern and dealt with only small scale contracts in constructions. It was such a small passage of my starting business career through which I had efficiently and progressively stepped into the partnership business just after 6 years from 1995.
+        </>
+      ),
+    },
+    {
+      image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=80",
+      title: "Partnerships & Proprietorship (2001-2009)",
+      text: (
+        <>
+          From the year 2001 to 2006 I was deeply involved in back to back contract works at various places through partnership ventures in other companies.
+          <br /><br />
+          <b>By the grace of God, in the Year 2006, I could start my own firm in the name of M/s. SAI BALAJI TECHNOLOGIES under my proprietorship.</b> Under this firm I undertook various contracts related to electrification and got applauded by many prestigious clients in this line.
+          <br /><br />
+          <b>In the Year 2009 I had started a partnership firm in the name of M/s. SAI BALAJI INFRASTRUCTURES, having my wife Smt. Swapna as my partner.</b> Under this partnership, I started various Civil Contracts also, which were highly praised as efficient works by our reputed clients.
+        </>
+      ),
+    },
+    {
+      image: "https://images.unsplash.com/photo-1526403224742-40b60c4d4b45?auto=format&fit=crop&w=1000&q=80",
+      title: "Private Limited (2011)",
+      text: (
+        <>
+          It was in the Year 2011, I launched a Private Limited Company in the name of <b>M/s. SAI BALAJI INFRA (INDIA) PVT LTD</b>. Now our company is in compliance with statutory requirements like PF, ESI, GST, Works Contract Tax and we have ISO 9001:2015 certification (applied for ISO 14001, OHSAS 18001). Our company has sufficient manpower to satisfy our reputed client’s requirements.
+        </>
+      ),
+    },
+  ];
+
+  // Inline carousel component
+  const CarouselOverview = () => {
+    const [index, setIndex] = useState(0);
+    const next = () => setIndex((i) => (i + 1) % slides.length);
+
+    return (
+      <div className="w-full">
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          {/* Left: image */}
+          <div className="w-full md:w-1/2">
+            <motion.img
+              key={index}
+              src={slides[index].image}
+              alt={slides[index].title}
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="rounded-2xl shadow-large w-full h-[360px] object-cover"
+            />
+          </div>
+
+          {/* Right: description + arrow */}
+          <div className="w-full md:w-1/2 relative">
+            <motion.div
+              key={index + "-text"}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-background/0 p-2 md:p-6"
+            >
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{slides[index].title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">{slides[index].text}</p>
+            </motion.div>
+
+            {/* Right-side arrow (advances slide) */}
+            <button
+              onClick={next}
+              aria-label="Next"
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-transparent text-accent w-10 h-10 rounded-full flex items-center justify-center  hover:scale-105 transition-transform"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="min-h-screen ">
@@ -95,90 +181,18 @@ const OurStory = () => {
         </div>
       </section>
 
-      {/* Company Overview */}
+      {/* Company Overview - carousel */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-accent opacity-20 blur-2xl rounded-3xl" />
-                <img
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80"
-                  alt="About SAI BALAJI"
-                  className="relative rounded-2xl shadow-large w-full h-[400px] object-cover"
-                />
-              </div>
-            </motion.div>
-            
-            <div className="space-y-6">
-              <motion.h2
-                initial={{ opacity: 0, y:20 }}
-                whileInView={{ opacity: 1, y:0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5}}
-                className="text-4xl font-bold text-accent"
-                >
-                  Our Story
-                </motion.h2>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-muted-foreground leading-relaxed"
-                >
-                    I take the privilege of briefing you about the profile of my business entity which I had started in the  year <b>1995</b> as a small concern and dealt with only small scale contracts in constructions. It was such a small passage of my starting business career through which I had efficiently and progressively stepped into the partnership business just after 6 years from 1995.
-                    <br />
-                    <br />
-                    <span className="font-bold">From the year 2001 to 2006 I was deeply involved in back to back contract works at various places through partnership ventures in other companies.</span>
-                </motion.p>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="text-muted-foreground leading-relaxed"
-                >
-                    <b>By the grace of God, in the Year 2006, I could start my own firm in the name of M/s.SAI BALAJI TECHNOLOGIES under my proprietor ship.</b> Under this firm I undertook various contracts related to electrification and got applauded by many prestigious clients in this line.<br />
-                    <br />
-                    <b>In the Year 2009 I had started a partnership firm in the name of M/s.SAI BALAJI INFRASTRUCTURES, having my wife Smt. Swapna as my partner. Under this partnership, I started various Civil Contracts also,,</b> which were highly praised as efficient works by our reputed clients. There were a number of esteemed projects I undertook under my proprietor ship as well as my partnership.
-                    <br />
-                    <br />
-                    <b>It was in the Year 2011, I launched a Private Limited Company in the name of M/s.”SAI BALAJI INFRA (INDIA) PVT LTD” (Though initially I wished to float private limited company with SAI BALAJI TECHNOLOGIES name, I could not do this since the non availability of this name at ROC). Now our company is in compliance with all statutory requirements like PF, ESI, GST, WORKS CONTRACT TAX and we have ISO 9001-2015 CERTIFIED COMPANY applied for ISO 14001, OHSAS 18001 and we are fulfilling various Legal and Constitutional requirements which a Private Limited Company ought to be followed.</b> <br></br>Our company has sufficient manpower to satisfy our reputed client’s requirements.
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className="flex flex-wrap gap-4 pt-4"
-                >
-                    <div className="flex items-center space-x-2 text-sm">
-                        <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-foreground font-medium">ISO 9001:2015 Certified</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm">
-                        <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-foreground font-medium">'A' Grade MEP License</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm">
-                        <div className="w-2 h-2 bg-accent rounded-full" />
-                        <span className="text-foreground font-medium">Government Approved</span>
-                    </div>
-                </motion.div>
-              
-            </div> 
+          <div className="text-center text-4xl font-bold text-accent mb-12">
+            Our Journey
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <CarouselOverview />
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-10">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}

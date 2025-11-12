@@ -115,8 +115,8 @@ const ElectricalNavbar: React.FC = () => {
 
         <div className="flex items-center justify-between py-4 relative z-20">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full gradient-accent flex items-center justify-center shadow-glow">
-                <span className={`font-extrabold ${(isScrolled || hoverActive) ? 'text-black' : 'text-white'}`}>S</span>
+              <div className="w-10 h-10  flex items-center justify-center shadow-glow">
+                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-8 h-8"/>
               </div>
               <div className="hidden sm:block">
                 <div className={`${(isScrolled || hoverActive) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
@@ -298,4 +298,4 @@ const ElectricalNavbar: React.FC = () => {
   );
 };
 
-export default ElectricalNavbar;
+export default ElectricalNavbar;  
