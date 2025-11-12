@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Award, Users, Target } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
+// import heroVideo from "@/assets/hero-video.mp4";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
 import TestimonialSection from "@/components/TestimonialSection";
 
@@ -43,12 +44,24 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
+          {/* <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={heroImage}
+            className="w-full h-screen object-cover "
+            >
+              <source src={heroVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+
+            </video> */}
           <img
             src={heroImage}
             alt="Electrical Infrastructure"
             className="w-full h-screen object-cover bg-fixed"
           />
-          <div className="absolute inset-0 gradient-hero" />
+          <div className="absolute inset-0 bg-gradient-primary/80" />
         </div>
 
         {/* <div className="relative z-10 container mx-auto px-4 py-32">
@@ -226,14 +239,14 @@ const Home = () => {
       </section>
 
 
-       <section className="py-20 bg-secondary relative overflow-hidden">
+       {/* <section className="py-20 bg-secondary relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
             Our <span className="text-accent">Clients</span>
           </h2>
           <TestimonialSection />
         </div>
-      </section>
+      </section> */}
 
       
 

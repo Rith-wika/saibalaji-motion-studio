@@ -73,9 +73,14 @@ const ClientList = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedClient, setSelectedClient] = useState(null);
 
-  const filteredClients = clientsData.filter((client) =>
-    client.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Normalize the query and show all clients when the query is empty or only whitespace.
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+  const filteredClients =
+    normalizedQuery.length === 0
+      ? clientsData
+      : clientsData.filter((client) =>
+          (client.name || "").toLowerCase().includes(normalizedQuery)
+        );
 
   return (
     <div className="min-h-screen bg-white text-foreground">
@@ -139,9 +144,10 @@ const ClientList = () => {
 
           {/* Client Grid */}
           <motion.div
+            key={filteredClients.length}
             variants={staggerContainer}
             initial="initial"
-            whileInView="whileInView"
+            animate="whileInView"
             className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6"
           >
             {filteredClients.map((client) => (

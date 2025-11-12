@@ -115,8 +115,8 @@ const ElectricalNavbar: React.FC = () => {
 
         <div className="flex items-center justify-between py-4 relative z-20">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10  flex items-center justify-center shadow-glow">
-                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-8 h-8"/>
+              <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center shadow-glow bg-transparent">
+                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-16 h-16 object-cover p-0"/>
               </div>
               <div className="hidden sm:block">
                 <div className={`${(isScrolled || hoverActive) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
@@ -131,6 +131,8 @@ const ElectricalNavbar: React.FC = () => {
               
               // Special handling for About Us with dropdown
               if (item.label === "About Us") {
+                const anySubItemActive = aboutDropdownItems.some(sub => isActive(sub.path));
+                const isAboutActive = active || anySubItemActive;
                 return (
                   <div key={item.path} className="flex items-center gap-1">
                     <Link
@@ -138,7 +140,7 @@ const ElectricalNavbar: React.FC = () => {
                       onMouseEnter={(e) => handleMouseEnter(e)}
                       onMouseLeave={handleMouseLeave}
                       className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${
-                        active 
+                        isAboutActive 
                           ? 'text-accent bg-accent/10 hover:bg-accent/20' 
                           : hoverActive 
                             ? 'text-black hover:bg-secondary/50' 
@@ -153,7 +155,7 @@ const ElectricalNavbar: React.FC = () => {
                     <DropdownMenu>
                       <DropdownMenuTrigger 
                         className={`inline-flex items-center justify-center rounded-md w-6 h-6 transition-colors hover:bg-accent/10 ${
-                          active 
+                          isAboutActive 
                             ? 'text-accent' 
                             : isScrolled || hoverActive
                               ? 'text-black' 
@@ -175,16 +177,23 @@ const ElectricalNavbar: React.FC = () => {
                         </svg>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="start">
-                        {aboutDropdownItems.map((subItem) => (
-                          <DropdownMenuItem key={subItem.path} asChild>
-                            <Link 
-                              to={subItem.path} 
-                              className="w-full block px-2 py-1.5 text-sm hover:text-accent transition-colors"
-                            >
-                              {subItem.label}
-                            </Link>
-                          </DropdownMenuItem>
-                        ))}
+                        {aboutDropdownItems.map((subItem) => {
+                          const subActive = isActive(subItem.path);
+                          return (
+                            <DropdownMenuItem key={subItem.path} asChild>
+                              <Link 
+                                to={subItem.path} 
+                                className={`w-full block px-2 py-1.5 text-sm transition-colors ${
+                                  subActive 
+                                    ? 'text-accent bg-accent/10 font-medium' 
+                                    : 'hover:text-accent'
+                                }`}
+                              >
+                                {subItem.label}
+                              </Link>
+                            </DropdownMenuItem>
+                          );
+                        })}
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </div>
