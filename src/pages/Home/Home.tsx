@@ -5,7 +5,7 @@ import { ArrowRight, Zap, Award, Users, Target } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 // import heroVideo from "@/assets/hero-video.mp4";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
-import TestimonialSection from "@/components/TestimonialSection";
+// import TestimonialSection from "@/components/TestimonialSection";
 
 const Home = () => {
   const stats = [
@@ -140,13 +140,13 @@ const Home = () => {
           transition={{ duration: 1, delay: 1 }}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
-          <div className="w-6 h-10 border-2 border-primary-foreground/30 rounded-full flex items-start justify-center p-2">
+          {/* <div className="w-6 h-10 border-2 border-primary-foreground/30 rounded-full flex items-start justify-center p-2">
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-1.5 h-1.5 bg-accent rounded-full"
             />
-          </div>
+          </div> */}
         </motion.div>
       </section>
 

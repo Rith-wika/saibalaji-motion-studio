@@ -6,47 +6,47 @@ const partners = [
     id: 1,
     title: "HI Rised Residential Towers",
     description:
-      "The retail industry is evolving rapidly, and customer expectations are higher than ever. We help retail brands stay ahead by integrating SAP solutions for supply chain management, inventory optimization, and point-of-sale systems. Our custom web and mobile applications empower omnichannel commerce, personalized shopping experiences, and real-time analytics. From backend automation to consumer-facing platforms, we deliver end-to-end digital transformation for both physical and online retail.",
+      "We undertake the complete construction of major vertical communities that define the modern city skyline. This work is characterized by its immense scale and structural complexity, involving deep, complex foundations, massive concrete cores for stability, and intricate, fast-paced logistics to build dozens of floors safely and efficiently.",
     image: "/partners/retail.jpg",
   },
   {
     id: 2,
     title: "Apartments",
     description:
-      "In the fast-moving consumer goods (FMCG) and broader consumer products space, speed, visibility, and customer insight are key. Our team modernizes operations by implementing SAP S/4HANA for seamless integration across procurement, production, distribution, and customer service. We build mobile dashboards, custom reporting tools, and interactive platforms that provide instant access to performance data, helping brands adapt quickly to market trends and consumer behavior.",
+      "Our expertise focuses on streamlined, repeatable construction methods, ensuring rapid completion and high value. This involves creating comfortable, reliable living spaces by laying robust foundations, installing all essential utility infrastructure, and applying quality finishes.",
     image: "/partners/consumer.avif",
   },
   {
     id: 3,
     title: "Individual Row Houses",
     description:
-      "Engineering and construction firms operate in complex environments with long project cycles and intricate workflows. We enable these organizations to digitize operations with SAP-based project systems, procurement planning, workforce management, and contract lifecycle solutions. Our mobile apps bring site-level visibility, allowing field teams to collaborate in real time, manage assets efficiently, and reduce project delays through actionable data and automated reporting.",
+      "Our teams meticulously manage the entire construction lifecycle, from the initial excavation and foundation pouring to setting the roof and integrating personalized utility systems. We run dedicated circuits for specialized appliances, install luxury bathroom plumbing, and ensure the HVAC system.",
     image: "/partners/engineering.jpg",
   },
   {
     id: 4,
     title: "Bungalows",
     description:
-      "Time and expertise are the currency in professional services — and we help firms maximize both. Our SAP-based solutions streamline project and resource planning, automate billing and time tracking, and improve client relationship management. Through custom-built portals and dashboards, we help service organizations gain visibility into key performance indicators, reduce manual work, and deliver greater value to their clients with agility and transparency.",
+      "This encompasses the entire construction of bespoke, luxury, single-family dwellings on their own plots. The projects demand meticulous craftsmanship, from the custom foundation and structural framing to the detailed exterior finishes. Every element, including power, water, and climate control, is custom-engineered to the owner's specifications.",
     image: "/partners/professional.jpg",
   },
   {
     id: 5,
     title: "Commercial Buildings",
     description:
-      "Regulatory compliance, data accuracy, and patient safety are non-negotiable in the life sciences and healthcare sectors. We deliver secure, HIPAA/GDPR-compliant systems that integrate seamlessly with laboratory, hospital, and supply chain operations. From drug inventory management using SAP modules to mobile apps for remote patient monitoring, we build digital ecosystems that support clinical excellence, research, and operational efficiency at scale.",
+      "Development of structures designed to facilitate business, such as offices, retail centers, or mixed-use facilities. Construction focuses on large, flexible open spaces, high ceilings, and robust core infrastructure built for heavy public and business use. This requires installing high-capacity utility systems (power, HVAC, data) that can be easily adapted by future tenants.",
     image: "/partners/healthcare.jpg",
   },
   {
     id: 6,
     title: "Industrial Plants Projects",
-    description: " In the Industry 4.0 era, manufacturers must digitize to remain competitive. We bring smart factory solutions through SAP Manufacturing Execution Systems (MES), real-time production monitoring, quality assurance platforms, and IoT integration. Our mobile and web development capabilities allow stakeholders to access dashboards, manage inventory, and track KPIs anytime, anywhere. Whether discrete or process manufacturing, we help optimize throughput, minimize waste, and improve decision-making.",
+    description: "Execution of heavy-duty, specialized facilities required for manufacturing, processing, and large-scale logistics. The work involves laying deep, reinforced foundations capable of supporting heavy machinery and continuous vibration. The installation of vast networks of industrial-grade piping, specialized ventilation, and high-amperage electrical distribution systems is critical.",
     image: "/partners/manufacturing.webp",
   },
   {
     id: 7,
     title: "Sub Stations Up to 66 KV.",
-    description: "We support educational institutions in redefining learning experiences and streamlining administration through modern digital tools. From SAP Student Lifecycle Management to custom-built learning management systems (LMS), we offer scalable solutions for admissions, attendance, content delivery, and student analytics. Our web and mobile applications enhance communication between students, teachers, and parents — building a more connected and intelligent education ecosystem.",
+    description: "Construction of critical electrical infrastructure that forms the necessary link in the power grid. This highly specialized work involves precise civil engineering for secure equipment pads and control houses, followed by the expert installation and connection of high-voltage equipment such as switchgear, transformers, and circuit breakers.",
     image: "/partners/education.jpg",
   },
 ];
