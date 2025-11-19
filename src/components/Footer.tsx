@@ -32,8 +32,8 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow">
-                <span className="text-2xl font-bold text-accent-foreground">S</span>
+               <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center shadow-glow bg-transparent">
+                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-16 h-16 object-cover p-0"/>
               </div>
               <div>
                 <h3 className="text-xl font-bold">SAI BALAJI</h3>
