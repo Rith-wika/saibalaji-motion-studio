@@ -29,6 +29,7 @@ const Gallery = () => {
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<ProjectImage["category"]>("all");
+  const [activeOverlay,setActiveOverlay] = useState<string | null>(null);
 
   // Filter the images based on the active category
   const filteredImages = allImages.filter((image) =>
@@ -41,7 +42,7 @@ const Gallery = () => {
     visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100, damping: 20 } },
     exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } },
   };
-
+  const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   return (
     <div className="min-h-screen">
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
@@ -116,32 +117,51 @@ const Gallery = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <AnimatePresence>
-              {filteredImages.map((image, index) => (
-                <motion.div
-                  key={image.url} // Use a stable key for AnimatePresence to track items
-                  variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  layout // Enables layout animation for repositioning during filtering
-                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-medium hover:shadow-large transition-spring"
-                  onClick={() => setSelectedImage(image.url)}
-                >
-                  <img
-                    src={image.url}
-                    alt={image.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-smooth">
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <h3 className="text-primary-foreground font-bold text-lg">
-                        {image.title}
-                      </h3>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+              { filteredImages.map((image) => {
+                const isOverlayActive = activeOverlay === image.url;
+                const handleImageClick = () => {
+                  if (isTouchDevice()) {
+                        if (isOverlayActive) {
+                          setSelectedImage(image.url);
+                            setActiveOverlay(null);
+                            } else {
+                            setActiveOverlay(image.url);
+                        }
+                        } else {
+                        // Desktop/Non-touch: Always open lightbox on click
+                        setSelectedImage(image.url);
+                    }
+                };
+                return (
+                  <motion.div
+                    key={image.url}
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    layout
+                    className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-medium hover:shadow-large transition-spring"
+                    onClick={handleImageClick}
+                    >
+                      <img 
+                      src={image.url}
+                      alt={image.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
+                      />
+                      <div className={`absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent transition-smooth ${
+                        isOverlayActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                          <div className="absolute bottom-0 left-0 right-0 p-6">
+                            <h3 className="text-primary-foreground font-bold text-lg">
+                              {image.title}
+                            </h3>
+                          </div>
+                      </div>
+                  </motion.div>
+
+                );
+
+              })}
+            </AnimatePresence> 
           </motion.div>
 
           {/* Lightbox */}

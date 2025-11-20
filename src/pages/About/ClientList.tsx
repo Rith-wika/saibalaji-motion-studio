@@ -158,11 +158,11 @@ const ClientList = () => {
                 className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer border"
                 onClick={() => setSelectedClient(client)}
               >
-                <div className="h-32 p-4 flex items-center justify-center bg-gray-50">
+                <div className="h-3/4 p-4 flex items-center justify-center bg-gray-50">
                   <img
                     src={client.logo}
                     alt={`${client.name} Logo`}
-                    className="max-h-20 max-w-full object-contain"
+                    className="h-full w-full object-contain"
                   />
                 </div>
                 <div className="p-4 text-center border-t">

@@ -19,22 +19,22 @@ const Home = () => {
    const projectCategories = [
     {
       title: 'IT Commercial',
-      description: 'Modern commercial buildings with extensive MEP/FP systems for optimal workplace environments.',
+      description: 'Buildings in the IT Commercial sector have the longest and most extensive life cycles.These spaces are not only places to work,but also where young people spend a significant amount of their time to be healthy,friendly,and safe',
       image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800'
     },
     {
       title: 'Educational',
-      description: 'Innovative infrastructure solutions for educational institutions with sustainable design.',
+      description: 'Sai balaji infra is a powerful tool that allows buildersand construction company gathers integrate and use visual modelling to improve planning,space utilization and energy optimization of multiple engineering and architectural services.',
       image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800'
     },
     {
       title: 'Pharma Industries',
-      description: 'Specialized MEP/FP support for pharmaceutical and healthcare facilities.',
+      description: "Sai Balaji Infra has provided MEP/FP support for renovation projects,expansion,and new construction projects for hospitals,nursing and rehablitation centers and private doctor's office for a variety of medical and health care spaces.",
       image: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800'
     },
     {
       title: 'Sub Stations',
-      description: 'Super grade-1 EHV & HV substation works with professional testing capabilities.',
+      description: "Sai Balaji Infra has provided MEP/FP support for renovation projects,expansion,and new construction projects for hospitals,nursing and rehablitation centers and private doctor's office for a variety of medical and health care spaces.",
       image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800'
     },
   ];

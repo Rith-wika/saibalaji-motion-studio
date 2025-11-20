@@ -7,47 +7,47 @@ const partners = [
     title: "HI Rised Residential Towers",
     description:
       "We undertake the complete construction of major vertical communities that define the modern city skyline. This work is characterized by its immense scale and structural complexity, involving deep, complex foundations, massive concrete cores for stability, and intricate, fast-paced logistics to build dozens of floors safely and efficiently.",
-    image: "/partners/retail.jpg",
+    image: "/whyus/hirised.png",
   },
   {
     id: 2,
     title: "Apartments",
     description:
       "Our expertise focuses on streamlined, repeatable construction methods, ensuring rapid completion and high value. This involves creating comfortable, reliable living spaces by laying robust foundations, installing all essential utility infrastructure, and applying quality finishes.",
-    image: "/partners/consumer.avif",
+    image: "/whyus/apartments.jpg",
   },
   {
     id: 3,
     title: "Individual Row Houses",
     description:
       "Our teams meticulously manage the entire construction lifecycle, from the initial excavation and foundation pouring to setting the roof and integrating personalized utility systems. We run dedicated circuits for specialized appliances, install luxury bathroom plumbing, and ensure the HVAC system.",
-    image: "/partners/engineering.jpg",
+    image: "/whyus/rowhouses.jpeg",
   },
   {
     id: 4,
     title: "Bungalows",
     description:
       "This encompasses the entire construction of bespoke, luxury, single-family dwellings on their own plots. The projects demand meticulous craftsmanship, from the custom foundation and structural framing to the detailed exterior finishes. Every element, including power, water, and climate control, is custom-engineered to the owner's specifications.",
-    image: "/partners/professional.jpg",
+    image: "/whyus/bungalows.webp",
   },
   {
     id: 5,
     title: "Commercial Buildings",
     description:
       "Development of structures designed to facilitate business, such as offices, retail centers, or mixed-use facilities. Construction focuses on large, flexible open spaces, high ceilings, and robust core infrastructure built for heavy public and business use. This requires installing high-capacity utility systems (power, HVAC, data) that can be easily adapted by future tenants.",
-    image: "/partners/healthcare.jpg",
+    image: "/whyus/commercialbuilding.jpg",
   },
   {
     id: 6,
     title: "Industrial Plants Projects",
     description: "Execution of heavy-duty, specialized facilities required for manufacturing, processing, and large-scale logistics. The work involves laying deep, reinforced foundations capable of supporting heavy machinery and continuous vibration. The installation of vast networks of industrial-grade piping, specialized ventilation, and high-amperage electrical distribution systems is critical.",
-    image: "/partners/manufacturing.webp",
+    image: "/whyus/industrial.jpg",
   },
   {
     id: 7,
     title: "Sub Stations Up to 66 KV.",
     description: "Construction of critical electrical infrastructure that forms the necessary link in the power grid. This highly specialized work involves precise civil engineering for secure equipment pads and control houses, followed by the expert installation and connection of high-voltage equipment such as switchgear, transformers, and circuit breakers.",
-    image: "/partners/education.jpg",
+    image: "/whyus/substation.jpg",
   },
 ];
 
@@ -116,7 +116,7 @@ const CombinedAnimatedFeatures = () => {
           <div className="hidden md:flex w-1/2 justify-center items-center pr-10">
             <div className="h-[400px] w-[400px] overflow-hidden">
               <img
-                src={hoveredPartner?.image || "/partners/retail.jpg"}
+                src={hoveredPartner?.image || "/whyus/hirised.png"}
                 alt={hoveredPartner?.title || "Default Partner"}
                 className="w-full h-full object-cover transition-all duration-300"
               />
