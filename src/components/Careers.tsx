@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, Briefcase, ArrowRight, X, User, Mail, Phone, Upload } from "lucide-react"; 
 
-import clientlistImage from "@/assets/client-list.jpg";
+import careerImage from "@/assets/career.jpg";
 
 // --- START: APPLICATION MODAL COMPONENT ---
 const ApplicationModal = ({ isOpen, onClose, jobTitle }) => {
@@ -232,7 +232,7 @@ const Careers = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={clientlistImage}
+            src={careerImage}
             alt="Electrical Infrastructure"
             className="w-full h-full object-cover"
           />
@@ -250,7 +250,7 @@ const Careers = () => {
               Our Careers
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+              Join our team and grow with a culture built on excellence and integrity.
             </p>
           </motion.div>
         </div>

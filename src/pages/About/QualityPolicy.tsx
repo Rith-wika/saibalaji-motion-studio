@@ -106,8 +106,7 @@ const QualityPolicy = () => {
               Quality Policy
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License
-              Holder MEP Contractors having ISO-9001:2015 Certified
+              Committed to delivering consistent quality through adherence to standards and continual improvement.
             </p>
           </motion.div>
         </div>

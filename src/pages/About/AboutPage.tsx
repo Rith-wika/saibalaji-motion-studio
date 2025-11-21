@@ -34,7 +34,7 @@ const AboutPage = () => {
               About Us
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+              An ISO 9001:2015–certified Electrical ‘A’ Grade MEP contractor committed to reliable and high-quality service delivery
             </p>
           </motion.div>
         </div>

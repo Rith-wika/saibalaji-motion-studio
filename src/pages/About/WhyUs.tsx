@@ -44,7 +44,7 @@ const WhyUs = () => {
               Why Us
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+              Trusted expertise, consistent quality, and reliable project delivery.
             </p>
           </motion.div>
         </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { X } from "lucide-react";
-import ourStoryImage from "@/assets/our-story.jpg";
+import galleryImage from "@/assets/gallery.jpg";
 import allImagesData from "@/data/gallery.json"
 
 // Define the type for a project image
@@ -48,7 +48,7 @@ const Gallery = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={ourStoryImage}
+            src={galleryImage}
             alt="Electrical Infrastructure"
             className="w-full h-full object-cover"
           />
@@ -66,7 +66,7 @@ const Gallery = () => {
               Gallery
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+              A visual showcase of our work and project excellence.
             </p>
           </motion.div>
         </div>

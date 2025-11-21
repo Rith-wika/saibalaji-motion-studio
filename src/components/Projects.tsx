@@ -75,10 +75,10 @@ const Projects = () => {
             alt={project.title}
             className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent" />
+          {/* <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent" />
           <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground shadow-glow">
             {project.capacity}
-          </Badge>
+          </Badge> */}
         </div>
         <CardHeader>
           <CardTitle className="text-xl font-bold group-hover:text-accent transition-smooth">
@@ -127,7 +127,7 @@ const Projects = () => {
               Projects
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
+              Showcasing our commitment to quality through successful, end-to-end project delivery.
             </p>
           </motion.div>
         </div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail } from "lucide-react";
-import ourStoryImage from "@/assets/our-story.jpg";
+import keypersonsImage from "@/assets/key-persons.jpg";
 
 const KeyPersonsPage = () => {
   const keyPersons = [
@@ -9,7 +9,7 @@ const KeyPersonsPage = () => {
       name: "Mr. A.Ramaprabhu",
       position: "Managing Director",
       image: "/persons/ramaprabhu.png",
-      message: "Responsible for defining corporate strategy, ensuring long-term sustainable growth, and delivering exceptional value to all company stakeholders.",
+      message: "Driving strategic growth and delivering lasting value.",
       mail:"saibalajitechnologies@gmail.com",
       phone:"+91 9848246533",
     },
@@ -17,7 +17,7 @@ const KeyPersonsPage = () => {
       name: "Mr. A.Purshottam",
       position: "Executive Director",
       image: "/persons/purshottamu.jpeg",
-      message: "Provides oversight for daily operations, translating the strategic vision into executed projects while maintaining peak efficiency and quality standards.",
+      message:"Turning strategy into seamless, high-quality operations.",
       mail:"attepally2008@gmail.com",  
       phone:"+91 9848494706",
     },
@@ -25,21 +25,21 @@ const KeyPersonsPage = () => {
       name: "Mr.Rakesh Bharat Mharate",
       position:"Regional Head- Mumbai",
       image: "persons/rakeshbharatmharate.jpeg",
-      message: "Leading our efforts in the Mumbai region, my priority is developing strong local partnerships and expanding our market presence. ",
+      message:"Building strong local partnerships and expanding our Mumbai presence.",
       mail:"rmhatre2000@gmail.com",
     },
     {
       name: "Mr.Ashwani Kumar Shukla",
       position:"Regional Head North",
       image: "persons/ashwanikumarshukla.jpeg",
-      message: "Manages all commercial activities in the Mumbai region, focusing on market expansion, building local partnerships, and successful project delivery.",
+      message: "Driving Mumbai growth through strong partnerships, market expansion, and project success.",
       mail:" rmnorth.sbiipl@gmail.com",
     },
     {
       name: "Mr.Hari Shankar Ray",
       position:"VP, Contracts",
       image: "persons/harishankarray.jpeg",
-      message: "Ensures meticulous management of all legal contracts and agreements, safeguarding company interests and promoting clear, compliant business partnerships.",
+      message: "Protecting company interests through precise, compliant contract management.",
       mail:"hs.sbiipl@gmail.com",
       phone:"+91 9848745295",
     },
@@ -47,7 +47,7 @@ const KeyPersonsPage = () => {
       name: "Mr.B.Shivaiah",
       position:"Procurement Head",
       image: "persons/shivaiah.jpeg",
-      message: "Optimizes the supply chain, ensuring the procurement of high-quality materials while maintaining strict cost control for efficient project execution.",
+      message: "Streamlining efficient procurement with quality materials ,supply chain and strict cost control for project.",
       mail:"shivateja2004@gmail.com",
       phone:"+91 9642311153",
     },
@@ -60,7 +60,7 @@ const KeyPersonsPage = () => {
        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src={ourStoryImage}
+            src={keypersonsImage}
             alt="Electrical Infrastructure"
             className="w-full h-full object-cover"
           />
@@ -77,9 +77,9 @@ const KeyPersonsPage = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
               Key Persons
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
+            {/* <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
               One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
-            </p>
+            </p> */}
           </motion.div>
         </div>
       </section>

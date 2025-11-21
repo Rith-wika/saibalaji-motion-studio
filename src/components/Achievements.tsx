@@ -107,7 +107,7 @@ const Achievements = () => {
               Our Achievements
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              We are 'A' class MEP contractors providing comprehensive electrical, mechanical, and plumbing solutions
+              Highlighting our milestones in delivering reliable and high-quality MEP solutions.
             </p>
           </motion.div>
         </div>
