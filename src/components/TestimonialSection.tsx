@@ -1,195 +1,269 @@
-// import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, useInView, useAnimation } from 'framer-motion';
+import { Quote, ChevronLeft, ChevronRight, Zap } from 'lucide-react';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
-// // Sample testimonial data
-// const testimonials = [
-//   {
-//     id: 1,
-//     name: 'Sarah Chen',
-//     title: 'CTO, TechInnovate',
-//     photo: 'https://i.pravatar.cc/150?img=1', // Placeholder image
-//     quote: "Game-changer! Their platform is fast, reliable, and incredibly intuitive.",
-//     rating: 5,
-//     detailedFeedback: "We've seen a 40% increase in efficiency since implementing their solution. The support team is also top-notch, always responding within minutes. A truly indispensable partner for our growth.",
-//   },
-//   {
-//     id: 2,
-//     name: 'Mark Davis',
-//     title: 'Marketing Director, GlobalReach',
-//     photo: 'https://i.pravatar.cc/150?img=5', // Placeholder image
-//     quote: "Exceptional design and seamless user experience. Highly recommend their services.",
-//     rating: 4.8,
-//     detailedFeedback: "The rebranding project they managed was delivered on time and exceeded our expectations. Our customers immediately noticed the improved, modern look and feel. They are truly masters of modern UI/UX.",
-//   },
-//   {
-//     id: 3,
-//     name: 'Aisha Khan',
-//     title: 'Founder, EcoStart',
-//     photo: 'https://i.pravatar.cc/150?img=3', // Placeholder image
-//     quote: "The personalized attention to detail made all the difference. Fantastic results!",
-//     rating: 5,
-//     detailedFeedback: "As a startup, we needed a flexible partner, and they delivered. They took the time to understand our mission and built a bespoke solution that perfectly aligns with our eco-friendly values. Five stars across the board!",
-//   },
-// ];
+// --- Utility for cleaner tailwind classes ---
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+  
+// --- Data ---
+// Duplicated once to ensure smooth infinite-feel scrolling on larger screens if needed
+const TESTIMONIALS_DATA = [
+  {
+    id: 1,
+    name: "Ramaprabhu Attepally",
+    text: "It is a good company and will deliver in time with good quality of work.",
+    badge: "Professional, Reliable & Cost Effective",
+  },
+  {
+    id: 2,
+    name: "Ram Prasad",
+    text: "Genuine proprietors and good helping nature persons, quality and excellent work inspired by SBIIPL.",
+    badge: "Professional, Reliable & Cost Effective",
+  },
+  {
+    id: 3,
+    name: "C. Bhaskar Rao",
+    text: "Quality services and they complete the services in given quotation.",
+    badge: "Professional, Reliable & Cost Effective",
+  },
+];
 
-// // Helper component for star rating
-// const StarRating = ({ rating }) => {
-//   const fullStars = Math.floor(rating);
-//   const hasHalfStar = rating % 1 !== 0;
-//   const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+const TestimonialSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [itemsPerView, setItemsPerView] = useState(1);
+  
+  // Refs for scroll animations
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const controls = useAnimation();
 
-//   return (
-//     <div className="flex text-accent-foreground">
-//       {/* Full Stars */}
-//       {[...Array(fullStars)].map((_, i) => (
-//         <span key={`full-${i}`} className="text-xl">★</span>
-//       ))}
-//       {/* Half Star */}
-//       {hasHalfStar && <span className="text-xl">½</span>}
-//       {/* Empty Stars */}
-//       {[...Array(emptyStars)].map((_, i) => (
-//         <span key={`empty-${i}`} className="text-xl opacity-30">★</span>
-//       ))}
-//     </div>
-//   );
-// };
+  // Responsive check
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setItemsPerView(3);
+      else if (window.innerWidth >= 768) setItemsPerView(2);
+      else setItemsPerView(1);
+    };
+    handleResize(); // Init
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-// // Testimonial Card Component with 3D Flip
-// const FlipCard = ({ testimonial, index }) => {
-//   // Uses a custom utility class defined below to enable the flip effect
-//   // 'group' is used to target the inner elements on hover of the outer container
-//   return (
-//     <div 
-//       className={`
-//         perspective-[1000px] 
-//         group 
-//         w-full 
-//         max-w-md 
-//         h-[320px] 
-//         rounded-[var(--radius)] 
-//         shadow-medium 
-//         hover:shadow-large 
-//         hover:scale-[1.03] 
-//         transition-spring
-//         // Fade-up entry animation with staggered delay
-//         animate-fade-up 
-//         opacity-0 
-//         [animation-fill-mode:forwards]
-//         [animation-delay:${index * 0.1}s]
-//       `}
-//     >
-//       {/* Inner container handles the 3D rotation */}
-//       <div className="
-//         relative 
-//         w-full 
-//         h-full 
-//         transition-transform 
-//         duration-700 
-//         ease-in-out 
-//         [transform-style:preserve-3d] 
-//         group-hover:rotate-y-180 
-//         group-focus:rotate-y-180 // Added for mobile tap focus
+  // Entrance Animation Trigger
+  useEffect(() => {
+    if (isInView) {
+      controls.start("visible");
+    }
+  }, [isInView, controls]);
+
+  // Autoplay Logic
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [currentIndex, isPaused, itemsPerView]);
+
+  const handleNext = () => {
+    // Loop back logic
+    setCurrentIndex((prev) => 
+      prev === TESTIMONIALS_DATA.length - itemsPerView ? 0 : prev + 1
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => 
+      prev === 0 ? TESTIMONIALS_DATA.length - itemsPerView : prev - 1
+    );
+  };
+
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  return (
+    <section 
+      ref={sectionRef}
+      className="relative w-full bg-[#020617] py-20 overflow-hidden font-sans text-slate-200"
+    >
+      {/* --- Background Elements --- */}
+      
+      {/* Subtle Grid Pattern */}
+      <div className="absolute inset-0 opacity-[0.05]" 
+        style={{ 
+          backgroundImage: `linear-gradient(#cbd5e1 1px, transparent 1px), linear-gradient(to right, #cbd5e1 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }}
+      ></div>
+      
+      {/* Blueprint Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-900/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
         
-//       ">
+        {/* --- Header Section --- */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="mb-16 text-center max-w-3xl mx-auto"
+        >
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <span className="h-[1px] w-8 bg-yellow-500/70"></span>
+            <span className="text-accent font-medium tracking-wider text-sm uppercase">What Our Clients Say</span>
+            <span className="h-[1px] w-8 bg-yellow-500/70"></span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+            Testimonials
+          </h2>
+          <p className="text-slate-400 text-lg leading-relaxed">
+            Trusted by builders and contractors for reliable, on-time electrical works in high-rise and large infrastructure projects.
+          </p>
+        </motion.div>
+
+        {/* --- Carousel Wrapper --- */}
+        <div 
+          className="relative max-w-7xl mx-auto"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Navigation Arrows (Desktop) */}
+          <button 
+            onClick={handlePrev}
+            className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-yellow-500 hover:text-slate-900 hover:border-yellow-500 transition-all duration-300 backdrop-blur-sm hidden md:flex items-center justify-center group"
+          >
+            <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
+          </button>
+          <button 
+            onClick={handleNext}
+            className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20 p-2 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 hover:bg-yellow-500 hover:text-slate-900 hover:border-yellow-500 transition-all duration-300 backdrop-blur-sm hidden md:flex items-center justify-center group"
+          >
+            <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
+          </button>
+
+          {/* Slider Window */}
+          <div className="overflow-hidden py-4 -mx-4 px-4"> {/* Negative margin to allow shadows to clip nicely */}
+            <motion.div 
+              className="flex"
+              variants={containerVariants}
+              initial="hidden"
+              animate={controls}
+            >
+              <motion.div 
+                className="flex w-full"
+                animate={{ x: `-${currentIndex * (100 / itemsPerView)}%` }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {TESTIMONIALS_DATA.map((item, index) => (
+                  <motion.div 
+                    key={item.id}
+                    variants={itemVariants}
+                    className="flex-shrink-0 px-3 w-full md:w-1/2 lg:w-1/3"
+                  >
+                    <TestimonialCard item={item} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center mt-10 gap-2">
+            {Array.from({ length: TESTIMONIALS_DATA.length - (itemsPerView - 1) }).map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentIndex(idx)}
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300",
+                  currentIndex === idx ? "w-8 bg-yellow-500" : "w-2 bg-slate-700 hover:bg-slate-600"
+                )}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// --- Individual Card Component ---
+const TestimonialCard = ({ item }) => {
+  return (
+    <motion.div 
+      whileHover={{ y: -6, transition: { duration: 0.3 } }}
+      className="h-full bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 md:p-8 flex flex-col relative group shadow-lg hover:shadow-cyan-900/20 transition-all duration-300"
+    >
+      {/* Decorative Gradient Line Top */}
+      <div className="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+
+      {/* Header: Quote Icon & Badge */}
+      <div className="flex justify-between items-start mb-6">
+        <motion.div 
+          animate={{ y: [0, -3, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="text-slate-500 group-hover:text-accent transition-colors duration-300"
+        >
+          <Quote size={32} className="fill-current opacity-20 group-hover:opacity-100" />
+        </motion.div>
         
-//         {/* FRONT SIDE */}
-//         <div className="
-//           absolute 
-//           inset-0 
-//           p-6 
-//           flex 
-//           flex-col 
-//           justify-between 
-//           bg-card 
-//           text-card-foreground 
-//           rounded-[var(--radius)] 
-//           [backface-visibility:hidden] 
-//           [transform:rotateY(0deg)] // Ensure it starts at 0
-//         ">
-//           <blockquote className="text-2xl font-semibold italic text-primary">
-//             “{testimonial.quote}”
-//           </blockquote>
-          
-//           <div className="flex items-center space-x-4 pt-4 border-t border-border mt-4">
-//             <div className="w-16 h-16 rounded-full overflow-hidden shadow-soft">
-//               <img 
-//                 src={testimonial.photo} 
-//                 alt={testimonial.name} 
-//                 className="w-full h-full object-cover"
-//                 loading="lazy"
-//               />
-//             </div>
-//             <div>
-//               <p className="font-bold text-lg text-foreground">{testimonial.name}</p>
-//               <p className="text-sm text-muted-foreground">{testimonial.title}</p>
-//             </div>
-//           </div>
-//         </div>
+        <div className="bg-cyan-950/50 border border-cyan-800/50 rounded-full px-3 py-1 flex items-center gap-1.5">
+          <Zap size={12} className="text-accent fill-accent" />
+          <span className="text-[10px] md:text-xs font-semibold text-cyan-100 tracking-wide uppercase">
+            Professional & Reliable
+          </span>
+        </div>
+      </div>
 
-//         {/* BACK SIDE */}
-//         <div className="
-//           absolute 
-//           inset-0 
-//           p-6 
-//           flex 
-//           flex-col 
-//           justify-between 
-//           bg-primary 
-//           text-primary-foreground 
-//           rounded-[var(--radius)] 
-//           [backface-visibility:hidden] 
-//           [transform:rotateY(180deg)] // Initial position: flipped
-//         ">
-//           <div className="flex flex-col h-full">
-//             <div className="flex justify-between items-center mb-4">
-//                 <StarRating rating={testimonial.rating} />
-//                 <span className="text-4xl font-extrabold">{testimonial.rating} / 5</span>
-//             </div>
-//             <p className="text-base leading-relaxed grow">
-//               {testimonial.detailedFeedback}
-//             </p>
-//             <p className="pt-4 text-sm opacity-80 border-t border-primary-foreground/30">
-//                 — {testimonial.name}
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+      {/* Content */}
+      <div className="flex-grow">
+        <p className="text-slate-300 text-lg leading-relaxed italic relative z-10">
+          "{item.text}"
+        </p>
+      </div>
 
-// // Main Testimonial Section Component
-// const TestimonialSection = () => {
-//   return (
-//     <section className="py-20 bg-background">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-//         {/* Title and Subtitle */}
-//         <div className="text-center mb-12">
-//           <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground tracking-tight">
-//             What Our Clients Say
-//           </h2>
-//           <p className="mt-3 text-xl text-muted-foreground max-w-2xl mx-auto">
-//             Real feedback from real professionals. Hover or tap to see their full reviews.
-//           </p>
-//         </div>
+      {/* Footer: User Info */}
+      <div className="mt-8 flex items-center gap-4 border-t border-slate-800 pt-5 group-hover:border-slate-700 transition-colors">
+        {/* Avatar Placeholder */}
+        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center text-white font-bold text-sm border border-slate-600 shadow-inner">
+          {item.name.split(' ').map(n => n[0]).join('').substring(0,2)}
+        </div>
+        <div>
+          <h4 className="text-white font-semibold tracking-wide text-sm md:text-base">
+            {item.name}
+          </h4>
+          <span className="text-xs text-slate-500 font-medium">
+            Satisfied Client
+          </span>
+        </div>
+      </div>
 
-//         {/* Testimonials Grid (Responsive Layout) */}
-//         <div className="
-//           grid 
-//           gap-8 
-//           md:grid-cols-2 
-//           lg:grid-cols-3
-//           justify-items-center // Center cards on smaller screens
-//         ">
-//           {testimonials.map((testimonial, index) => (
-//             <FlipCard key={testimonial.id} testimonial={testimonial} index={index} />
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
+      {/* Subtle corner accent */}
+      <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-slate-800/20 to-transparent rounded-br-2xl pointer-events-none"></div>
+    </motion.div>
+  );
+};
 
-// export default TestimonialSection;
-
-
+export default TestimonialSection;

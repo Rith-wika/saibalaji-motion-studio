@@ -41,6 +41,9 @@ function SplitChars({ text }: { text: string }) {
 const ElectricalNavbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  
+  // New state for Mobile About Us toggle
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
 
   // hover geometry state
   const [hoverActive, setHoverActive] = useState(false);
@@ -69,7 +72,6 @@ const ElectricalNavbar: React.FC = () => {
     const left = Math.max(0, linkRect.left - navRect.left);
     const right = Math.max(0, navRect.right - linkRect.right);
 
-    // extend a bit so the flow originates from roughly the center of the link
     setLeftWidth(left + linkRect.width / 2);
     setRightWidth(right + linkRect.width / 2);
     setHoverActive(true);
@@ -78,15 +80,14 @@ const ElectricalNavbar: React.FC = () => {
   const handleMouseLeave = () => {
     setHoverActive(false);
   };
-
-     
+      
   return (
     <nav
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${(isScrolled || hoverActive) ? 'bg-white/95 shadow-medium' : 'bg-transparent'}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${(isScrolled || hoverActive || open) ? 'bg-white/95 shadow-medium' : 'bg-transparent'}`}
     >
       <div className="container mx-auto px-4 relative">
-        {/* full-width flow layers (behind links) */}
+        {/* full-width flow layers */}
         <div className="absolute inset-0 pointer-events-none z-10">
           <div
             className={`electric-flow-left absolute left-0 top-1/2 -translate-y-1/2 h-0 overflow-hidden transition-all duration-300 ${hoverActive ? 'active h-[5vh]' : ''}`}
@@ -94,7 +95,6 @@ const ElectricalNavbar: React.FC = () => {
           >
             <svg className="electric-flow-svg" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden>
               <g className="wave-wrap">
-                {/* A repeated ECG-like waveform across the long viewBox */}
                 <path className="wave" d="M0 10 L70 50 L80 30 L90 80 L100 50 L180 50 L200 50 L210 40 L220 50 L260 50 L300 50 L320 50 L330 30 L340 80 L350 50 L430 50 L500 50 L560 50 L580 30 L590 80 L600 50 L680 50 L760 50 L820 50 L840 30 L850 80 L860 50 L1000 50" />
                 <path className="wave" d="M1000 1.0 L1070 50 L1080 30 L1090 80 L1100 50 L1180 50 L1200 50 L1210 40 L1220 50 L1260 50 L1300 50 L1320 50 L1330 30 L1340 80 L1350 50 L1430 50 L1500 50 L1560 50 L1580 30 L1590 80 L1600 50 L1680 50 L1760 50 L1820 50 L1840 30 L1850 80 L1860 50 L2000 50" />
               </g>
@@ -119,8 +119,8 @@ const ElectricalNavbar: React.FC = () => {
                 <img src="/logo.png" alt="SAI BALAJI Logo" className="w-16 h-16 object-cover p-0"/>
               </div>
               <div className="hidden sm:block">
-                <div className={`${(isScrolled || hoverActive) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
-                <div className={`${(isScrolled || hoverActive) ? 'text-black/70' : 'text-white/80'} text-xs`}>Your Satisfaction Is Our Mission</div>
+                <div className={`${(isScrolled || hoverActive || open) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
+                <div className={`${(isScrolled || hoverActive || open) ? 'text-black/70' : 'text-white/80'} text-xs`}>Your Satisfaction Is Our Mission</div>
               </div>
             </Link>
 
@@ -129,7 +129,6 @@ const ElectricalNavbar: React.FC = () => {
             {navItems.map((item) => {
               const active = isActive(item.path);
               
-              // Special handling for About Us with dropdown
               if (item.label === "About Us") {
                 const anySubItemActive = aboutDropdownItems.some(sub => isActive(sub.path));
                 const isAboutActive = active || anySubItemActive;
@@ -162,17 +161,7 @@ const ElectricalNavbar: React.FC = () => {
                               : 'text-white'
                         }`}
                       >
-                        <svg 
-                          xmlns="http://www.w3.org/2000/svg" 
-                          width="16" 
-                          height="16" 
-                          viewBox="0 0 24 24" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="2" 
-                          strokeLinecap="round" 
-                          strokeLinejoin="round"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                           <path d="m6 9 6 6 6-6"/>
                         </svg>
                       </DropdownMenuTrigger>
@@ -200,7 +189,6 @@ const ElectricalNavbar: React.FC = () => {
                 );
               }
 
-              // Regular nav items
               return (
                 <Link
                   key={item.path}
@@ -226,7 +214,7 @@ const ElectricalNavbar: React.FC = () => {
 
           {/* Mobile toggle */}
           <button
-            className={`md:hidden ${isScrolled ? 'text-black' : 'text-white'}`}
+            className={`md:hidden ${(isScrolled || open) ? 'text-black' : 'text-white'}`}
             aria-label="Toggle menu"
             onClick={() => setOpen((s) => !s)}
           >
@@ -242,40 +230,66 @@ const ElectricalNavbar: React.FC = () => {
             <div className="flex flex-col gap-2">
               {navItems.map((item) => {
                 const active = isActive(item.path);
+                const textColor = (isScrolled || open) ? 'text-black' : 'text-white';
                 
-                // Special handling for About Us in mobile menu
+                // Special handling for About Us in mobile menu (Accordion Style)
                 if (item.label === "About Us") {
                   return (
                     <div key={item.path} className="space-y-1">
-                      <Link
-                        to={item.path}
-                        onClick={() => setOpen(false)}
-                        className={`px-4 py-2 rounded-lg transition-colors block font-medium ${
-                          active
-                            ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                            : isScrolled
-                              ? 'text-black hover:bg-secondary/50'
-                              : 'text-white hover:bg-white/5'
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                      {aboutDropdownItems.map((sub) => (
+                      <div className="flex items-center justify-between pr-4">
                         <Link
-                          key={sub.path}
-                          to={sub.path}
+                          to={item.path}
                           onClick={() => setOpen(false)}
-                          className={`pl-8 py-2 rounded-lg transition-colors block ${
-                            isActive(sub.path)
-                              ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                              : isScrolled
-                                ? 'text-black/80 hover:bg-secondary/50'
-                                : 'text-white/90 hover:bg-white/5'
+                          className={`px-4 py-2 rounded-lg transition-colors block font-medium flex-1 ${
+                            active
+                              ? 'text-accent bg-accent/10'
+                              : `${textColor} hover:bg-black/5`
                           }`}
                         >
-                          {sub.label}
+                          {item.label}
                         </Link>
-                      ))}
+                        {/* Toggle Button for Dropdown */}
+                        <button
+                          onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                          className={`p-2 rounded-md transition-all ${textColor} hover:bg-black/5`}
+                          aria-label="Toggle About Us submenu"
+                        >
+                          <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                            className={`transition-transform duration-300 ${mobileAboutOpen ? 'rotate-180' : ''}`}
+                          >
+                            <path d="m6 9 6 6 6-6"/>
+                          </svg>
+                        </button>
+                      </div>
+                      
+                      {/* Conditional rendering for submenu */}
+                      {mobileAboutOpen && (
+                        <div className="pl-4 space-y-1 bg-black/5 rounded-lg mx-4 py-2 border-l-2 border-accent/20">
+                          {aboutDropdownItems.map((sub) => (
+                            <Link
+                              key={sub.path}
+                              to={sub.path}
+                              onClick={() => setOpen(false)}
+                              className={`pl-4 py-2 rounded-md transition-colors block text-sm ${
+                                isActive(sub.path)
+                                  ? 'text-accent font-medium'
+                                  : 'text-black/80 hover:text-black'
+                              }`}
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   );
                 }
@@ -288,11 +302,9 @@ const ElectricalNavbar: React.FC = () => {
                     className={`px-4 py-2 rounded-lg transition-colors ${
                       active 
                         ? 'text-accent bg-accent/10 hover:bg-accent/20' 
-                        : hoverActive 
+                        : (isScrolled || open)
                           ? 'text-black hover:bg-secondary/50' 
-                          : isScrolled 
-                            ? 'text-black hover:bg-secondary/50' 
-                            : 'text-white hover:bg-white/5'
+                          : 'text-white hover:bg-white/5'
                     }`}
                   >
                     {item.label}
@@ -307,4 +319,4 @@ const ElectricalNavbar: React.FC = () => {
   );
 };
 
-export default ElectricalNavbar;  
+export default ElectricalNavbar;

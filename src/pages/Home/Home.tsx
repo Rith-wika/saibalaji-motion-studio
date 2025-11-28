@@ -5,7 +5,8 @@ import { ArrowRight, Zap, Award, Users, Target } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 // import heroVideo from "@/assets/hero-video.mp4";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
-// import TestimonialSection from "@/components/TestimonialSection";
+import FloatingButtons from "@/components/FloatingButtons";
+import TestimonialSection from "@/components/TestimonialSection";
 
 const Home = () => {
   const stats = [
@@ -41,6 +42,7 @@ const Home = () => {
 
   return (
     <div className="min-h-screen">
+      <FloatingButtons />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
@@ -239,14 +241,11 @@ const Home = () => {
       </section>
 
 
-       {/* <section className="py-20 bg-secondary relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
-            Our <span className="text-accent">Clients</span>
-          </h2>
+       <section className="py-15 bg-secondary relative overflow-hidden">
+        <div className="container mx-auto px-6 relative z-10">
           <TestimonialSection />
         </div>
-      </section> */}
+      </section>
 
       
 

@@ -123,7 +123,7 @@ const KeyPersonsPage = () => {
                     <img
                       src={person.image}
                       alt={person.name}
-                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-smooth duration-700"
+                      className="w-full h-full object-cover transition-smooth duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
                     

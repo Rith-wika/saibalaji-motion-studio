@@ -1,0 +1,179 @@
+import { useState, useEffect, useRef } from "react";
+import { Phone, Mail, Share2 } from "lucide-react"; 
+import {
+  FaLinkedinIn,
+  FaFacebookF,
+  FaYoutube,
+  FaInstagram,
+  FaPhoneAlt,
+  FaEnvelope,
+} from "react-icons/fa";
+
+const FloatingButtons = () => {
+  const [phoneOpen, setPhoneOpen] = useState(false);
+  const [mailOpen, setMailOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Use refs for tap counters to persist across renders
+  const phoneTapRef = useRef(0);
+  const mailTapRef = useRef(0);
+  const shareTapRef = useRef(0);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 768);
+
+      const handleResize = () => setIsMobile(window.innerWidth < 768);
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  const handlePhoneTap = () => {
+    if (!isMobile) {
+      window.location.href = "tel:+919848745295";
+      return;
+    }
+
+    phoneTapRef.current++;
+    if (phoneTapRef.current === 1) {
+      setPhoneOpen(!phoneOpen);
+      setTimeout(() => (phoneTapRef.current = 0), 350);
+    } else if (phoneTapRef.current === 2) {
+      window.location.href = "tel:+919848745295";
+      phoneTapRef.current = 0;
+    }
+  };
+
+  const handleMailTap = () => {
+    if (!isMobile) {
+      window.location.href = "mailto:saibalajitechnologies@gmail.com";
+      return;
+    }
+
+    mailTapRef.current++;
+    if (mailTapRef.current === 1) {
+      setMailOpen(!mailOpen);
+      setTimeout(() => (mailTapRef.current = 0), 350);
+    } else if (mailTapRef.current === 2) {
+      window.location.href = "mailto:saibalajitechnologies@gmail.com";
+      mailTapRef.current = 0;
+    }
+  };
+
+  const handleShareTap = () => {
+    if (!isMobile) return;
+
+    shareTapRef.current++;
+    if (shareTapRef.current === 1) {
+      setShareOpen(!shareOpen);
+      setTimeout(() => (shareTapRef.current = 0), 350);
+    } else if (shareTapRef.current === 2) {
+      if (navigator.share) {
+        navigator.share({
+          title: "Website",
+          url: "https://www.sriainfotech.com/",
+        });
+      }
+      shareTapRef.current = 0;
+    }
+  };
+
+  return (
+    <div className="fixed right-2 top-1/4 z-50 flex flex-col gap-3 items-end">
+
+      {/* PHONE */}
+      <div
+        className={`
+          bg-accent h-12 flex items-center shadow-lg rounded-md transition-all duration-500 ease-in-out overflow-hidden cursor-pointer
+          ${phoneOpen ? "w-[200px]" : "w-12"}
+        `}
+        onMouseEnter={() => !isMobile && setPhoneOpen(true)}
+        onMouseLeave={() => !isMobile && setPhoneOpen(false)}
+        onClick={handlePhoneTap}
+      >
+        <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 text-white">
+          <Phone size={20} />
+        </div>
+
+        <div className={`whitespace-nowrap text-white font-medium pr-4 transition-opacity duration-300 ${phoneOpen ? "opacity-100" : "opacity-0"}`}>
+          +91 9848745295
+        </div>
+      </div>
+
+      {/* MAIL */}
+      <div
+        className={`
+          bg-accent h-12 flex items-center shadow-lg rounded-md transition-all duration-500 ease-in-out overflow-hidden cursor-pointer
+          ${mailOpen ? "w-[330px]" : "w-12"}
+        `}
+        onMouseEnter={() => !isMobile && setMailOpen(true)}
+        onMouseLeave={() => !isMobile && setMailOpen(false)}
+        onClick={handleMailTap}
+      >
+        <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 text-white">
+          <Mail size={20} />
+        </div>
+
+        <div className={`whitespace-nowrap text-white font-medium pr-2 transition-opacity duration-300 ${mailOpen ? "opacity-100" : "opacity-0"}`}>
+          saibalajitechnologies@gmail.com
+        </div>
+      </div>
+
+      {/* SHARE */}
+      <div
+        className={`
+          bg-accent h-12 flex items-center shadow-lg rounded-md transition-all duration-500 ease-in-out overflow-hidden cursor-pointer
+          ${shareOpen ? "w-[200px]" : "w-12"}
+        `}
+        onMouseEnter={() => !isMobile && setShareOpen(true)}
+        onMouseLeave={() => !isMobile && setShareOpen(false)}
+        onClick={handleShareTap}
+      >
+        <div className="w-12 h-12 flex items-center justify-center flex-shrink-0 text-white">
+          <Share2 size={20} />
+        </div>
+
+        <div className={`flex gap-4 items-center transition-opacity duration-300 ${shareOpen ? "opacity-100" : "opacity-0"}`}>
+          <div className="flex justify-center gap-4 text-lg text-white">
+
+            <a
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn className="text-white hover:text-orange-400 cursor-pointer" />
+            </a>
+
+            <a
+              href="https://www.facebook.com/profile.php?id=61571209246369"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebookF className="text-white hover:text-orange-400 cursor-pointer" />
+            </a>
+
+            <a
+              href="https://www.youtube.com/@SaibalajiInfraIndiaPvtLtd"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaYoutube className="text-white hover:text-orange-400 cursor-pointer" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/sai_balaji_infra_india_pvt_ltd/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="text-white hover:text-orange-400 cursor-pointer" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FloatingButtons;
