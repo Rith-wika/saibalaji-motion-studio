@@ -7,6 +7,7 @@ import heroImage from "@/assets/hero-bg.jpg";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
 import FloatingButtons from "@/components/FloatingButtons";
 import TestimonialSection from "@/components/TestimonialSection";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
   const stats = [
@@ -65,6 +66,16 @@ const Home = () => {
           />
           <div className="absolute inset-0 bg-gradient-primary/80" />
         </div>
+
+        <a
+          aria-label="Chat on WhatsApp"
+          href={`https://wa.me/919848745295?text=${encodeURIComponent("Hi, I would like to know more about substation electrical services")}`}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="fixed right-6 bottom-28 z-10 bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:h-16 hover:w-16 hover:shadow-2xl"
+        >
+          <FaWhatsapp className="w-8 h-8" />
+        </a>
 
         {/* <div className="relative z-10 container mx-auto px-4 py-32">
           <div className="max-w-4xl">
