@@ -6,6 +6,7 @@ import heroImage from "@/assets/hero-bg.jpg";
 // import heroVideo from "@/assets/hero-video.mp4";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
 import ClientCarousel from "@/pages/Home/ClientCarousel";
+import ProjectsSlider from "@/pages/Home/ProjectsSlider";
 import FloatingButtons from "@/components/FloatingButtons";
 import TestimonialSection from "@/components/TestimonialSection";
 import { FaWhatsapp } from "react-icons/fa";
@@ -16,30 +17,6 @@ const Home = () => {
     { icon: Users, value: "500+", label: "Expert Team" },
     { icon: Target, value: "100+", label: "Projects Completed" },
     { icon: Zap, value: "Class 1", label: "MEP License" },
-  ];
-
-
-  const projectCategories = [
-    {
-      title: 'IT Commercial',
-      description: 'Buildings in the IT Commercial sector have the longest and most extensive life cycles.These spaces are not only places to work,but also where young people spend a significant amount of their time to be healthy,friendly,and safe',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800'
-    },
-    {
-      title: 'Educational',
-      description: 'Sai balaji infra is a powerful tool that allows buildersand construction company gathers integrate and use visual modelling to improve planning,space utilization and energy optimization of multiple engineering and architectural services.',
-      image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800'
-    },
-    {
-      title: 'Pharma Industries',
-      description: "Sai Balaji Infra has provided MEP/FP support for renovation projects,expansion,and new construction projects for hospitals,nursing and rehablitation centers and private doctor's office for a variety of medical and health care spaces.",
-      image: 'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800'
-    },
-    {
-      title: 'Sub Stations',
-      description: "Sai Balaji Infra has provided MEP/FP support for renovation projects,expansion,and new construction projects for hospitals,nursing and rehablitation centers and private doctor's office for a variety of medical and health care spaces.",
-      image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800'
-    },
   ];
 
   return (
@@ -188,60 +165,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl font-bold mb-2">Our Projects</h2>
-            <div className="w-20 h-1 bg-accent mx-auto mb-4"></div>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Excellence across multiple sectors with innovative MEP solutions
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {projectCategories.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group relative overflow-hidden rounded-lg cursor-pointer"
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
-                  <h3 className="text-xl font-bold mb-2 transform translate-y-2 group-hover:translate-y-0 transition-transform">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    {project.description}
-                  </p>
-                </div>
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Zap className="w-6 h-6 text-secondary animate-glow-pulse" />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* <div className="text-center mt-10">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link to="/projects">View All Projects</Link>
-            </Button>
-          </div> */}
-        </div>
-      </section>
+      <ProjectsSlider />
 
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
@@ -254,7 +178,6 @@ const Home = () => {
 
       {/* Clients Section */}
       <ClientCarousel />
-
 
       <section className="py-15 bg-secondary relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">

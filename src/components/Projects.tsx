@@ -17,10 +17,11 @@ const Projects = () => {
 
   // --- Updated Project Data with types and contracts ---
 
-  const { ongoingProjects, completedProjects} = projectData;
+  const { ongoingProjects, completedProjects } = projectData;
   // --- State for Filters ---
   const [ongoingType, setOngoingType] = useState("all");
   const [ongoingLocation, setOngoingLocation] = useState("all");
+  const [completedCategory, setCompletedCategory] = useState("all");
   const [completedContract, setCompletedContract] = useState("all");
   const [completedSubFilter, setCompletedSubFilter] = useState("all");
 
@@ -30,9 +31,10 @@ const Projects = () => {
   }, [completedContract]);
 
   // --- Dynamically generate filter options ---
-  const ongoingTypes = useMemo(() => ["all", ...new Set(ongoingProjects.map((p) => p.type))], [ongoingProjects]);
+  const ongoingCategories = useMemo(() => ["all", ...new Set(ongoingProjects.map((p) => p.category))], [ongoingProjects]);
   const ongoingLocations = useMemo(() => ["all", ...new Set(ongoingProjects.map((p) => p.location))], [ongoingProjects]);
-  
+
+  const completedCategories = useMemo(() => ["all", ...new Set(completedProjects.map((p) => p.category))], [completedProjects]);
   const completedContractTypes = useMemo(() => ["all", ...new Set(completedProjects.map((p) => p.contractType))], [completedProjects]);
   const completedCivilTypes = useMemo(() => ["all", ...new Set(completedProjects.filter(p => p.contractType === "CIVIL & STRUCTURAL CONTRACTS").map(p => p.type))], [completedProjects]);
   const completedMepLocations = useMemo(() => ["all", ...new Set(completedProjects.filter(p => p.contractType === "MEP CONTRACTS").map(p => p.location))], [completedProjects]);
@@ -41,16 +43,18 @@ const Projects = () => {
   // --- Filtered Project Lists ---
   const filteredOngoingProjects = useMemo(() => {
     return ongoingProjects.filter((project) => {
-      const typeMatch = ongoingType === "all" || project.type === ongoingType;
+      const categoryMatch = ongoingType === "all" || project.category === ongoingType;
       const locationMatch = ongoingLocation === "all" || project.location === ongoingLocation;
-      return typeMatch && locationMatch;
+      return categoryMatch && locationMatch;
     });
   }, [ongoingProjects, ongoingType, ongoingLocation]);
 
   const filteredCompletedProjects = useMemo(() => {
     return completedProjects.filter((project) => {
-      if (completedContract === "all") return true;
-      if (project.contractType !== completedContract) return false;
+      const categoryMatch = completedCategory === "all" || project.category === completedCategory;
+      const contractMatch = completedContract === "all" || project.contractType === completedContract;
+
+      if (!categoryMatch || !contractMatch) return false;
 
       if (completedContract === "CIVIL & STRUCTURAL CONTRACTS") {
         return completedSubFilter === "all" || project.type === completedSubFilter;
@@ -60,7 +64,7 @@ const Projects = () => {
       }
       return true;
     });
-  }, [completedProjects, completedContract, completedSubFilter]);
+  }, [completedProjects, completedContract, completedSubFilter, completedCategory]);
 
   const ProjectCard = ({ project, index }: { project: any; index: number }) => (
     <motion.div
@@ -75,10 +79,14 @@ const Projects = () => {
             alt={project.title}
             className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
           />
-          {/* <div className="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent" />
-          <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground shadow-glow">
-            {project.capacity}
-          </Badge> */}
+          <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
+            <Badge className="bg-accent text-accent-foreground shadow-glow">
+              {project.category}
+            </Badge>
+            <Badge variant="outline" className="bg-black/50 text-white border-none backdrop-blur-sm">
+              {project.sft}
+            </Badge>
+          </div>
         </div>
         <CardHeader>
           <CardTitle className="text-xl font-bold group-hover:text-accent transition-smooth">
@@ -86,19 +94,19 @@ const Projects = () => {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 flex-grow flex flex-col justify-between">
-            <p className="text-muted-foreground text-sm leading-relaxed">
-                {project.description}
-            </p>
-            <div className="flex flex-wrap gap-4 pt-2">
-                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-accent" />
-                <span>{project.location}</span>
-                </div>
-                <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            {project.description}
+          </p>
+          <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <MapPin className="w-4 h-4 text-accent" />
+              <span>{project.location}</span>
+            </div>
+            {/* <div className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <User className="w-4 h-4 text-accent" />
                 <span>{project.client}</span>
-                </div>
-            </div>
+                </div> */}
+          </div>
         </CardContent>
       </Card>
     </motion.div>
@@ -169,11 +177,11 @@ const Projects = () => {
               <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
                 <Select value={ongoingType} onValueChange={setOngoingType}>
                   <SelectTrigger className="w-full sm:w-[200px]">
-                    <SelectValue placeholder="Filter by Type" />
+                    <SelectValue placeholder="Filter by Category" />
                   </SelectTrigger>
                   <SelectContent>
-                    {ongoingTypes.map(type => (
-                      <SelectItem key={type} value={type}>{type === 'all' ? 'All Types' : type}</SelectItem>
+                    {ongoingCategories.map(category => (
+                      <SelectItem key={category} value={category}>{category === 'all' ? 'All Categories' : category}</SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
@@ -199,6 +207,16 @@ const Projects = () => {
             <TabsContent value="completed">
               {/* --- Filters for Completed Projects --- */}
               <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
+                <Select value={completedCategory} onValueChange={setCompletedCategory}>
+                  <SelectTrigger className="w-full sm:w-[240px]">
+                    <SelectValue placeholder="Filter by Category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {completedCategories.map(category => (
+                      <SelectItem key={category} value={category}>{category === 'all' ? 'All Categories' : category}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
                 <Select value={completedContract} onValueChange={setCompletedContract}>
                   <SelectTrigger className="w-full sm:w-[240px]">
                     <SelectValue placeholder="Filter by Contract" />
@@ -230,7 +248,7 @@ const Projects = () => {
                     </SelectTrigger>
                     <SelectContent>
                       {completedMepLocations.map(location => (
-                         <SelectItem key={location} value={location}>{location === 'all' ? 'All Locations' : location}</SelectItem>
+                        <SelectItem key={location} value={location}>{location === 'all' ? 'All Locations' : location}</SelectItem>
                       ))}
                     </SelectContent>
                   </Select>
