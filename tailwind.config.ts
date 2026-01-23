@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -81,12 +82,12 @@ export default {
           },
         },
         "slide-down": {
-          from: { height :'0',opacity:'0'},
-          to : { height :'var(--radix-dropdown-menu-content-height)',opacity:'1'},
+          from: { height: '0', opacity: '0' },
+          to: { height: 'var(--radix-dropdown-menu-content-height)', opacity: '1' },
         },
         "slide-up": {
-          from: { height :'var(--radix-dropdown-menu-content-height)',opacity:'1'},
-          to : { height :'0',opacity:'0'},
+          from: { height: 'var(--radix-dropdown-menu-content-height)', opacity: '1' },
+          to: { height: '0', opacity: '0' },
         },
         "fade-in": {
           "0%": {
@@ -128,7 +129,15 @@ export default {
             opacity: "1"
           }
         },
-        
+        "marquee-left": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        "marquee-right": {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
+        },
+
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -141,8 +150,10 @@ export default {
         "slide-down": "slide-down 0.3s ease-out",
         "slide-up": "slide-up 0.3s ease-out",
         "glow-pulse": "glow-pulse 2s infinite ease-in-out",
+        "marquee-left": "marquee-left var(--duration, 40s) linear infinite",
+        "marquee-right": "marquee-right var(--duration, 40s) linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 } satisfies Config;

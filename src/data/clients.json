@@ -1,147 +1,182 @@
 [
   {
-    "name": "PRESTIGE GROUP",
-    "logo": "/clients/prestigegroup.png",
-    "description": "Leading IT solutions provider"
+    "name": "Aparna Constructions",
+    "logo": "/clients/Aparna Logo.png",
+    "description": "Real Estate Development"
   },
   {
-    "name": "PHOENIX MARKET CITY",
-    "logo": "/clients/phoenix.webp",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Aurobindo Pharma",
+    "logo": "/clients/Aurobindo Logo.jpg",
+    "description": "Pharmaceuticals"
   },
   {
-    "name": "NSL",
-    "logo": "/clients/nslgroup.jpeg",
-    "description": "Power transmission authority"
+    "name": "BITS Pilani",
+    "logo": "/clients/BITS_Pilani-Logo.svg.png",
+    "description": "Higher Education Institution"
   },
   {
-    "name": "TIFR",
-    "logo": "/clients/tifr.png",
-    "description": "Retail and commercial spaces"
+    "name": "BSCPL",
+    "logo": "/clients/BSCPL logo.jpeg",
+    "description": "Infrastructure Development"
   },
   {
-    "name": "TATA PROJECTS LTD",
-    "logo": "/clients/tataprojects.webp",
-    "description": "Higher education institution"
+    "name": "Brigade Group",
+    "logo": "/clients/Brigade_Group_Logo.jpeg",
+    "description": "Real Estate Developers"
   },
   {
-    "name": "TATA HOUSING DEVELOPMENT CORPORATION CO.LTD",
-    "logo": "/clients/tatahousing.png",
-    "description": "Educational campus network"
+    "name": "Chidrupi Towers",
+    "logo": "/clients/Chidrupi Towers.png",
+    "description": "Residential Project"
   },
   {
-    "name": "LODHA GROUP",
-    "logo": "/clients/lodha.png",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Dr. Labs",
+    "logo": "/clients/Dr. Labs Logo.png",
+    "description": "Healthcare & Diagnostics"
   },
   {
-    "name": "BRIGADE ENTRIPRISES LIMITED",
-    "logo": "/clients/brigade.png",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Embassy Group",
+    "logo": "/clients/Embassy_Group_Logo.png",
+    "description": "Commercial Real Estate"
   },
   {
-    "name": "PALLADIUM CONTRUCTIONS",
-    "logo": "/clients/palladium.png",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Godrej Properties",
+    "logo": "/clients/Godrej Properties.jfif",
+    "description": "Real Estate Development"
   },
   {
-    "name": "INDIABULLS CONSTRUCTIONS LIMITED",
-    "logo": "/clients/indiabulls.png",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Hiranandani Group",
+    "logo": "/clients/Hiranandani Group Logo.jpeg",
+    "description": "Real Estate Developers"
   },
   {
-    "name": "APARNA CONSTRUCTIONS & ESTATES PVTLTD",
-    "logo": "/clients/aparna.jpeg",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Honor Homes",
+    "logo": "/clients/Honor Homes.jpg",
+    "description": "Housing & Development"
   },
   {
-    "name": "APARNA INFRA HOUSING PVTLTD",
-    "logo": "/clients/aparna.jpeg",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "IL&FS ENGINEERING & CONSTRUCTIONS COMPANYLIMITED",
-    "logo": "/clients/ilfs.avif",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "GLOBAL ENTROPOLIS (VIZAG) PVT LTD",
-    "logo": "/clients/global.avif",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "MANTRI DEVELOPERS PVT LTD",
-    "logo": "/clients/mantri.jpeg",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "IJM (INDIA) INFRASTRUCTURES LTD",
-    "logo": "/clients/ijm.png",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "L&T ECC Division",
-    "logo": "/clients/lt.jpg",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "ERA INFRA LTD",
-    "logo": "/clients/era.png",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "BIRLA INSTITUTE OF TECHNOLOGY & SCIENCES ",
-    "logo": "/clients/bits.png",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "SHAPOORJI POLONJY & CO LTD",
-    "logo": "/clients/sp.png",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "MAYTAS INFRA / MAYTAS PROPERTIES",
-    "logo": "/clients/maytas.jpeg",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "DECCAN INFRASTRUCTURES AND LAND HOLDINGS LIMITED",
-    "logo": "/clients/deccangroup.png",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "MYHOME",
-    "logo": "/clients/myhome.webp",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "HIRANANDANI",
-    "logo": "/clients/hiranandani.jpeg",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "PROVIDENT",
-    "logo": "/clients/provident.png",
-    "description": "Pharmaceutical manufacturing"
-  },
-  {
-    "name": "JMC",
-    "logo": "/clients/jmc.jpeg",
-    "description": "Pharmaceutical manufacturing"
+    "name": "IJM Properties",
+    "logo": "/clients/IJM Logo.png",
+    "description": "Infrastructure & Construction"
   },
   {
     "name": "IVRCL",
-    "logo": "/clients/ivrcl.png",
-    "description": "Pharmaceutical manufacturing"
+    "logo": "/clients/IVRCL Logo.jpg",
+    "description": "Infrastructure Projects"
   },
   {
-    "name": "PRANEETH",
-    "logo": "/clients/praneeth.png",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Kapil Group",
+    "logo": "/clients/Kapil Group.png",
+    "description": "Diversified Business Conglomerate"
   },
   {
-    "name": "MLDL",
-    "logo": "/clients/mldl.png",
-    "description": "Pharmaceutical manufacturing"
+    "name": "Kessaku (Phoenix)",
+    "logo": "/clients/Kassaku Logo.png",
+    "description": "Luxury Residential"
+  },
+  {
+    "name": "Kessaku Palladium",
+    "logo": "/clients/Kassaku Palldium Logo.jpg",
+    "description": "Luxury Apartments"
+  },
+  {
+    "name": "Larsen & Toubro",
+    "logo": "/clients/Larsen-and-turbo-LT-logo.png",
+    "description": "Technology, Engineering, Construction"
+  },
+  {
+    "name": "Lodha Group",
+    "logo": "/clients/Lodha---New-LOgo.png",
+    "description": "Real Estate Developers"
+  },
+  {
+    "name": "Lancor / L-1",
+    "logo": "/clients/Logo_L-1.png",
+    "description": "Construction & Infrastructure"
+  },
+  {
+    "name": "Mahindra Lifespaces",
+    "logo": "/clients/Mahindra Life spaces Logo.jpg",
+    "description": "Real Estate & Infrastructure"
+  },
+  {
+    "name": "Mantri Developers",
+    "logo": "/clients/Mantari Logo.jpg",
+    "description": "Real Estate Development"
+  },
+  {
+    "name": "Maytas",
+    "logo": "/clients/Maytas-Logo.jpg",
+    "description": "Infrastructure & Construction"
+  },
+  {
+    "name": "My Home Group",
+    "logo": "/clients/Myhome Logo.jpg",
+    "description": "Real Estate & Construction"
+  },
+  {
+    "name": "NSL Group",
+    "logo": "/clients/NSL group logo.jpg",
+    "description": "Power, Infrastructure, Textiles"
+  },
+  {
+    "name": "Pooja Crafted Homes",
+    "logo": "/clients/Pooja Crafted Homes Logo.jpg",
+    "description": "Residential Construction"
+  },
+  {
+    "name": "Praneeth Group",
+    "logo": "/clients/Praneeth Group Logo.png",
+    "description": "Real Estate Developers"
+  },
+  {
+    "name": "Prestige Group",
+    "logo": "/clients/Prestige Group.jpeg",
+    "description": "Property Development"
+  },
+  {
+    "name": "Radhey Cloudwoods",
+    "logo": "/clients/Radhey Cloudwoods.jpg",
+    "description": "Residential Project"
+  },
+  {
+    "name": "Radhey Constructions",
+    "logo": "/clients/Radhey Logo.jpg",
+    "description": "Construction Services"
+  },
+  {
+    "name": "SAS Infra",
+    "logo": "/clients/SAS-Infra logo.png",
+    "description": "Infrastructure Projects"
+  },
+  {
+    "name": "Shapoorji Pallonji",
+    "logo": "/clients/Shapurji Pallonji Logo.png",
+    "description": "Engineering & Construction"
+  },
+  {
+    "name": "Tata Housing",
+    "logo": "/clients/TATA Housing.png",
+    "description": "Residential Property Development"
+  },
+  {
+    "name": "TIFR",
+    "logo": "/clients/TIFR-Logo.jpg",
+    "description": "Tata Institute of Fundamental Research"
+  },
+  {
+    "name": "Vasavi Group",
+    "logo": "/clients/Vasavi Group.png",
+    "description": "Real Estate Developers"
+  },
+  {
+    "name": "IL&FS",
+    "logo": "/clients/ilfs lOgo.jpg",
+    "description": "Infrastructure Development"
+  },
+  {
+    "name": "Western Constructions",
+    "logo": "/clients/western_constructions_official_logo.jpg",
+    "description": "Construction Company"
   }
 ]

@@ -5,20 +5,21 @@ import { ArrowRight, Zap, Award, Users, Target } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 // import heroVideo from "@/assets/hero-video.mp4";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
+import ClientCarousel from "@/pages/Home/ClientCarousel";
 import FloatingButtons from "@/components/FloatingButtons";
 import TestimonialSection from "@/components/TestimonialSection";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
   const stats = [
-    { icon: Award, value: "40+", label: "Years Experience" },
+    { icon: Award, value: "21", label: "Years Experience" },
     { icon: Users, value: "500+", label: "Expert Team" },
-    { icon: Target, value: "1000+", label: "Projects Completed" },
-    { icon: Zap, value: "A Grade", label: "MEP License" },
+    { icon: Target, value: "100+", label: "Projects Completed" },
+    { icon: Zap, value: "Class 1", label: "MEP License" },
   ];
 
 
-   const projectCategories = [
+  const projectCategories = [
     {
       title: 'IT Commercial',
       description: 'Buildings in the IT Commercial sector have the longest and most extensive life cycles.These spaces are not only places to work,but also where young people spend a significant amount of their time to be healthy,friendly,and safe',
@@ -179,7 +180,7 @@ const Home = () => {
                 <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 group-hover:rotate-6 transition-spring">
                   <stat.icon className="w-10 h-10 text-accent" />
                 </div>
-                <h3 className="text-4xl font-bold text-foreground mb-2">{stat.value}</h3>
+                <h3 className="text-3xl font-bold text-foreground mb-2">{stat.value}</h3>
                 <p className="text-muted-foreground font-medium">{stat.label}</p>
               </motion.div>
             ))}
@@ -187,7 +188,7 @@ const Home = () => {
         </div>
       </section>
 
-          <section className="py-20 bg-muted">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -212,8 +213,8 @@ const Home = () => {
                 transition={{ delay: index * 0.1 }}
                 className="group relative overflow-hidden rounded-lg cursor-pointer"
               >
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
@@ -251,14 +252,17 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Clients Section */}
+      <ClientCarousel />
 
-       <section className="py-15 bg-secondary relative overflow-hidden">
+
+      <section className="py-15 bg-secondary relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <TestimonialSection />
         </div>
       </section>
 
-      
+
 
       {/* CTA Section */}
       <section className="py-24 bg-primary text-primary-foreground">

@@ -4,9 +4,9 @@ import aboutImage from "@/assets/about-us.jpg";
 
 const AboutPage = () => {
   const stats = [
-    { icon: Award, value: "40+", label: "Years Experience" },
+    { icon: Award, value: "21", label: "Years Experience" },
     { icon: Users, value: "500+", label: "Expert Team" },
-    { icon: Target, value: "1000+", label: "Projects Completed" },
+    { icon: Target, value: "100+", label: "Projects Completed" },
     { icon: TrendingUp, value: "98%", label: "Client Satisfaction" },
   ];
 

@@ -79,8 +79,8 @@ const ClientList = () => {
     normalizedQuery.length === 0
       ? clientsData
       : clientsData.filter((client) =>
-          (client.name || "").toLowerCase().includes(normalizedQuery)
-        );
+        (client.name || "").toLowerCase().includes(normalizedQuery)
+      );
 
   return (
     <div className="min-h-screen bg-white text-foreground">
@@ -158,21 +158,21 @@ const ClientList = () => {
                 className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden cursor-pointer border"
                 onClick={() => setSelectedClient(client)}
               >
-                <div className="h-3/4 p-4 flex items-center justify-center bg-gray-50">
+                <div className="h-full p-4 flex items-center justify-center bg-gray-50">
                   <img
                     src={client.logo}
                     alt={`${client.name} Logo`}
                     className="h-full w-full object-contain"
                   />
                 </div>
-                <div className="p-4 text-center border-t">
+                {/* <div className="p-4 text-center border-t">
                   <h3 className="text-sm font-semibold h-10 flex items-center justify-center">
                     {client.name}
                   </h3>
-                </div>
+                </div> */}
               </motion.div>
             ))}
-            
+
             {/* Handle No Results */}
             {filteredClients.length === 0 && searchQuery.length > 0 && (
               <p className="col-span-full text-center text-gray-500 py-10">
@@ -182,15 +182,15 @@ const ClientList = () => {
           </motion.div>
         </div>
       </section>
-      
+
       {/* --- NEW SECTION: Registration Details --- */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
-             variants={fadeIn}
-             initial="initial"
-             whileInView="whileInView"
-             className="text-center mb-12"
+            variants={fadeIn}
+            initial="initial"
+            whileInView="whileInView"
+            className="text-center mb-12"
           >
             <FileText className="w-12 h-12 text-accent mx-auto mb-4" />
             <h2 className="text-3xl md:text-4xl font-bold">
@@ -198,7 +198,7 @@ const ClientList = () => {
             </h2>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="whileInView"

@@ -6,12 +6,12 @@ import CombinedAnimatedFeatures from "@/components/CombinedAnimatedFeatures";
 
 const WhyUs = () => {
   const stats = [
-    { icon: Award, value: "40+", label: "Years Experience" },
+    { icon: Award, value: "21", label: "Years Experience" },
     { icon: Users, value: "500+", label: "Expert Team" },
-    { icon: Target, value: "1000+", label: "Projects Completed" },
+    { icon: Target, value: "100+", label: "Projects Completed" },
     { icon: TrendingUp, value: "98%", label: "Client Satisfaction" },
   ];
-    const highlights = [
+  const highlights = [
     "Super grade-1 in EHV & HV Substation Works",
     "Well Defined and Co-ordinated Process for Seamless Installations",
     "Technical Expertise and quality that is unsurpassable",
@@ -23,7 +23,7 @@ const WhyUs = () => {
   return (
     <div className="min-h-screen ">
       {/* Header */}
-         <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={whyusImage}
@@ -52,13 +52,13 @@ const WhyUs = () => {
 
       {/* Mission Vision Quality */}
       <section className="py-24 bg-secondary/30">
-         <Card className=" mt-12 border-primary/20">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-4">Types of Projects We Handle</h2>
-              <p className="text-lg text-primary mb-4 font-semibold">
-                We excel in the field of consultancy and projects building to execute the projects of:
-              </p>
-              {/* <ul className="space-y-3 pl-0 list-none">
+        <Card className=" mt-12 border-primary/20">
+          <CardContent className="p-8">
+            <h2 className="text-2xl font-bold mb-4">Types of Projects We Handle</h2>
+            <p className="text-lg text-primary mb-4 font-semibold">
+              We excel in the field of consultancy and projects building to execute the projects of:
+            </p>
+            {/* <ul className="space-y-3 pl-0 list-none">
                 {projects.map((project, index) => (
                   <motion.li
                     key={index}
@@ -72,60 +72,60 @@ const WhyUs = () => {
                   </motion.li> 
                 ))}
               </ul> */}
-              <div className="w-full bg-white">
-          <div className="max-w-[1400px] mx-auto px-4 ">
-            <CombinedAnimatedFeatures />
-          </div>
-        </div>
-            </CardContent>
-          </Card>
-      
+            <div className="w-full bg-white">
+              <div className="max-w-[1400px] mx-auto px-4 ">
+                <CombinedAnimatedFeatures />
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
       </section>
 
       {/* Company Overview */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-         
+
 
           {/* Highlights Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">
-              Why Choose Us
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Excellence in Every Project
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
+          <section className="py-24 bg-background">
+            <div className="container mx-auto px-4">
               <motion.div
-                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group p-8 rounded-2xl bg-card hover:shadow-large transition-spring border border-border/50 hover:-translate-y-2"
+                transition={{ duration: 0.6 }}
+                className="text-center mb-16"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="w-2 h-2 mt-2 rounded-full bg-accent flex-shrink-0 group-hover:scale-150 transition-spring" />
-                  <p className="text-lg text-foreground font-medium leading-relaxed">
-                    {highlight}
-                  </p>
-                </div>
+                <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">
+                  Why Choose Us
+                </span>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Excellence in Every Project
+                </h2>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {highlights.map((highlight, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="group p-8 rounded-2xl bg-card hover:shadow-large transition-spring border border-border/50 hover:-translate-y-2"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="w-2 h-2 mt-2 rounded-full bg-accent flex-shrink-0 group-hover:scale-150 transition-spring" />
+                      <p className="text-lg text-foreground font-medium leading-relaxed">
+                        {highlight}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
