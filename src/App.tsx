@@ -13,7 +13,7 @@ import QualityPolicy from "./pages/About/QualityPolicy";
 import ClientList from "./pages/About/ClientList";
 import Projects from "./components/Projects";
 import ServicesPage from "./pages/ServicesPage";
-import Achievements from "./components/Achievements";
+import Credentials from "./components/Credentials";
 import KeyPersonsPage from "./pages/KeyPersonsPage";
 import Gallery from "./components/Gallery";
 import Careers from "./components/Careers";
@@ -28,7 +28,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-      <ScrollToTop />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -39,8 +39,9 @@ const App = () => (
             <Route path="about/clientlist" element={<ClientList />} />
             <Route path="projects" element={<Projects />} />
             <Route path="services" element={<ServicesPage />} />
-            <Route path="achievements" element={<Achievements />} />
+            <Route path="credentials" element={<Credentials />} />
             <Route path="key-persons" element={<KeyPersonsPage />} />
+
             <Route path="gallery" element={<Gallery />} />
             <Route path="careers" element={<Careers />} />
             <Route path="contact" element={<Contact />} />
