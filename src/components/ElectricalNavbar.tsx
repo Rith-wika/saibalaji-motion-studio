@@ -115,12 +115,8 @@ const ElectricalNavbar: React.FC = () => {
 
         <div className="flex items-center justify-between py-4 relative z-20">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center shadow-glow bg-transparent">
-              <img src="/logo.png" alt="SAI BALAJI Logo" className="w-16 h-16 object-cover p-0" />
-            </div>
-            <div className="hidden sm:block">
-              <div className={`${(isScrolled || hoverActive || open) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
-              <div className={`${(isScrolled || hoverActive || open) ? 'text-black/70' : 'text-white/80'} text-xs`}>Your Satisfaction Is Our Mission</div>
+            <div className="w-auto h-24 overflow-hidden flex items-center justify-center  bg-transparent">
+              <img src="/logo.png" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
             </div>
           </Link>
 
