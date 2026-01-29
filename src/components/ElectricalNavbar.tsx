@@ -12,7 +12,7 @@ const navItems = [
   { label: "About Us", path: "/about" }, // Will also have dropdown
   { label: "Projects", path: "/projects" },
   { label: "Services", path: "/services" },
-  { label: "Credentials", path: "/credentials" },
+  { label: "Achievements", path: "/achievements" },
   { label: "Key Persons", path: "/key-persons" },
   { label: "Gallery", path: "/gallery" },
   { label: "Careers", path: "/careers" },
@@ -41,7 +41,7 @@ function SplitChars({ text }: { text: string }) {
 const ElectricalNavbar: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  
   // New state for Mobile About Us toggle
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
 
@@ -52,7 +52,7 @@ const ElectricalNavbar: React.FC = () => {
 
   const navRef = React.useRef<HTMLElement | null>(null);
   const location = useLocation();
-
+  
   const isActive = (path: string) => location.pathname === path;
 
   useEffect(() => {
@@ -80,7 +80,7 @@ const ElectricalNavbar: React.FC = () => {
   const handleMouseLeave = () => {
     setHoverActive(false);
   };
-
+      
   return (
     <nav
       ref={navRef}
@@ -114,21 +114,21 @@ const ElectricalNavbar: React.FC = () => {
         </div>
 
         <div className="flex items-center justify-between py-4 relative z-20">
-          <Link to="/" className="flex items-center gap-3">
-            <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center shadow-glow bg-transparent">
-              <img src="/logo.png" alt="SAI BALAJI Logo" className="w-16 h-16 object-cover p-0" />
-            </div>
-            <div className="hidden sm:block">
-              <div className={`${(isScrolled || hoverActive || open) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
-              <div className={`${(isScrolled || hoverActive || open) ? 'text-black/70' : 'text-white/80'} text-xs`}>Your Satisfaction Is Our Mission</div>
-            </div>
-          </Link>
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center shadow-glow bg-transparent">
+                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-16 h-16 object-cover p-0"/>
+              </div>
+              <div className="hidden sm:block">
+                <div className={`${(isScrolled || hoverActive || open) ? 'text-black' : 'text-white'} font-bold`}>Sai Balaji Infra India Pvt. Ltd.</div>
+                <div className={`${(isScrolled || hoverActive || open) ? 'text-black/70' : 'text-white/80'} text-xs`}>Your Satisfaction Is Our Mission</div>
+              </div>
+            </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-2">
             {navItems.map((item) => {
               const active = isActive(item.path);
-
+              
               if (item.label === "About Us") {
                 const anySubItemActive = aboutDropdownItems.some(sub => isActive(sub.path));
                 const isAboutActive = active || anySubItemActive;
@@ -138,29 +138,31 @@ const ElectricalNavbar: React.FC = () => {
                       to={item.path}
                       onMouseEnter={(e) => handleMouseEnter(e)}
                       onMouseLeave={handleMouseLeave}
-                      className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${isAboutActive
-                          ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                          : hoverActive
-                            ? 'text-black hover:bg-secondary/50'
-                            : isScrolled
-                              ? 'text-black hover:bg-secondary/50'
+                      className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${
+                        isAboutActive 
+                          ? 'text-accent bg-accent/10 hover:bg-accent/20' 
+                          : hoverActive 
+                            ? 'text-black hover:bg-secondary/50' 
+                            : isScrolled 
+                              ? 'text-black hover:bg-secondary/50' 
                               : 'text-white hover:bg-white/5'
-                        }`}
+                      }`}
                     >
                       <span className="electric-bg" aria-hidden />
                       <SplitChars text={item.label} />
                     </Link>
                     <DropdownMenu>
-                      <DropdownMenuTrigger
-                        className={`inline-flex items-center justify-center rounded-md w-6 h-6 transition-colors hover:bg-accent/10 ${isAboutActive
-                            ? 'text-accent'
+                      <DropdownMenuTrigger 
+                        className={`inline-flex items-center justify-center rounded-md w-6 h-6 transition-colors hover:bg-accent/10 ${
+                          isAboutActive 
+                            ? 'text-accent' 
                             : isScrolled || hoverActive
-                              ? 'text-black'
+                              ? 'text-black' 
                               : 'text-white'
-                          }`}
+                        }`}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="m6 9 6 6 6-6" />
+                          <path d="m6 9 6 6 6-6"/>
                         </svg>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="start">
@@ -168,12 +170,13 @@ const ElectricalNavbar: React.FC = () => {
                           const subActive = isActive(subItem.path);
                           return (
                             <DropdownMenuItem key={subItem.path} asChild>
-                              <Link
-                                to={subItem.path}
-                                className={`w-full block px-2 py-1.5 text-sm transition-colors ${subActive
-                                    ? 'text-accent bg-accent/10 font-medium'
+                              <Link 
+                                to={subItem.path} 
+                                className={`w-full block px-2 py-1.5 text-sm transition-colors ${
+                                  subActive 
+                                    ? 'text-accent bg-accent/10 font-medium' 
                                     : 'hover:text-accent'
-                                  }`}
+                                }`}
                               >
                                 {subItem.label}
                               </Link>
@@ -192,13 +195,14 @@ const ElectricalNavbar: React.FC = () => {
                   to={item.path}
                   onMouseEnter={(e) => handleMouseEnter(e)}
                   onMouseLeave={handleMouseLeave}
-                  className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${active
-                      ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                      : hoverActive
-                        ? 'text-black hover:bg-secondary/50'
-                        : isScrolled
-                          ? 'text-black hover:bg-secondary/50'
-                          : 'text-white hover:bg-white/5'
+                  className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${
+                      active 
+                        ? 'text-accent bg-accent/10 hover:bg-accent/20' 
+                        : hoverActive 
+                          ? 'text-black hover:bg-secondary/50' 
+                          : isScrolled 
+                            ? 'text-black hover:bg-secondary/50' 
+                            : 'text-white hover:bg-white/5'
                     }`}
                 >
                   <span className="electric-bg" aria-hidden />
@@ -227,7 +231,7 @@ const ElectricalNavbar: React.FC = () => {
               {navItems.map((item) => {
                 const active = isActive(item.path);
                 const textColor = (isScrolled || open) ? 'text-black' : 'text-white';
-
+                
                 // Special handling for About Us in mobile menu (Accordion Style)
                 if (item.label === "About Us") {
                   return (
@@ -236,10 +240,11 @@ const ElectricalNavbar: React.FC = () => {
                         <Link
                           to={item.path}
                           onClick={() => setOpen(false)}
-                          className={`px-4 py-2 rounded-lg transition-colors block font-medium flex-1 ${active
+                          className={`px-4 py-2 rounded-lg transition-colors block font-medium flex-1 ${
+                            active
                               ? 'text-accent bg-accent/10'
                               : `${textColor} hover:bg-black/5`
-                            }`}
+                          }`}
                         >
                           {item.label}
                         </Link>
@@ -249,23 +254,23 @@ const ElectricalNavbar: React.FC = () => {
                           className={`p-2 rounded-md transition-all ${textColor} hover:bg-black/5`}
                           aria-label="Toggle About Us submenu"
                         >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
+                          <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2" 
+                            strokeLinecap="round" 
                             strokeLinejoin="round"
                             className={`transition-transform duration-300 ${mobileAboutOpen ? 'rotate-180' : ''}`}
                           >
-                            <path d="m6 9 6 6 6-6" />
+                            <path d="m6 9 6 6 6-6"/>
                           </svg>
                         </button>
                       </div>
-
+                      
                       {/* Conditional rendering for submenu */}
                       {mobileAboutOpen && (
                         <div className="pl-4 space-y-1 bg-black/5 rounded-lg mx-4 py-2 border-l-2 border-accent/20">
@@ -274,10 +279,11 @@ const ElectricalNavbar: React.FC = () => {
                               key={sub.path}
                               to={sub.path}
                               onClick={() => setOpen(false)}
-                              className={`pl-4 py-2 rounded-md transition-colors block text-sm ${isActive(sub.path)
+                              className={`pl-4 py-2 rounded-md transition-colors block text-sm ${
+                                isActive(sub.path)
                                   ? 'text-accent font-medium'
                                   : 'text-black/80 hover:text-black'
-                                }`}
+                              }`}
                             >
                               {sub.label}
                             </Link>
@@ -293,12 +299,13 @@ const ElectricalNavbar: React.FC = () => {
                     key={item.path}
                     to={item.path}
                     onClick={() => setOpen(false)}
-                    className={`px-4 py-2 rounded-lg transition-colors ${active
-                        ? 'text-accent bg-accent/10 hover:bg-accent/20'
+                    className={`px-4 py-2 rounded-lg transition-colors ${
+                      active 
+                        ? 'text-accent bg-accent/10 hover:bg-accent/20' 
                         : (isScrolled || open)
-                          ? 'text-black hover:bg-secondary/50'
+                          ? 'text-black hover:bg-secondary/50' 
                           : 'text-white hover:bg-white/5'
-                      }`}
+                    }`}
                   >
                     {item.label}
                   </Link>
