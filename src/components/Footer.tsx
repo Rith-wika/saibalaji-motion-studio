@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -32,12 +32,8 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-               <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center shadow-glow bg-transparent">
-                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-16 h-16 object-cover p-0"/>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">SAI BALAJI</h3>
-                <p className="text-xs text-primary-foreground/70">Infra India Pvt. Ltd.</p>
+              <div className="w-auto h-24 overflow-hidden flex items-center justify-center bg-transparent">
+                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
               </div>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">
@@ -45,28 +41,34 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               <a
-                href="#"
+                href="#" target="_blank"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-spring hover:scale-110"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="#" target="_blank"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-spring hover:scale-110"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/sai-balaji-infra-india-pvt.-ltd./" target="_blank"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-spring hover:scale-110"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/sai_balaji_infra_india_pvt_ltd?igsh=cDI5bGs3a2NtdjJq" target="_blank"
                 className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-spring hover:scale-110"
               >
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://youtube.com/@saibalajiinfraindiapvtltd?si=0GT2W5aKo-ZfD1js" target="_blank"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 hover:bg-accent flex items-center justify-center transition-spring hover:scale-110"
+              >
+                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </div>
@@ -74,7 +76,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-bold mb-6">Quick Links</h4>
-             <ul className="space-y-2">
+            <ul className="space-y-2">
               <li><Link to="/" className="text-sm hover:text-accent transition-colors">Home</Link></li>
               <li><Link to="/about/" className="text-sm hover:text-accent transition-colors">About Us</Link></li>
               <li><Link to="/projects" className="text-sm hover:text-accent transition-colors">Projects</Link></li>
@@ -82,19 +84,6 @@ const Footer = () => {
               <li><Link to="/gallery" className="text-sm hover:text-accent transition-colors">Gallery</Link></li>
               <li><Link to="/contact" className="text-sm hover:text-accent transition-colors">Contact</Link></li>
             </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-bold mb-6">Our Services</h4>
-              <ul className="space-y-2">
-              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">Electrical</Link></li>
-              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">Fire Fighting</Link></li>
-              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">CCTV Services</Link></li>
-              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">HAV Service</Link></li>
-              <li><Link to="/services" className="text-sm hover:text-accent transition-colors">Fire Alaram</Link></li>
-            </ul>
-            
           </div>
 
           {/* Contact Info */}
@@ -109,29 +98,49 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-accent transition-smooth cursor-pointer"
                 >
-                  PLOT NO.135 SAI BALAJI HEIGHTS LAXMI NAGAR, MIYAPUR, HYDERABAD.
+                  SAI BALAJI INFRA INDIA PVT LTD, LAXMI NAGAR, MIYAPUR, HYDERABAD 500049.
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
                 <a
-                  href="tel:+912212345678"
+                  href="tel:+919014467222"
                   className="text-primary-foreground/70 hover:text-accent transition-smooth"
                 >
-                  +91 9848745295
+                  +91 90144 67222
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-sm">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                 <a
-                  href="mailto:saibalajitechnologies.com"
+                  href="mailto:tenders@saibalajiinfra.com"
                   className="text-primary-foreground/70 hover:text-accent transition-smooth"
                 >
-                  saibalajitechnologies@gmail.com
+                  tenders@saibalajiinfra.com
+                </a>
+              </li>
+              <li className="flex items-center space-x-3 text-sm">
+                <Mail className="w-5 h-5 text-accent flex-shrink-0" />
+                <a
+                  href="mailto:sales@saibalajiinfra.com"
+                  className="text-primary-foreground/70 hover:text-accent transition-smooth"
+                >
+                  sales@saibalajiinfra.com
                 </a>
               </li>
             </ul>
           </div>
+
+          {/* Logos */}
+          <div className="flex flex-col items-center gap-4 space-x-3 mb-6">
+            <div className="w-auto h-24 overflow-hidden flex items-center justify-center bg-transparent">
+              <img src="/MLP.jpeg" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
+            </div>
+            <div className="w-auto h-24 overflow-hidden flex items-center justify-center bg-transparent">
+              <img src="/LLP.jpeg" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
+            </div>
+          </div>
+
         </div>
 
         {/* Bottom Bar */}

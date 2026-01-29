@@ -28,17 +28,22 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      content: "PLOT NO.135 SAI BALAJI HEIGHTS LAXMI NAGAR, MIYAPUR, HYDERABAD.",
+      content: "SAI BALAJI INFRA INDIA PVT LTD, LAXMI NAGAR, MIYAPUR, HYDERABAD.",
     },
     {
       icon: Phone,
       title: "Call Us",
-      content: "+91 9848745295",
+      content: "+91 9014467222",
     },
     {
       icon: Mail,
       title: "Email Us",
-      content: "saibalajitechnologies@gmail.com",
+      content: (
+        <div className="flex flex-col gap-1">
+          <a href="mailto:tenders@saibalajiinfra.com" className="hover:text-primary transition-colors">tenders@saibalajiinfra.com</a>
+          <a href="mailto:sales@saibalajiinfra.com" className="hover:text-primary transition-colors">sales@saibalajiinfra.com</a>
+        </div>
+      ),
     },
     {
       icon: Clock,
@@ -69,7 +74,7 @@ const Contact = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
               Contact Us
             </h1>
-           
+
           </motion.div>
         </div>
       </section>
@@ -188,7 +193,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-bold text-foreground mb-1">{info.title}</h3>
-                        <p className="text-muted-foreground text-sm">{info.content}</p>
+                        <div className="text-muted-foreground text-sm">{info.content}</div>
                       </div>
                     </CardContent>
                   </Card>
@@ -215,7 +220,7 @@ const Contact = () => {
         </div>
       </section>
     </div>
-   
+
   );
 };
 

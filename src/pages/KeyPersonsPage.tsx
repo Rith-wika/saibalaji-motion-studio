@@ -9,35 +9,44 @@ const KeyPersonsPage = () => {
       name: "Mr. A.Ramaprabhu",
       position: "Managing Director",
       image: "/persons/ramaprabhu.png",
-      message: "Driving strategic growth and delivering lasting value.",
-      mail: "saibalajitechnologies@gmail.com",
+      mail: "ramaprabhu@saibalajiinfra.com",
       phone: "+91 9848246533",
     },
     {
       name: "Mr. A.Purshottam",
       position: "Executive Director",
       image: "/persons/purshottamu.jpeg",
-      message: "Turning strategy into seamless, high-quality operations.",
-      mail: "attepally2008@gmail.com",
+      mail: "purushottamu@saibalajiinfra.com",
       phone: "+91 9848494706",
     },
     {
       name: "Mr.Hari Shankar Ray",
       position: "VP, Contracts",
       image: "persons/harishankarray.jpeg",
-      message: "Protecting company interests through precise, compliant contract management.",
-      mail: "hs.sbiipl@gmail.com",
+      mail: "harishankar@saibalajiinfra.com",
       phone: "+91 9848745295",
     },
     {
-      name: "Mr.B.Shivaiah",
+      name: "Mr. B.Shivaiah",
       position: "Procurement Head",
       image: "persons/shivaiah.jpeg",
-      message: "Streamlining efficient procurement with quality materials ,supply chain and strict cost control for project.",
-      mail: "shivateja2004@gmail.com",
+      mail: "shivaiah@saibalajiinfra.com",
       phone: "+91 9642311153",
     },
-
+    {
+      name: "Mr. B.Vijay Gautham",
+      position: "Associate Vice President",
+      image: "persons/shivaiah.jpeg",
+      mail: "vijaygoutham@saibalajiinfra.com",
+      phone: "+91 9989932325",
+    },
+    {
+      name: "Mr. W.Prasad",
+      position: "AVP- Projects",
+      image: "persons/shivaiah.jpeg",
+      mail: "prasad.w@saibalajiinfra.com",
+      phone: "+91 7207974311",
+    },
   ];
 
   return (
@@ -63,9 +72,6 @@ const KeyPersonsPage = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
               Key Persons
             </h1>
-            {/* <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              One of the most reliable & eligible Electrical 'A' Grade License Holder MEP Contractors having ISO-9001:2015 Certified
-            </p> */}
           </motion.div>
         </div>
       </section>
@@ -88,67 +94,56 @@ const KeyPersonsPage = () => {
       {/* Director Messages */}
       <section className="py-24 bg-secondary/30">
         <div className="container mx-auto px-4">
-          {/* Outer Grid: 2 cards per row */}
-          <div className=" grid md:grid-cols-2 gap-16 items-start">
+          {/* Grid: 3 cards per row for better vertical layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 items-start">
             {keyPersons.map((person, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Card className="overflow-hidden hover:shadow-large transition-spring border-border/50">
+                <Card className="overflow-hidden hover:shadow-large transition-spring border-border/50 h-full flex flex-col">
 
-                  {/* KEY CHANGE: Internal Grid - Image beside Content (2 columns on medium screens and up) */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                    {/* Image */}
-                    {/* NOTE: We've removed the fixed height h-[400px] to allow it to flex vertically */}
-                    <div className="relative **h-full**">
-                      <img
-                        src={person.image}
-                        alt={person.name}
-                        className="w-full h-full object-cover transition-smooth duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
-
-                      {/* Social Links */}
-                      <div className="absolute bottom-6 left-6 flex space-x-3">
-                        <a
-                          className="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:scale-110 transition-spring shadow-glow"
-                          href={`tel:${person.phone}`}
-                          aria-label={`Call ${person.name}`}
-                        >
-                          <Phone className="w-6 h-6 text-accent-foreground" />
-                        </a>
-                        <a
-                          href={`mailto:${person.mail}`}
-                          className="w-12 h-12 rounded-full bg-accent flex items-center justify-center hover:scale-110 transition-spring shadow-glow "
-                          aria-label={`Email ${person.name}`}
-                        >
-                          <Mail className="w-6 h-6 text-accent-foreground" />
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <CardContent className="p-8 lg:p-12 flex flex-col justify-center **h-full**">
-                      <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">
-                        {person.position}
-                      </span>
-                      <h2 className="text-2xl md:text-md font-bold text-foreground mb-6">
-                        {person.name}
-                      </h2>
-                      <div className="relative">
-                        <div className="absolute -left-4 top-0 text-6xl text-accent/20 font-serif">"</div>
-                        <p className="text-muted-foreground leading-relaxed text-lg pl-8">
-                          {person.message}
-                        </p>
-                        <div className="absolute -right-4 bottom-0 text-6xl text-accent/20 font-serif rotate-180">"</div>
-                      </div>
-                    </CardContent>
+                  {/* Image Section */}
+                  <div className="relative h-[400px] w-full">
+                    <img
+                      src={person.image}
+                      alt={person.name}
+                      className="w-full h-full object-cover object-top transition-smooth duration-700 hover:scale-105"
+                    />
                   </div>
+
+                  {/* Content Section */}
+                  <CardContent className="p-6 flex flex-col items-center text-center bg-white flex-grow">
+                    <h2 className="text-2xl font-bold text-foreground mb-2">
+                      {person.name}
+                    </h2>
+                    <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-6 block">
+                      {person.position}
+                    </span>
+
+                    <div className="w-full h-px bg-border/50 mb-6" />
+
+                    <div className="flex items-center justify-center gap-6 w-full">
+                      <a
+                        href={`tel:${person.phone}`}
+                        className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110"
+                        title={person.phone}
+                      >
+                        <Phone className="w-5 h-5" />
+                      </a>
+
+                      <a
+                        href={`mailto:${person.mail}`}
+                        className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:scale-110"
+                        title={person.mail}
+                      >
+                        <Mail className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </CardContent>
                 </Card>
               </motion.div>
             ))}

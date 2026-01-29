@@ -139,12 +139,12 @@ const ElectricalNavbar: React.FC = () => {
                       onMouseEnter={(e) => handleMouseEnter(e)}
                       onMouseLeave={handleMouseLeave}
                       className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${isAboutActive
-                          ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                          : hoverActive
+                        ? 'text-accent bg-accent/10 hover:bg-accent/20'
+                        : hoverActive
+                          ? 'text-black hover:bg-secondary/50'
+                          : isScrolled
                             ? 'text-black hover:bg-secondary/50'
-                            : isScrolled
-                              ? 'text-black hover:bg-secondary/50'
-                              : 'text-white hover:bg-white/5'
+                            : 'text-white hover:bg-white/5'
                         }`}
                     >
                       <span className="electric-bg" aria-hidden />
@@ -153,10 +153,10 @@ const ElectricalNavbar: React.FC = () => {
                     <DropdownMenu>
                       <DropdownMenuTrigger
                         className={`inline-flex items-center justify-center rounded-md w-6 h-6 transition-colors hover:bg-accent/10 ${isAboutActive
-                            ? 'text-accent'
-                            : isScrolled || hoverActive
-                              ? 'text-black'
-                              : 'text-white'
+                          ? 'text-accent'
+                          : isScrolled || hoverActive
+                            ? 'text-black'
+                            : 'text-white'
                           }`}
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -171,8 +171,8 @@ const ElectricalNavbar: React.FC = () => {
                               <Link
                                 to={subItem.path}
                                 className={`w-full block px-2 py-1.5 text-sm transition-colors ${subActive
-                                    ? 'text-accent bg-accent/10 font-medium'
-                                    : 'hover:text-accent'
+                                  ? 'text-accent bg-accent/10 font-medium'
+                                  : 'hover:text-accent'
                                   }`}
                               >
                                 {subItem.label}
@@ -193,12 +193,12 @@ const ElectricalNavbar: React.FC = () => {
                   onMouseEnter={(e) => handleMouseEnter(e)}
                   onMouseLeave={handleMouseLeave}
                   className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${active
-                      ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                      : hoverActive
+                    ? 'text-accent bg-accent/10 hover:bg-accent/20'
+                    : hoverActive
+                      ? 'text-black hover:bg-secondary/50'
+                      : isScrolled
                         ? 'text-black hover:bg-secondary/50'
-                        : isScrolled
-                          ? 'text-black hover:bg-secondary/50'
-                          : 'text-white hover:bg-white/5'
+                        : 'text-white hover:bg-white/5'
                     }`}
                 >
                   <span className="electric-bg" aria-hidden />
@@ -237,8 +237,8 @@ const ElectricalNavbar: React.FC = () => {
                           to={item.path}
                           onClick={() => setOpen(false)}
                           className={`px-4 py-2 rounded-lg transition-colors block font-medium flex-1 ${active
-                              ? 'text-accent bg-accent/10'
-                              : `${textColor} hover:bg-black/5`
+                            ? 'text-accent bg-accent/10'
+                            : `${textColor} hover:bg-black/5`
                             }`}
                         >
                           {item.label}
@@ -275,8 +275,8 @@ const ElectricalNavbar: React.FC = () => {
                               to={sub.path}
                               onClick={() => setOpen(false)}
                               className={`pl-4 py-2 rounded-md transition-colors block text-sm ${isActive(sub.path)
-                                  ? 'text-accent font-medium'
-                                  : 'text-black/80 hover:text-black'
+                                ? 'text-accent font-medium'
+                                : 'text-black/80 hover:text-black'
                                 }`}
                             >
                               {sub.label}
@@ -294,10 +294,10 @@ const ElectricalNavbar: React.FC = () => {
                     to={item.path}
                     onClick={() => setOpen(false)}
                     className={`px-4 py-2 rounded-lg transition-colors ${active
-                        ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                        : (isScrolled || open)
-                          ? 'text-black hover:bg-secondary/50'
-                          : 'text-white hover:bg-white/5'
+                      ? 'text-accent bg-accent/10 hover:bg-accent/20'
+                      : (isScrolled || open)
+                        ? 'text-black hover:bg-secondary/50'
+                        : 'text-white hover:bg-white/5'
                       }`}
                   >
                     {item.label}

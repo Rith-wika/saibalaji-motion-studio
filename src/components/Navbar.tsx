@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isAboutUsDropdownOpen, setIsAboutUsDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -28,29 +27,21 @@ const Navbar = () => {
     { label: "Careers", path: "/careers" },
     { label: "Contact", path: "/contact" },
   ];
-  const aboutUsSubItems = [
-    { name: "Our Story", path: "/about/ourstory" },
-    { name: "Why Us", path: "/about/whyus" },
-    { name: "Quality Policy", path: "/about/qualitypolicy" },
-    { name: "Client List", path: "/about/clientlist" },
-  ];
 
   const isActive = (path: string) => location.pathname === path;
-  const isAboutUsActive = aboutUsSubItems.some(item => isActive(item.path)) || location.pathname.startsWith('/about');
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${isScrolled
-          ? "bg-white/95 backdrop-blur-lg shadow-medium"
-          : "bg-transparent"
+        ? "bg-white/95 backdrop-blur-lg shadow-medium"
+        : "bg-transparent"
         }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo and Company Info */}
           <Link to="/" className="flex items-center space-x-4">
-            <div className="w-16 h-16 rounded-full bg-gradient-accent flex items-center justify-center shadow-glow overflow-hidden">
-              {/* <span className="text-2xl font-bold text-accent-foreground">S</span> */}
+            <div className="w-16 h-16 flex items-center justify-center shadow-glow overflow-hidden">
               <img src="/logo.png" alt="SAI BALAJI Logo" className="h-full w-full object-cover rounded-full" />
             </div>
             <div className="hidden md:block">
@@ -70,10 +61,10 @@ const Navbar = () => {
                 key={item.path}
                 to={item.path}
                 className={`px-3 py-2 text-sm font-medium transition-smooth relative group ${isActive(item.path)
-                    ? 'text-accent'
-                    : isScrolled
-                      ? 'text-black hover:text-accent'
-                      : 'text-white hover:text-accent'
+                  ? 'text-accent'
+                  : isScrolled
+                    ? 'text-black hover:text-accent'
+                    : 'text-white hover:text-accent'
                   }`}
               >
                 {item.label}
@@ -106,10 +97,10 @@ const Navbar = () => {
                   to={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-smooth text-left ${isActive(item.path)
-                      ? 'bg-accent/10 text-accent'
-                      : isScrolled
-                        ? 'text-black hover:bg-secondary'
-                        : 'text-white hover:bg-white/5'
+                    ? 'bg-accent/10 text-accent'
+                    : isScrolled
+                      ? 'text-black hover:bg-secondary'
+                      : 'text-white hover:bg-white/5'
                     }`}
                 >
                   {item.label}
