@@ -6,10 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollTop";
 import Home from "./pages/Home/Home";
-import AboutPage from "./pages/About/AboutPage";
 import AboutCompany from "./pages/About/AboutCompany";
 import OurStory from "./pages/About/OurStory";
 import ClientList from "./pages/About/ClientList";
+import ProductsPage from "./pages/ProductsPage";
 import Projects from "./components/Projects";
 import ServicesPage from "./pages/ServicesPage";
 import Credentials from "./components/Credentials";
@@ -18,6 +18,8 @@ import Gallery from "./components/Gallery";
 import Careers from "./components/Careers";
 import Contact from "./components/Contact";
 import NotFound from "./pages/NotFound";
+import SaiBalajiMEP from "./pages/GroupCompanies/SaiBalajiMEP";
+import SaiBalajiPowerControl from "./pages/GroupCompanies/SaiBalajiPowerControl";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +43,7 @@ const App = () => (
                 Existing links might break so I will comment them out or remove. 
             */}
 
+            <Route path="products" element={<ProductsPage />} />
             <Route path="projects" element={<Projects />} />
             <Route path="services" element={<ServicesPage />} />
             <Route path="credentials" element={<Credentials />} />
@@ -49,6 +52,10 @@ const App = () => (
             <Route path="gallery" element={<Gallery />} />
             <Route path="careers" element={<Careers />} />
             <Route path="contact" element={<Contact />} />
+
+            {/* Group Companies */}
+            <Route path="group-companies/mep-llp" element={<SaiBalajiMEP />} />
+            <Route path="group-companies/power-control-llp" element={<SaiBalajiPowerControl />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

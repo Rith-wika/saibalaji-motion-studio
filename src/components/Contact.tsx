@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 import { useInView } from "react-intersection-observer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -54,30 +55,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen ">
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={contactImage}
-            alt="Electrical Infrastructure"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/80" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-              Contact Us
-            </h1>
-
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        title="Contact Us"
+        description="Get in touch with our expert team for your electrical infrastructure needs."
+        imageUrl={contactImage}
+      />
       <section id="contact" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <motion.div

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Award, Users, Target } from "lucide-react";
+import { ArrowRight, Users, CalendarRange, CheckCircle2, Award, MapPin, ShieldCheck, Building2, HardHat } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 // import heroVideo from "@/assets/hero-video.mp4";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
@@ -12,11 +12,23 @@ import TestimonialSection from "@/components/TestimonialSection";
 import { FaWhatsapp } from "react-icons/fa";
 
 const Home = () => {
-  const stats = [
-    { icon: Award, value: "21", label: "Years Experience" },
-    { icon: Users, value: "500+", label: "Expert Team" },
-    { icon: Target, value: "100+", label: "Projects Completed" },
-    { icon: Zap, value: "Class 1", label: "MEP License" },
+  const companyStats = [
+    { icon: CalendarRange, value: "24+", label: "Years of Experience" },
+    { icon: Users, value: "300+", label: "Expert Team Members" },
+    { icon: CheckCircle2, value: "100+", label: "Projects Completed" },
+    { icon: Award, value: "45+", label: "Projects Ongoing" },
+    { icon: MapPin, value: "6 Cr. SFT", label: "Area Projects Delivered" },
+    { icon: ShieldCheck, value: "4 Cr. SFT", label: "Area Projects Ongoing" },
+    { icon: HardHat, value: "1000+", label: "Skilled Workforce" },
+  ];
+
+  const branches = [
+    { name: "Hyderabad", image: "/branches/hyderabad.jpeg" },
+    { name: "Pune", image: "/branches/pune.png.avif" },
+    { name: "Mumbai", image: "/branches/mumbai.jpeg" },
+    { name: "Bengaluru", image: '/branches/bengaluru.webp' },
+    { name: "Visakhapatnam", image: "/branches/vizag.png.avif" },
+    { name: "Gurugram", image: "/branches/gurgaon.jpeg" }
   ];
 
   return (
@@ -42,7 +54,7 @@ const Home = () => {
             alt="Electrical Infrastructure"
             className="w-full h-screen object-cover bg-fixed"
           />
-          <div className="absolute inset-0 bg-gradient-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/40 to-primary/60" />
         </div>
 
         <a
@@ -54,76 +66,6 @@ const Home = () => {
         >
           <FaWhatsapp className="w-8 h-8" />
         </a>
-
-        {/* <div className="relative z-10 container mx-auto px-4 py-32">
-          <div className="max-w-4xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="flex items-center space-x-2 mb-6"
-            >
-              <Zap className="w-6 h-6 text-accent" />
-              <span className="text-accent font-semibold tracking-wider uppercase text-sm">
-                ISO 9001:2015 Certified
-              </span>
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight"
-            >
-              SAI BALAJI INFRA
-              <span className="block text-accent">India Pvt. Ltd.</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-2xl text-primary-foreground/90 mb-8 font-medium italic"
-            >
-              Your Satisfaction Is Our Mission
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-xl text-primary-foreground/80 mb-8 max-w-2xl"
-            >
-              Multi-disciplinary MEP engineering services across Andhra Pradesh, Telangana, Maharashtra, Karnataka, and Delhi
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-wrap gap-4"
-            >
-              <Link to="/projects">
-                <Button
-                  size="lg"
-                  className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-glow transition-spring hover:scale-105"
-                >
-                  Explore Projects
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Link to="/contact">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 transition-smooth"
-                >
-                  Get in Touch
-                </Button>
-              </Link>
-            </motion.div>
-          </div>
-        </div> */}
 
         <motion.div
           initial={{ opacity: 0 }}
@@ -141,27 +83,71 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-24 bg-secondary/30">
+      {/* Company Statistics & Branch Presence */}
+      <section className="py-24 bg-secondary/10">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
+
+          {/* Section 1: 6-Card Stats Grid (One Row Layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-4 mb-20 w-full">
+            {companyStats.map((stat, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="bg-white rounded-lg shadow-[0_2px_10px_-4px_rgba(0,0,0,0.1)] p-5 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group border border-transparent hover:border-primary/5 h-full"
               >
-                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 group-hover:rotate-6 transition-spring">
-                  <stat.icon className="w-10 h-10 text-accent" />
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-3 group-hover:bg-accent/20 transition-colors">
+                  <stat.icon className="w-5 h-5 text-accent stroke-[2]" />
                 </div>
-                <h3 className="text-3xl font-bold text-foreground mb-2">{stat.value}</h3>
-                <p className="text-muted-foreground font-medium">{stat.label}</p>
+                <h3 className="text-lg font-semibold text-primary mb-1 whitespace-nowrap hover:scale-105 transition-transform duration-300">
+                  {stat.value}
+                </h3>
+                <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide leading-tight">
+                  {stat.label}
+                </p>
               </motion.div>
             ))}
           </div>
+
+          {/* Section 2: Branch Locations */}
+          <div className="text-center max-w-6xl mx-auto">
+            <h2 className="text-3xl font-bold text-foreground mb-3">Our Branch Presence</h2>
+            <p className="text-muted-foreground mb-12 text-lg">
+              Strategically located to serve projects across India
+            </p>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {branches.map((city, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="bg-white p-4 rounded-xl shadow-sm border border-border/40 hover:border-accent/30 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center gap-3 group h-40"
+                >
+                  {city.image ? (
+                    <div className="w-16 h-16 rounded-full overflow-hidden shadow-sm border-2 border-transparent group-hover:border-accent transition-all duration-300">
+                      <img
+                        src={city.image}
+                        alt={city.name}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                  ) : (
+                    <Building2 className="w-8 h-8 text-muted-foreground/50 group-hover:text-accent transition-colors duration-300" />
+                  )}
+                  <span className="font-semibold text-foreground relative text-sm md:text-base">
+                    {city.name}
+                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 import { useInView } from "react-intersection-observer";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -114,32 +115,11 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={projectImage}
-            alt="Electrical Infrastructure"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/80" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-              Projects
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              Showcasing our commitment to quality through successful, end-to-end project delivery.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        title="Projects"
+        description="Showcasing our commitment to quality through successful, end-to-end project delivery."
+        imageUrl={projectImage}
+      />
       <section id="projects" className="bg-background py-20">
         <div className="container mx-auto px-4">
           <motion.div

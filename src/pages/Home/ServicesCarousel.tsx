@@ -3,10 +3,77 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import servicesData from "@/data/services.json";
+import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 import "swiper/css";
 import "swiper/css/navigation";
+
+import distributionImage from "@/assets/distribution-system.jpg";
+import industrialImage from "@/assets/industrial.jpg";
+import civilprojectImage from "@/assets/civil-project.jpg";
+import datacenterImage from "@/assets/datacenter.jpg";
+
+const services = [
+  {
+    id: "electrical-services",
+    title: "Electrical Services",
+    points: [
+      "HT & LT Electrical Works",
+      "Internal & External Electrification",
+      "Transformer, DG & UPS installations",
+      "Cable laying, tray works & terminations",
+      "Earthing & Lightning Protection Systems",
+      "Electrical Testing & Commissioning",
+    ],
+    image: distributionImage,
+  },
+  {
+    id: "plumbing-phe",
+    title: "Plumbing & PHE",
+    points: [
+      "Internal & external plumbing systems",
+      "Water supply & drainage systems",
+      "STP / WTP / Rainwater harvesting",
+      "Pumping systems & pressure boosting",
+    ],
+    image: civilprojectImage,
+  },
+  {
+    id: "fire-fighting",
+    title: "Fire Fighting Systems",
+    points: [
+      "Fire hydrant systems",
+      "Sprinkler systems",
+      "Fire alarm & detection systems",
+      "Fire pump rooms & testing",
+      "Statutory compliance & approvals",
+    ],
+    image: industrialImage,
+  },
+  {
+    id: "elv-systems",
+    title: "ELV / Low Current Systems",
+    points: [
+      "CCTV & Surveillance",
+      "Access Control Systems",
+      "Public Address Systems",
+      "Structured Cabling",
+      "Building Management Systems (BMS)",
+    ],
+    image: datacenterImage,
+  },
+  {
+    id: "hvac-systems",
+    title: "HVAC Systems",
+    points: [
+      "Centralized & VRF / VRV Air Conditioning Systems",
+      "Chilled Water, AHU & FCU Systems",
+      "Ventilation, Fresh Air & Exhaust Systems",
+      "Ducting with Thermal & Acoustic Insulation",
+      "Installation, Testing & Commissioning",
+    ],
+    image: distributionImage,
+  },
+];
 
 const ServicesCarousel = () => {
   return (
@@ -21,7 +88,7 @@ const ServicesCarousel = () => {
         modules={[Autoplay, Navigation]}
         spaceBetween={30}
         slidesPerView={1}
-        autoplay={{ delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true }}
         navigation={{
           nextEl: '.custom-swiper-next',
           prevEl: '.custom-swiper-prev',
@@ -32,7 +99,7 @@ const ServicesCarousel = () => {
         }}
         className="pb-16 relative"
       >
-        {servicesData.map((service, index) => (
+        {services.map((service, index) => (
           <SwiperSlide key={index}>
             <Dialog>
               <DialogTrigger asChild>
@@ -40,24 +107,35 @@ const ServicesCarousel = () => {
                   whileHover={{ scale: 1.02 }}
                   className="cursor-pointer h-full"
                 >
-                  <Card className="h-full border-primary/20 hover:border-accent transition-all overflow-hidden">
-                    <CardContent className="p-0">
-                      <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                        <img 
-                          src={service.images[0]} 
+                  <Card className="h-full border-primary/20 hover:border-accent transition-all overflow-hidden group">
+                    <CardContent className="p-0 flex flex-col h-full">
+                      <div className="aspect-video relative overflow-hidden">
+                        <img
+                          src={service.image}
                           alt={service.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
                       </div>
-                      <div className="p-6">
-                        <h3 className="text-xl font-bold mb-3 text-black">
+                      <div className="p-6 flex-grow flex flex-col">
+                        <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-accent transition-colors">
                           {service.title}
                         </h3>
-                        <p className="text-black text-sm line-clamp-3 mb-4">
-                          {service.description}
-                        </p>
-                        <div className="text-accent text-sm font-semibold">
-                          Learn more → 
+                        <ul className="space-y-2 mb-4 flex-grow">
+                          {service.points.slice(0, 3).map((point, i) => (
+                            <li key={i} className="text-sm text-muted-foreground flex items-start truncate">
+                              <span className="mr-2 text-accent">•</span>
+                              <span className="truncate">{point}</span>
+                            </li>
+                          ))}
+                          {service.points.length > 3 && (
+                            <li className="text-sm text-accent italic pl-3">
+                              +{service.points.length - 3} more...
+                            </li>
+                          )}
+                        </ul>
+                        <div className="text-accent text-sm font-semibold mt-auto flex items-center">
+                          View Details <ChevronRight className="w-4 h-4 ml-1" />
                         </div>
                       </div>
                     </CardContent>
@@ -66,18 +144,27 @@ const ServicesCarousel = () => {
               </DialogTrigger>
               <DialogContent className="max-w-2xl">
                 <DialogHeader>
-                  <DialogTitle className="text-3xl">{service.title}</DialogTitle>
+                  <DialogTitle className="text-3xl text-primary">{service.title}</DialogTitle>
                 </DialogHeader>
-                <div className="space-y-4">
-                  <div className="aspect-video rounded-lg overflow-hidden">
-                    <img 
-                      src={service.images[0]} 
+                <div className="grid md:grid-cols-2 gap-6 mt-4">
+                  <div className="aspect-video rounded-lg overflow-hidden shadow-md">
+                    <img
+                      src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <p className="text-muted-foreground">{service.description}</p>
-                  <p className="text-muted-foreground">{service.details}</p>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-3">Key Services:</h4>
+                    <ul className="space-y-3">
+                      {service.points.map((point, i) => (
+                        <li key={i} className="flex items-start text-muted-foreground">
+                          <Check className="w-5 h-5 text-accent mr-3 flex-shrink-0 mt-0.5" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </DialogContent>
             </Dialog>

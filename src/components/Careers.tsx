@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 import { useInView } from "react-intersection-observer";
 import { useState, useRef } from 'react'; // Import useState and useRef
 // Assuming these UI components exist and function as intended
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Briefcase, ArrowRight, X, User, Mail, Phone, Upload } from "lucide-react"; 
+import { MapPin, Clock, Briefcase, ArrowRight, X, User, Mail, Phone, Upload } from "lucide-react";
 
 import careerImage from "@/assets/career.jpg";
 
@@ -13,7 +14,7 @@ import careerImage from "@/assets/career.jpg";
 const ApplicationModal = ({ isOpen, onClose, jobTitle }) => {
   const [fileName, setFileName] = useState("");
   const fileInputRef = useRef(null);
-  
+
   // Handle file selection and update the displayed file name
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -26,7 +27,7 @@ const ApplicationModal = ({ isOpen, onClose, jobTitle }) => {
     // 1. Collect form data (Name, Email, Phone, File)
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
-    
+
     // 2. Placeholder for submission logic (e.g., Axios post)
     console.log("Submitting application for:", jobTitle, data);
 
@@ -43,7 +44,7 @@ const ApplicationModal = ({ isOpen, onClose, jobTitle }) => {
 
   const contentVariants = {
     hidden: { y: "100vh", opacity: 0, scale: 0.8 },
-    visible: { y: "0", opacity: 1, scale: 1, transition: { type: "spring", stiffness: 50, damping: 15 } },
+    visible: { y: "0", opacity: 1, scale: 1, transition: { type: "spring" as const, stiffness: 50, damping: 15 } },
     exit: { y: "100vh", opacity: 0 },
   };
 
@@ -174,7 +175,7 @@ const Careers = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
-  
+
   // State for Modal Management
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentJobTitle, setCurrentJobTitle] = useState("");
@@ -223,39 +224,18 @@ const Careers = () => {
   return (
     <div className="min-h-screen">
       {/* Overlay is handled by the ApplicationModal component */}
-      <ApplicationModal 
-        isOpen={isModalOpen} 
-        onClose={closeModal} 
-        jobTitle={currentJobTitle} 
+      <ApplicationModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        jobTitle={currentJobTitle}
       />
 
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={careerImage}
-            alt="Electrical Infrastructure"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/80" />
-        </div>
+      <PageHero
+        title="Our Careers"
+        description="Join our team and grow with a culture built on excellence and integrity."
+        imageUrl={careerImage}
+      />
 
-        <div className="relative z-10 container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-5xl md:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-              Our Careers
-            </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              Join our team and grow with a culture built on excellence and integrity.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      
       <section id="careers" className="py-24 bg-secondary/30">
         <div className="container mx-auto px-4">
           <motion.div
@@ -309,7 +289,7 @@ const Careers = () => {
                       </div>
                     </div>
                     {/* Updated Button to trigger the modal */}
-                    <Button 
+                    <Button
                       className="w-full mt-4 bg-gradient-accent hover:shadow-glow transition-spring group/btn"
                       onClick={() => handleApplyClick(job.title)}
                     >

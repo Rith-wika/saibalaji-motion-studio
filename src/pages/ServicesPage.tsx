@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { PageHero } from "@/components/PageHero";
 import { ArrowRight } from "lucide-react";
 import { useMemo } from "react";
 import serviceImage from "@/assets/services.jpg";
@@ -8,7 +9,16 @@ import civilprojectImage from "@/assets/civil-project.jpg";
 import datacenterImage from "@/assets/datacenter.jpg";
 
 const ServicesPage = () => {
-  const AnimatedServicePoint = ({ points, index, isImageLeft, imageSrc, imageAlt, title }) => {
+  interface ServicePointProps {
+    points: string[];
+    index: number;
+    isImageLeft: boolean;
+    imageSrc: string;
+    imageAlt: string;
+    title: string;
+  }
+
+  const AnimatedServicePoint = ({ points, index, isImageLeft, imageSrc, imageAlt, title }: ServicePointProps) => {
     // Parent container variants to stagger children when the section comes into view
     const containerVariants = {
       hidden: {},
@@ -240,32 +250,11 @@ const ServicesPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Header */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={serviceImage}
-            alt="EPC Services"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
-        </div>
-
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight uppercase">
-              Our Services
-            </h1>
-            <div className="w-24 h-1 bg-accent mx-auto mb-6" />
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
-              Delivering excellence in Electrical, Infrastructure, and Industrial projects.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        title="Our Services"
+        description="Delivering excellence in Electrical, Infrastructure, and Industrial projects."
+        imageUrl={serviceImage}
+      />
 
       {/* Main Content */}
       <section className="bg-white py-20 relative overflow-hidden">

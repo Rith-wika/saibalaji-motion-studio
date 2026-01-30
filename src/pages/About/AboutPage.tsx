@@ -20,7 +20,7 @@ const AboutPage = () => {
             alt="Electrical Infrastructure"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/80" />
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/40 to-primary/60" />
         </div>
 
         <div className="relative z-10 container mx-auto px-4">

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Phone, Mail, Share2 } from "lucide-react"; 
+import { Phone, Mail, Share2 } from "lucide-react";
 import {
   FaLinkedinIn,
   FaFacebookF,
@@ -32,7 +32,7 @@ const FloatingButtons = () => {
 
   const handlePhoneTap = () => {
     if (!isMobile) {
-      window.location.href = "tel:+919848745295";
+      window.location.href = "tel:+919014467222";
       return;
     }
 
@@ -41,14 +41,14 @@ const FloatingButtons = () => {
       setPhoneOpen(!phoneOpen);
       setTimeout(() => (phoneTapRef.current = 0), 350);
     } else if (phoneTapRef.current === 2) {
-      window.location.href = "tel:+919848745295";
+      window.location.href = "tel:+919014467222";
       phoneTapRef.current = 0;
     }
   };
 
   const handleMailTap = () => {
     if (!isMobile) {
-      window.location.href = "mailto:saibalajitechnologies@gmail.com";
+      window.location.href = "mailto:tenders@saibalajiinfra.com";
       return;
     }
 
@@ -57,7 +57,7 @@ const FloatingButtons = () => {
       setMailOpen(!mailOpen);
       setTimeout(() => (mailTapRef.current = 0), 350);
     } else if (mailTapRef.current === 2) {
-      window.location.href = "mailto:saibalajitechnologies@gmail.com";
+      window.location.href = "mailto:tenders@saibalajiinfra.com";
       mailTapRef.current = 0;
     }
   };
@@ -98,7 +98,7 @@ const FloatingButtons = () => {
         </div>
 
         <div className={`whitespace-nowrap text-white font-medium pr-4 transition-opacity duration-300 ${phoneOpen ? "opacity-100" : "opacity-0"}`}>
-          +91 9848745295
+          +91 90144 67222
         </div>
       </div>
 
@@ -117,7 +117,7 @@ const FloatingButtons = () => {
         </div>
 
         <div className={`whitespace-nowrap text-white font-medium pr-2 transition-opacity duration-300 ${mailOpen ? "opacity-100" : "opacity-0"}`}>
-          saibalajitechnologies@gmail.com
+          tenders@saibalajiinfra.com
         </div>
       </div>
 

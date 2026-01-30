@@ -28,8 +28,9 @@ const Navbar = () => {
         { label: "Client List", path: "/client-list" },
       ]
     },
-    { label: "Projects", path: "/projects" },
+    { label: "Products", path: "/products" },
     { label: "Services", path: "/services" },
+    { label: "Projects", path: "/projects" },
     { label: "Credentials", path: "/credentials" },
     { label: "Key Persons", path: "/key-persons" },
     { label: "Gallery", path: "/gallery" },
@@ -75,8 +76,8 @@ const Navbar = () => {
                 {item.children ? (
                   <button
                     className={`px-3 py-2 text-sm font-medium transition-smooth relative flex items-center gap-1 ${isScrolled
-                        ? 'text-black hover:text-accent'
-                        : 'text-white hover:text-accent'
+                      ? 'text-black hover:text-accent'
+                      : 'text-white hover:text-accent'
                       }`}
                   >
                     {item.label}
