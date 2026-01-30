@@ -7,9 +7,8 @@ import Layout from "./components/Layout";
 import ScrollToTop from "./components/ScrollTop";
 import Home from "./pages/Home/Home";
 import AboutPage from "./pages/About/AboutPage";
+import AboutCompany from "./pages/About/AboutCompany";
 import OurStory from "./pages/About/OurStory";
-import WhyUs from "./pages/About/WhyUs";
-import QualityPolicy from "./pages/About/QualityPolicy";
 import ClientList from "./pages/About/ClientList";
 import Projects from "./components/Projects";
 import ServicesPage from "./pages/ServicesPage";
@@ -32,11 +31,16 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<AboutPage />} />
-            <Route path="about/ourstory" element={<OurStory />} />
-            <Route path="about/whyus" element={<WhyUs />} />
-            <Route path="about/qualitypolicy" element={<QualityPolicy />} />
-            <Route path="about/clientlist" element={<ClientList />} />
+
+            <Route path="about-company" element={<AboutCompany />} />
+            <Route path="our-story" element={<OurStory />} />
+            <Route path="client-list" element={<ClientList />} />
+
+            {/* Keep old routes temporarily if needed, or remove them. User requested removal from dropdown, but good to have redirects or just new structure. 
+                I'll keep the old 'about' as an alias or just leave it out as requested clean up. 
+                Existing links might break so I will comment them out or remove. 
+            */}
+
             <Route path="projects" element={<Projects />} />
             <Route path="services" element={<ServicesPage />} />
             <Route path="credentials" element={<Credentials />} />

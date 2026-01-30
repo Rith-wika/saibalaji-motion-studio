@@ -55,16 +55,6 @@
     "description": "Housing & Development"
   },
   {
-    "name": "IJM Properties",
-    "logo": "/clients/IJM Logo.png",
-    "description": "Infrastructure & Construction"
-  },
-  {
-    "name": "IVRCL",
-    "logo": "/clients/IVRCL Logo.jpg",
-    "description": "Infrastructure Projects"
-  },
-  {
     "name": "Kapil Group",
     "logo": "/clients/Kapil Group.png",
     "description": "Diversified Business Conglomerate"
@@ -100,16 +90,6 @@
     "description": "Real Estate & Infrastructure"
   },
   {
-    "name": "Mantri Developers",
-    "logo": "/clients/Mantari Logo.jpg",
-    "description": "Real Estate Development"
-  },
-  {
-    "name": "Maytas",
-    "logo": "/clients/Maytas-Logo.jpg",
-    "description": "Infrastructure & Construction"
-  },
-  {
     "name": "My Home Group",
     "logo": "/clients/Myhome Logo.jpg",
     "description": "Real Estate & Construction"
@@ -135,16 +115,6 @@
     "description": "Property Development"
   },
   {
-    "name": "Radhey Cloudwoods",
-    "logo": "/clients/Radhey Cloudwoods.jpg",
-    "description": "Residential Project"
-  },
-  {
-    "name": "Radhey Constructions",
-    "logo": "/clients/Radhey Logo.jpg",
-    "description": "Construction Services"
-  },
-  {
     "name": "SAS Infra",
     "logo": "/clients/SAS-Infra logo.png",
     "description": "Infrastructure Projects"
@@ -168,11 +138,6 @@
     "name": "Vasavi Group",
     "logo": "/clients/Vasavi Group.png",
     "description": "Real Estate Developers"
-  },
-  {
-    "name": "IL&FS",
-    "logo": "/clients/ilfs lOgo.jpg",
-    "description": "Infrastructure Development"
   },
   {
     "name": "Western Constructions",

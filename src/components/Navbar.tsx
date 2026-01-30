@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -18,7 +19,15 @@ const Navbar = () => {
 
   const navItems = [
     { label: "Home", path: "/" },
-    { label: "About Us", path: "/about" },
+    {
+      label: "About Us",
+      path: "#",
+      children: [
+        { label: "About Company", path: "/about-company" },
+        { label: "Our Story", path: "/our-story" },
+        { label: "Client List", path: "/client-list" },
+      ]
+    },
     { label: "Projects", path: "/projects" },
     { label: "Services", path: "/services" },
     { label: "Credentials", path: "/credentials" },
@@ -57,22 +66,57 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-3 py-2 text-sm font-medium transition-smooth relative group ${isActive(item.path)
-                  ? 'text-accent'
-                  : isScrolled
-                    ? 'text-black hover:text-accent'
-                    : 'text-white hover:text-accent'
-                  }`}
+              <div
+                key={item.label}
+                className="relative group"
+                onMouseEnter={() => item.children && setActiveDropdown(item.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
               >
-                {item.label}
-                <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-accent transition-smooth ${isActive(item.path) ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}
-                />
-              </Link>
+                {item.children ? (
+                  <button
+                    className={`px-3 py-2 text-sm font-medium transition-smooth relative flex items-center gap-1 ${isScrolled
+                        ? 'text-black hover:text-accent'
+                        : 'text-white hover:text-accent'
+                      }`}
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className={`px-3 py-2 text-sm font-medium transition-smooth relative group ${isActive(item.path)
+                      ? 'text-accent'
+                      : isScrolled
+                        ? 'text-black hover:text-accent'
+                        : 'text-white hover:text-accent'
+                      }`}
+                  >
+                    {item.label}
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-accent transition-smooth ${isActive(item.path) ? 'w-full' : 'w-0 group-hover:w-full'
+                        }`}
+                    />
+                  </Link>
+                )}
+
+                {/* Dropdown Menu */}
+                {item.children && (
+                  <div
+                    className={`absolute top-full left-0 w-48 bg-white shadow-lg rounded-md py-2 transition-all duration-200 origin-top-left ${activeDropdown === item.label ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'
+                      }`}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.path}
+                        to={child.path}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-accent transition-colors"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
@@ -89,22 +133,41 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 animate-fade-in">
-            <div className="flex flex-col space-y-2">
+          <div className="lg:hidden py-4 animate-fade-in bg-white/95 backdrop-blur-lg absolute top-full left-0 right-0 shadow-lg">
+            <div className="flex flex-col space-y-2 px-4">
               {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-smooth text-left ${isActive(item.path)
-                    ? 'bg-accent/10 text-accent'
-                    : isScrolled
-                      ? 'text-black hover:bg-secondary'
-                      : 'text-white hover:bg-white/5'
-                    }`}
-                >
-                  {item.label}
-                </Link>
+                <div key={item.label}>
+                  {item.children ? (
+                    <div className="space-y-1">
+                      <div className="px-4 py-2 text-sm font-medium text-black">
+                        {item.label}
+                      </div>
+                      <div className="pl-6 border-l-2 border-accent/20 ml-2 space-y-1">
+                        {item.children.map(child => (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className={`block px-4 py-2 text-sm transition-smooth text-gray-600 hover:text-accent ${isActive(child.path) ? 'text-accent font-semibold' : ''}`}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`block px-4 py-2 text-sm font-medium rounded-lg transition-smooth ${isActive(item.path)
+                        ? 'bg-accent/10 text-accent'
+                        : 'text-black hover:bg-black/5'
+                        }`}
+                    >
+                      {item.label}
+                    </Link>
+                  )}
+                </div>
               ))}
             </div>
           </div>

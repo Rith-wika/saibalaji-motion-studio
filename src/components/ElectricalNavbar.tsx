@@ -9,7 +9,7 @@ import {
 
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "About Us", path: "/about" }, // Will also have dropdown
+  { label: "About Us", path: "#" }, // Will also have dropdown
   { label: "Projects", path: "/projects" },
   { label: "Services", path: "/services" },
   { label: "Credentials", path: "/credentials" },
@@ -20,10 +20,9 @@ const navItems = [
 ];
 
 const aboutDropdownItems = [
-  { label: "Our Story", path: "/about/ourstory" },
-  { label: "Why Us", path: "/about/whyus" },
-  { label: "Quality Policy", path: "/about/qualitypolicy" },
-  { label: "Client List", path: "/about/clientlist" },
+  { label: "About Company", path: "/about-company" },
+  { label: "Our Story", path: "/our-story" },
+  { label: "Client List", path: "/client-list" },
 ];
 
 function SplitChars({ text }: { text: string }) {
@@ -130,45 +129,37 @@ const ElectricalNavbar: React.FC = () => {
                 const isAboutActive = active || anySubItemActive;
                 return (
                   <div key={item.path} className="flex items-center gap-1">
-                    <Link
-                      to={item.path}
-                      onMouseEnter={(e) => handleMouseEnter(e)}
-                      onMouseLeave={handleMouseLeave}
-                      className={`electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors ${isAboutActive
-                        ? 'text-accent bg-accent/10 hover:bg-accent/20'
-                        : hoverActive
-                          ? 'text-black hover:bg-secondary/50'
-                          : isScrolled
-                            ? 'text-black hover:bg-secondary/50'
-                            : 'text-white hover:bg-white/5'
-                        }`}
-                    >
-                      <span className="electric-bg" aria-hidden />
-                      <SplitChars text={item.label} />
-                    </Link>
                     <DropdownMenu>
-                      <DropdownMenuTrigger
-                        className={`inline-flex items-center justify-center rounded-md w-6 h-6 transition-colors hover:bg-accent/10 ${isAboutActive
-                          ? 'text-accent'
-                          : isScrolled || hoverActive
-                            ? 'text-black'
-                            : 'text-white'
-                          }`}
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="m6 9 6 6 6-6" />
-                        </svg>
+                      <DropdownMenuTrigger asChild>
+                        <button
+                          className={`flex items-center gap-1 electric-link text-sm font-medium relative px-2 py-1.5 rounded-md transition-colors cursor-pointer focus:outline-none ${isAboutActive
+                            ? 'text-accent bg-accent/10 hover:bg-accent/20'
+                            : hoverActive
+                              ? 'text-black hover:bg-secondary/50'
+                              : isScrolled
+                                ? 'text-black hover:bg-secondary/50'
+                                : 'text-white hover:bg-white/5'
+                            }`}
+                          onMouseEnter={(e) => handleMouseEnter(e)}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          <span className="electric-bg" aria-hidden />
+                          <SplitChars text={item.label} />
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`ml-1 transition-transform ${isAboutActive ? 'rotate-180' : ''}`}>
+                            <path d="m6 9 6 6 6-6" />
+                          </svg>
+                        </button>
                       </DropdownMenuTrigger>
-                      <DropdownMenuContent align="start">
+                      <DropdownMenuContent align="start" className="bg-white/95 backdrop-blur-lg border-muted">
                         {aboutDropdownItems.map((subItem) => {
                           const subActive = isActive(subItem.path);
                           return (
                             <DropdownMenuItem key={subItem.path} asChild>
                               <Link
                                 to={subItem.path}
-                                className={`w-full block px-2 py-1.5 text-sm transition-colors ${subActive
+                                className={`w-full block px-4 py-2 text-sm transition-colors cursor-pointer ${subActive
                                   ? 'text-accent bg-accent/10 font-medium'
-                                  : 'hover:text-accent'
+                                  : 'text-gray-700 hover:text-accent hover:bg-gray-50'
                                   }`}
                               >
                                 {subItem.label}

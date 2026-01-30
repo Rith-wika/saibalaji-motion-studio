@@ -144,18 +144,14 @@ const Credentials = () => {
             {/* Main Content */}
             <section className="py-20 container mx-auto px-4">
                 <Tabs defaultValue="achievements" className="w-full">
-                    <div className="flex justify-center mb-16">
-                        <TabsList className="bg-transparent gap-4 p-1">
-                            <TabsTrigger
-                                value="achievements"
-                                className="rounded-full px-8 py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border border-slate-200 text-slate-600 hover:text-primary transition-all duration-300"
-                            >
+                    <div className="flex justify-center mb-0">
+                        <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
+                            <TabsTrigger value="achievements" className="text-base">
+                                <Award className="w-4 h-4 mr-2" />
                                 Achievements
                             </TabsTrigger>
-                            <TabsTrigger
-                                value="certifications"
-                                className="rounded-full px-8 py-3 text-base data-[state=active]:bg-primary data-[state=active]:text-primary-foreground border border-slate-200 text-slate-600 hover:text-primary transition-all duration-300"
-                            >
+                            <TabsTrigger value="certifications" className="text-base">
+                                <FileCheck className="w-4 h-4 mr-2" />
                                 Certifications
                             </TabsTrigger>
                         </TabsList>

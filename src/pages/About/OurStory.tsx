@@ -41,61 +41,6 @@ const OurStory = () => {
         </div>
       </section>
 
-      {/* Mission Vision Quality */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-12">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Target className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Our mission is to provide Excellent Quality M.E.P services to our customers by meeting their design, time schedule, and prompt after sales service requirements, resulting in total customer loyalty and repeat business.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <TrendingUp className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                To be the largest and most preferred Mechanical, Electrical, Plumbing, and Fire Fighting contractor in India, with the ability to complete a project on time within budget and to the client's satisfaction.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-center group"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                <Award className="w-10 h-10 text-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Quality</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                We understand that we are a partner with our customers in delivering high-quality design and services at a reasonable cost. We concentrate on providing exceptional service to our customers and construct with the highest desire to achieve total customer satisfaction.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Company Overview - Journey */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -104,23 +49,61 @@ const OurStory = () => {
           </div>
 
           <JourneySection />
+        </div>
+      </section>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-24 border-t mt-24">
-            {stats.map((stat, index) => (
+      {/* NEW SECTION: 24 Years of Excellence */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-16 text-center"
+          >
+            <h2 className="text-4xl font-bold mb-6 font-heading text-primary">24 Years of Engineering Excellence & Growth</h2>
+            <div className="max-w-4xl mx-auto text-left md:text-center space-y-4 text-lg text-gray-700">
+              <p>• Established in 2002 with core Electrical contracting in Hyderabad, Telangana</p>
+              <p>• Expanded operations to Bengaluru, Mumbai, Pune, Gurugram, and Vizag</p>
+              <p>• Super Grade “A” Electrical License Company (authorized up to 132 KV)</p>
+              <p>• 2019 – Established Sai Balaji MEP LLP for complete MEP Turnkey Solutions</p>
+              <p>• 2024 – Launched Sai Balaji Power Controls LLP (in-house manufacturing)</p>
+              <p>• 270+ professionals and 1000+ workforce across 50+ ongoing projects</p>
+            </div>
+          </motion.div>
+
+          {/* Image Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {[
+              { title: "Electrical", img: "/images/electrical.png" },
+              { title: "Fire Fighting", img: "/images/fire_fighting.png" },
+              { title: "Plumbing", img: "/images/plumbing.png" },
+              { title: "HVAC", img: "/images/hvac.png" },
+              { title: "WTP / HTP", img: "/images/wtp_htp.png" },
+              { title: "66/11KV", img: "/images/substation_11kv.png" },
+              { title: "LT Panels", img: "/images/lt_panels.png" },
+              { title: "Busways & Rising Main", img: "/images/busways.png" },
+              { title: "Cable Management", img: "/images/cable_management.png" },
+            ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center group"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="group relative h-64 rounded-xl overflow-hidden shadow-lg cursor-pointer"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-accent flex items-center justify-center shadow-glow transform group-hover:scale-110 transition-spring">
-                  <stat.icon className="w-8 h-8 text-accent" />
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  onError={(e) => {
+                    e.currentTarget.src = `https://placehold.co/600x400?text=${encodeURIComponent(item.title)}`;
+                  }}
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-end p-6">
+                  <h3 className="text-white text-xl font-bold">{item.title}</h3>
                 </div>
-                <h4 className="text-3xl font-bold text-foreground mb-2">{stat.value}</h4>
-                <p className="text-muted-foreground text-sm">{stat.label}</p>
               </motion.div>
             ))}
           </div>
