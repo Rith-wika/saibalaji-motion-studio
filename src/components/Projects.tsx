@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/PageHero";
 import { useInView } from "react-intersection-observer";
@@ -6,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, User, Zap, CheckCircle } from "lucide-react";
+import { MapPin, User, Zap, CheckCircle, ListFilter } from "lucide-react";
 import projectImage from "@/assets/projects.jpg";
 import projectData from "@/data/project.json";
 
@@ -16,15 +17,29 @@ const Projects = () => {
     threshold: 0.1,
   });
 
+  const [searchParams] = useSearchParams();
+  const serviceParam = searchParams.get("service");
+
   // --- Updated Project Data with types and contracts ---
 
   const { ongoingProjects, completedProjects } = projectData;
   // --- State for Filters ---
   const [ongoingType, setOngoingType] = useState("all");
   const [ongoingLocation, setOngoingLocation] = useState("all");
+  const [ongoingService, setOngoingService] = useState("all");
+
   const [completedCategory, setCompletedCategory] = useState("all");
   const [completedContract, setCompletedContract] = useState("all");
   const [completedSubFilter, setCompletedSubFilter] = useState("all");
+  const [completedService, setCompletedService] = useState("all");
+
+  // --- Initialize filter from URL param ---
+  useEffect(() => {
+    if (serviceParam) {
+      setOngoingService(serviceParam);
+      setCompletedService(serviceParam);
+    }
+  }, [serviceParam]);
 
   // --- Reset sub-filter when primary completed contract filter changes ---
   useEffect(() => {
@@ -34,28 +49,31 @@ const Projects = () => {
   // --- Dynamically generate filter options ---
   const ongoingCategories = useMemo(() => ["all", ...new Set(ongoingProjects.map((p) => p.category))], [ongoingProjects]);
   const ongoingLocations = useMemo(() => ["all", ...new Set(ongoingProjects.map((p) => p.location))], [ongoingProjects]);
+  const ongoingServices = useMemo(() => ["all", "Electrical", "Plumbing", "Fire Fighting", "ELV", "HVAC"], []); // Fixed list as per requirement
 
   const completedCategories = useMemo(() => ["all", ...new Set(completedProjects.map((p) => p.category))], [completedProjects]);
   const completedContractTypes = useMemo(() => ["all", ...new Set(completedProjects.map((p) => p.contractType))], [completedProjects]);
   const completedCivilTypes = useMemo(() => ["all", ...new Set(completedProjects.filter(p => p.contractType === "CIVIL & STRUCTURAL CONTRACTS").map(p => p.type))], [completedProjects]);
   const completedMepLocations = useMemo(() => ["all", ...new Set(completedProjects.filter(p => p.contractType === "MEP CONTRACTS").map(p => p.location))], [completedProjects]);
-
+  const completedServices = useMemo(() => ["all", "Electrical", "Plumbing", "Fire Fighting", "ELV", "HVAC"], []);
 
   // --- Filtered Project Lists ---
   const filteredOngoingProjects = useMemo(() => {
     return ongoingProjects.filter((project) => {
       const categoryMatch = ongoingType === "all" || project.category === ongoingType;
       const locationMatch = ongoingLocation === "all" || project.location === ongoingLocation;
-      return categoryMatch && locationMatch;
+      const serviceMatch = ongoingService === "all" || (project as any).service === ongoingService;
+      return categoryMatch && locationMatch && serviceMatch;
     });
-  }, [ongoingProjects, ongoingType, ongoingLocation]);
+  }, [ongoingProjects, ongoingType, ongoingLocation, ongoingService]);
 
   const filteredCompletedProjects = useMemo(() => {
     return completedProjects.filter((project) => {
       const categoryMatch = completedCategory === "all" || project.category === completedCategory;
       const contractMatch = completedContract === "all" || project.contractType === completedContract;
+      const serviceMatch = completedService === "all" || (project as any).service === completedService;
 
-      if (!categoryMatch || !contractMatch) return false;
+      if (!categoryMatch || !contractMatch || !serviceMatch) return false;
 
       if (completedContract === "CIVIL & STRUCTURAL CONTRACTS") {
         return completedSubFilter === "all" || project.type === completedSubFilter;
@@ -65,7 +83,7 @@ const Projects = () => {
       }
       return true;
     });
-  }, [completedProjects, completedContract, completedSubFilter, completedCategory]);
+  }, [completedProjects, completedContract, completedSubFilter, completedCategory, completedService]);
 
   const ProjectCard = ({ project, index }: { project: any; index: number }) => (
     <motion.div
@@ -84,9 +102,15 @@ const Projects = () => {
             <Badge className="bg-accent text-accent-foreground shadow-glow">
               {project.category}
             </Badge>
-            <Badge variant="outline" className="bg-black/50 text-white border-none backdrop-blur-sm">
+            {(project as any).service && (
+              <Badge variant="secondary" className="backdrop-blur-md bg-white/80">
+                {(project as any).service}
+              </Badge>
+            )}
+
+            {/* <Badge variant="outline" className="bg-black/50 text-white border-none backdrop-blur-sm">
               {project.sft}
-            </Badge>
+            </Badge> */}
           </div>
         </div>
         <CardHeader>
@@ -103,10 +127,9 @@ const Projects = () => {
               <MapPin className="w-4 h-4 text-accent" />
               <span>{project.location}</span>
             </div>
-            {/* <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <User className="w-4 h-4 text-accent" />
-                <span>{project.client}</span>
-                </div> */}
+            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+              <span className="font-semibold text-accent">{project.sft}</span>
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -154,7 +177,18 @@ const Projects = () => {
 
             <TabsContent value="ongoing">
               {/* --- Filters for Ongoing Projects --- */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center flex-wrap">
+                <Select value={ongoingService} onValueChange={setOngoingService}>
+                  <SelectTrigger className="w-full sm:w-[200px] border-accent/50 bg-accent/5">
+                    <SelectValue placeholder="Filter by Service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {ongoingServices.map(service => (
+                      <SelectItem key={service} value={service}>{service === 'all' ? 'All Services' : service}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
                 <Select value={ongoingType} onValueChange={setOngoingType}>
                   <SelectTrigger className="w-full sm:w-[200px]">
                     <SelectValue placeholder="Filter by Category" />
@@ -177,16 +211,34 @@ const Projects = () => {
                 </Select>
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredOngoingProjects.map((project, index) => (
-                  <ProjectCard key={index} project={project} index={index} />
-                ))}
-              </div>
+              {filteredOngoingProjects.length > 0 ? (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredOngoingProjects.map((project, index) => (
+                    <ProjectCard key={index} project={project} index={index} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-20 text-muted-foreground">
+                  No projects found matching the selected filters.
+                </div>
+              )}
+
             </TabsContent>
 
             <TabsContent value="completed">
               {/* --- Filters for Completed Projects --- */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center flex-wrap">
+                <Select value={completedService} onValueChange={setCompletedService}>
+                  <SelectTrigger className="w-full sm:w-[240px] border-accent/50 bg-accent/5">
+                    <SelectValue placeholder="Filter by Service" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {completedServices.map(service => (
+                      <SelectItem key={service} value={service}>{service === 'all' ? 'All Services' : service}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
                 <Select value={completedCategory} onValueChange={setCompletedCategory}>
                   <SelectTrigger className="w-full sm:w-[240px]">
                     <SelectValue placeholder="Filter by Category" />
@@ -235,11 +287,17 @@ const Projects = () => {
                 )}
               </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredCompletedProjects.map((project, index) => (
-                  <ProjectCard key={index} project={project} index={index} />
-                ))}
-              </div>
+              {filteredCompletedProjects.length > 0 ? (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredCompletedProjects.map((project, index) => (
+                    <ProjectCard key={index} project={project} index={index} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-20 text-muted-foreground">
+                  No projects found matching the selected filters.
+                </div>
+              )}
             </TabsContent>
           </Tabs>
         </div>

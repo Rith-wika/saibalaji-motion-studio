@@ -7,7 +7,8 @@
       "image": "/ONgoing project- Diary/kapil-business-park- HYD.jpeg",
       "type": "Commercial",
       "category": "Commercial",
-      "sft": "2,00,000 SFT"
+      "sft": "2,00,000 SFT",
+      "service": "Electrical"
     },
     {
       "title": "Birla Trimaya",
@@ -16,7 +17,8 @@
       "image": "/ONgoing project- Diary/Birla-Trimaya-Phase-2.jpeg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "1,50,000 SFT"
+      "sft": "1,50,000 SFT",
+      "service": "Plumbing"
     },
     {
       "title": "Prestige City",
@@ -25,7 +27,8 @@
       "image": "/ONgoing project- Diary/Prestige City- Bengaluru.jpg",
       "type": "Township",
       "category": "Township",
-      "sft": "5,00,000 SFT"
+      "sft": "5,00,000 SFT",
+      "service": "Fire Fighting"
     },
     {
       "title": "NSL East County Phase-II",
@@ -34,7 +37,8 @@
       "image": "/Completed Project/NSL East county.jpg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "3,00,000 SFT"
+      "sft": "3,00,000 SFT",
+      "service": "ELV"
     },
     {
       "title": "Godrej Ascend",
@@ -43,7 +47,8 @@
       "image": "/ONgoing project- Diary/Godrej-Ascend_-Mumbai.jpg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "2,50,000 SFT"
+      "sft": "2,50,000 SFT",
+      "service": "HVAC"
     },
     {
       "title": "Purvankara Clermont",
@@ -52,7 +57,8 @@
       "image": "/ONgoing project- Diary/Puravankara Clermont, Mumbai.jfif",
       "type": "Residential",
       "category": "Residential",
-      "sft": "1,80,000 SFT"
+      "sft": "1,80,000 SFT",
+      "service": "Electrical"
     },
     {
       "title": "The Line by Terminus Group",
@@ -61,7 +67,8 @@
       "image": "/ONgoing project- Diary/The Line project.jpg",
       "type": "Commercial",
       "category": "Commercial",
-      "sft": "1,20,000 SFT"
+      "sft": "1,20,000 SFT",
+      "service": "Plumbing"
     },
     {
       "title": "Brigade Sanctuary",
@@ -70,7 +77,8 @@
       "image": "/Completed Project/brigade-signature-towers-sale-2.jpg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "2,20,000 SFT"
+      "sft": "2,20,000 SFT",
+      "service": "Fire Fighting"
     },
     {
       "title": "Honer Signatis",
@@ -79,7 +87,8 @@
       "image": "/ONgoing project- Diary/Honer Signatis.png",
       "type": "Residential",
       "category": "Residential",
-      "sft": "3,50,000 SFT"
+      "sft": "3,50,000 SFT",
+      "service": "ELV"
     },
     {
       "title": "Aparna Zenon",
@@ -88,7 +97,8 @@
       "image": "/Completed Project/Aparna Cyber Commune Project.jpg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "4,00,000 SFT"
+      "sft": "4,00,000 SFT",
+      "service": "HVAC"
     },
     {
       "title": "Myhome Avali",
@@ -97,7 +107,8 @@
       "image": "/ONgoing project- Diary/myHome Avali-Hyderabad.jpg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "5,50,000 SFT"
+      "sft": "5,50,000 SFT",
+      "service": "Electrical"
     },
     {
       "title": "IB Panvel Phase -II by Embassy Group",
@@ -106,7 +117,8 @@
       "image": "/Completed Project/One IB Thane.jpg",
       "type": "Commercial",
       "category": "Commercial",
-      "sft": "1,00,000 SFT"
+      "sft": "1,00,000 SFT",
+      "service": "Plumbing"
     }
   ],
   "completedProjects": [
@@ -118,7 +130,8 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "1,50,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "Fire Fighting"
     },
     {
       "title": "Prestige Skytech Commercial",
@@ -128,17 +141,19 @@
       "type": "Commercial",
       "category": "Commercial",
       "sft": "2,00,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "ELV"
     },
     {
-      "title": "Signature Tower",
+      "title": "Brigade Signature",
       "location": "Bengaluru",
       "description": "Completed electrical infrastructure works.",
       "image": "/Completed Project/brigade-signature-towers-sale-2.jpg",
       "type": "Commercial",
       "category": "Commercial",
       "sft": "1,80,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "HVAC"
     },
     {
       "title": "Myhome Bhooja",
@@ -148,7 +163,8 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "3,00,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "Electrical"
     },
     {
       "title": "Aparna One",
@@ -158,17 +174,19 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "2,50,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "Plumbing"
     },
     {
       "title": "Tata Promont",
-      "location": "Bangalore",
+      "location": "Bengaluru",
       "description": "Completed electrical infrastructure works.",
       "image": "/Completed Project/Tata Promont, Bengaluru.webp",
       "type": "Residential",
       "category": "Residential",
       "sft": "1,90,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "Fire Fighting"
     },
     {
       "title": "Purva Zenium",
@@ -178,7 +196,8 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "1,60,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "ELV"
     },
     {
       "title": "Brigade Utopia",
@@ -188,7 +207,8 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "2,10,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "HVAC"
     },
     {
       "title": "BSCPL Bollineni Bion",
@@ -198,7 +218,8 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "1,75,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "Electrical"
     },
     {
       "title": "Indiabulls Skyforest",
@@ -208,7 +229,8 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "1,40,000 SFT",
-      "contractType": "MEP CONTRACTS"
+      "contractType": "MEP CONTRACTS",
+      "service": "Plumbing"
     }
   ]
 }

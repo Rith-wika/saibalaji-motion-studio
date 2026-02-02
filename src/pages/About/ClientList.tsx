@@ -32,7 +32,7 @@ const registrationDetails = [
   },
   { title: "PAN NO.", value: "A A Q C S 8 0 8 9L" },
   { title: "TELENGANA (HYDERABAD) GST NO.", value: "3 6 A A Q C S 8 0 8 9 L 1 Z 9" },
-  { title: "KARNATAKA (BANGALORE) GST NO.", value: "2 9A A Q C S 8 0 8 9 L 1 Z4" },
+  { title: "KARNATAKA (BENGALURU) GST NO.", value: "2 9A A Q C S 8 0 8 9 L 1 Z4" },
   { title: "MAHARASHTRA (MUMBAI) GSTNO.", value: "2 7 A A Q C S 8 0 8 9 L 1 Z8" },
   { title: "UTTRAPRADESH GST NO.", value: "0 9 A AQ C S 8 0 8 9 L 1 Z6" },
   { title: "PROVIDENT FUND CODE.", value: "AP/SAO/PTC/74048" },
@@ -85,7 +85,7 @@ const ClientList = () => {
   return (
     <div className="min-h-screen bg-white text-foreground">
       {/* Header (Your existing code) */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={clientlistImage}

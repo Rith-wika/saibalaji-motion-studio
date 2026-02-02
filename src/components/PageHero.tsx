@@ -17,7 +17,7 @@ export const PageHero = ({
   const { ref: heroRef, isVisible: isHeroVisible } = useScrollAnimation(0);
 
   return (
-    <section className={cn("relative h-[70vh] flex items-center justify-center overflow-hidden", className)}>
+    <section className={cn("relative h-[50vh] flex items-center justify-center overflow-hidden", className)}>
       <div
         className="absolute inset-0 bg-cover bg-center bg-fixed"
         style={{

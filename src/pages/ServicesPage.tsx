@@ -16,9 +16,10 @@ const ServicesPage = () => {
     imageSrc: string;
     imageAlt: string;
     title: string;
+    filterValue: string;
   }
 
-  const AnimatedServicePoint = ({ points, index, isImageLeft, imageSrc, imageAlt, title }: ServicePointProps) => {
+  const AnimatedServicePoint = ({ points, index, isImageLeft, imageSrc, imageAlt, title, filterValue }: ServicePointProps) => {
     // Parent container variants to stagger children when the section comes into view
     const containerVariants = {
       hidden: {},
@@ -97,7 +98,7 @@ const ServicesPage = () => {
                 </motion.ul>
 
                 <motion.a
-                  href="/projects"
+                  href={`/projects?service=${encodeURIComponent(filterValue)}`}
                   className="inline-flex items-center gap-2 mt-6 text-primary font-bold uppercase tracking-wider text-xs hover:text-accent transition-colors"
                 >
                   View Projects <ArrowRight className="w-3 h-3" />
@@ -170,7 +171,7 @@ const ServicesPage = () => {
                 </motion.ul>
 
                 <motion.a
-                  href="/projects"
+                  href={`/projects?service=${encodeURIComponent(filterValue)}`}
                   className="inline-flex items-center gap-2 mt-6 text-primary font-bold uppercase tracking-wider text-xs hover:text-accent transition-colors"
                 >
                   View Projects <ArrowRight className="w-3 h-3" />
@@ -188,6 +189,7 @@ const ServicesPage = () => {
     {
       id: "electrical-services",
       title: "Electrical Services",
+      filterValue: "Electrical",
       points: [
         "HT & LT Electrical Works",
         "Internal & External Electrification",
@@ -201,6 +203,7 @@ const ServicesPage = () => {
     {
       id: "plumbing-phe",
       title: "Plumbing & Public Health Engineering (PHE)",
+      filterValue: "Plumbing",
       points: [
         "Internal & external plumbing systems",
         "Water supply & drainage systems",
@@ -212,6 +215,7 @@ const ServicesPage = () => {
     {
       id: "fire-fighting",
       title: "Fire Fighting Systems",
+      filterValue: "Fire Fighting",
       points: [
         "Fire hydrant systems",
         "Sprinkler systems",
@@ -224,6 +228,7 @@ const ServicesPage = () => {
     {
       id: "elv-systems",
       title: "ELV / Low Current Systems",
+      filterValue: "ELV",
       points: [
         "CCTV & Surveillance",
         "Access Control Systems",
@@ -236,6 +241,7 @@ const ServicesPage = () => {
     {
       id: "hvac-systems",
       title: "Heating, Ventilation & Air Conditioning Systems (HVAC)",
+      filterValue: "HVAC",
       points: [
         "Centralized & VRF / VRV Air Conditioning Systems",
         "Chilled Water, AHU & FCU Systems",

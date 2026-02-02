@@ -1,177 +1,188 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-const journeyItems = [
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+interface JourneyItem {
+    year: string;
+    title: string;
+    description: string;
+}
+
+const journeyData: JourneyItem[] = [
     {
-        year: "2025",
-        title: "CPRI Certification",
-        description: "Tested @CPRI for 70KA Short Circuit, IP65, Temperature Rise as per IEC61439.",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" // Industrial testing/lab
+        year: "2002",
+        title: "Inception",
+        description: "Started Sai Balaji Technologies Pvt Ltd with core Electrical contracting in Hyderabad, marking the beginning of our journey."
     },
     {
-        year: "2025",
-        title: "Manufacturing Unit",
-        description: "Started Sai Balaji Power Controls LLP For Manufacturing LV Panels, Cable Tray, Bus Ways Etc,.",
-        image: "https://images.unsplash.com/photo-1565514020126-77889e478517?auto=format&fit=crop&w=1200&q=80" // Manufacturing/Factory
-    },
-    {
-        year: "2019",
-        title: "MEP Services",
-        description: "Started Sai Balaji MEP LLP for Electrical Turn Key Services.",
-        image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1200&q=80" // Electrical/Wiring
-    },
-    {
-        year: "2019",
-        title: "Service Expansion",
-        description: "Added Plumbing and Fire Fighting & Alarm Contracting Services.",
-        image: "https://images.unsplash.com/photo-1581092334651-ddf26f9a0950?auto=format&fit=crop&w=1200&q=80" // Plumbing/Pipes
+        year: "2006",
+        title: "Early Growth",
+        description: "Expanded our operations significantly, strengthening the foundation for future infrastructure services."
     },
     {
         year: "2011",
         title: "Incorporation",
-        description: "Registered as Sai Balaji Infra India Pvt Ltd.",
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" // Office building/Corp
+        description: "Registered as Sai Balaji Infra India Pvt Ltd, a major milestone in our corporate expansion journey."
     },
     {
-        year: "2006",
-        title: "Inception",
-        description: "Started Sai Balaji Technologies as Electrical Contractor.",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" // Beginning/Office
+        year: "2012",
+        title: "Mumbai Projects",
+        description: "Successfully expanded our project footprint to Mumbai, taking on challenging work in the financial capital."
     },
+    {
+        year: "2014",
+        title: "Bengaluru Projects",
+        description: "Further expansion of our execution capabilities into the Bengaluru region, tapping into new technology markets."
+    },
+    {
+        year: "2019",
+        title: "MEP LLP",
+        description: "Strategic expansion into Turnkey Solutions with the establishment of Sai Balaji MEP LLP."
+    },
+    {
+        year: "2021",
+        title: "Pan India",
+        description: "Aggressive expansion into Gurugram and Vizag, solidifying our presence across the nation."
+    },
+    {
+        year: "2022",
+        title: "Pune Office",
+        description: "Continued our geographic expansion by opening a new chapter in Pune to serve industrial hubs."
+    },
+    {
+        year: "2023",
+        title: "Regional Branches",
+        description: "Major expansion milestone with the establishment of full-fledged branches in Bengaluru and Mumbai."
+    },
+    {
+        year: "2024",
+        title: "Power Control",
+        description: "Vertical expansion into manufacturing with the launch of Sai Balaji Power Controls LLP."
+    },
+    {
+        year: "2025",
+        title: "CPRI Certified",
+        description: "Achieved CPRI Certification, expanding our quality credentials and commitment to safety."
+    }
 ];
 
-const JourneyCard = ({ item }: { item: typeof journeyItems[0] }) => (
-    <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[400px] md:h-[500px] border border-white/10 group">
-        <img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
+const JourneySection = () => {
+    return (
+        <div className="w-full max-w- mx-auto py-10 relative">
+            {/* Desktop Snake Layout */}
+            <div className="hidden lg:block relative h-[700px] w-full mt-10">
+                {/* SVG Connecting Line */}
+                <svg
+                    className="absolute inset-0 w-full h-full z-0 pointer-events-none"
+                    viewBox="0 0 100 700"
+                    preserveAspectRatio="none"
+                >
+                    <defs>
+                        <linearGradient id="gradient-line" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stopColor="hsl(var(--primary))" />
+                            <stop offset="100%" stopColor="hsl(var(--accent))" />
+                        </linearGradient>
+                    </defs>
 
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-90" />
+                    {/* Background Trace */}
+                    <path
+                        d="M 10 100 L 89 100 C 95 100 95 300 89 300 L 10 300 C 5 300 5 500 10 500 L 62 500"
+                        fill="none"
+                        stroke="hsl(var(--muted-foreground) / 0.2)"
+                        vectorEffect="non-scaling-stroke"
+                        style={{ strokeWidth: 4 }}
+                    />
 
-        {/* Content Content - Positioned at bottom like the design */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+                    {/* Animated Line */}
+                    <motion.path
+                        initial={{ pathLength: 0 }}
+                        whileInView={{ pathLength: 1 }}
+                        transition={{ duration: 4, ease: "easeInOut" }}
+                        d="M 10 100 L 89 100 C 95 100 95 300 89 300 L 10 300 C 5 300 5 500 10 500 L 62 500"
+                        fill="none"
+                        stroke="hsl(var(--accent))"
+                        vectorEffect="non-scaling-stroke"
+                        style={{ strokeWidth: 4 }}
+                    />
+                </svg>
+
+                {/* Nodes Container */}
+                {/* Row 1 */}
+                <JourneyNode item={journeyData[0]} x="10%" y="100px" delay={0.2} />
+                <JourneyNode item={journeyData[1]} x="36%" y="100px" delay={0.4} />
+                <JourneyNode item={journeyData[2]} x="62%" y="100px" delay={0.6} />
+                <JourneyNode item={journeyData[3]} x="89%" y="100px" delay={0.8} />
+
+                {/* Row 2 */}
+                <JourneyNode item={journeyData[4]} x="89%" y="300px" delay={1.0} />
+                <JourneyNode item={journeyData[5]} x="62%" y="300px" delay={1.2} />
+                <JourneyNode item={journeyData[6]} x="36%" y="300px" delay={1.4} />
+                <JourneyNode item={journeyData[7]} x="10%" y="300px" delay={1.6} />
+
+                {/* Row 3 */}
+                <JourneyNode item={journeyData[8]} x="10%" y="500px" delay={1.8} />
+                <JourneyNode item={journeyData[9]} x="36%" y="500px" delay={2.0} />
+                <JourneyNode item={journeyData[10]} x="62%" y="500px" delay={2.2} />
+            </div>
+
+            {/* Mobile Vertical Layout */}
+            <div className="lg:hidden flex flex-col gap-8 px-4 relative">
+                <div className="absolute left-[27px] top-6 bottom-6 w-0.5 bg-primary/20" />
+                {journeyData.map((item, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                        className="flex gap-6 relative"
+                    >
+                        <div className="relative z-10 w-14 h-14 shrink-0 rounded-full bg-background border-4 border-accent flex items-center justify-center shadow-lg">
+                            <span className="text-xs font-bold text-foreground">{item.year}</span>
+                        </div>
+                        <div className="pb-8 border-b border-dashed border-gray-200 last:border-0">
+                            <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
+                            <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const JourneyNode = ({ item, x, y, delay }: { item: JourneyItem, x: string, y: string, delay: number }) => {
+    return (
+        <div
+            className="absolute -translate-x-1/2 -translate-y-1/2 group"
+            style={{ left: x, top: y }}
+        >
             <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
+                initial={{ scale: 0, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20, delay }}
+                className="relative z-20 cursor-pointer"
             >
-                <div className="flex items-center gap-3 mb-4">
-                    <span className="px-3 py-1 bg-accent text-accent-foreground text-xs font-bold uppercase tracking-wider rounded-full">
-                        {item.year}
-                    </span>
-                    <div className="h-px bg-white/30 flex-1" />
+                {/* Circle Node */}
+                <div className="w-20 h-20 rounded-full bg-background border-4 border-accent flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-110 group-hover:border-primary group-hover:shadow-[0_0_25px_hsl(var(--accent)/0.5)] relative overflow-hidden z-20">
+                    <div className="absolute inset-0 bg-accent/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{item.year}</span>
                 </div>
 
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
-                    {item.title}
-                </h2>
+                {/* Always visible label below */}
+                <div className="absolute top-24 left-1/2 -translate-x-1/2 whitespace-nowrap text-center pointer-events-none">
+                    <h3 className="text-sm font-bold text-primary/80 group-hover:text-primary transition-colors">{item.title}</h3>
+                </div>
 
-                <p className="text-base md:text-lg text-white/90 leading-relaxed max-w-2xl">
-                    {item.description}
-                </p>
-
-                <div className="mt-8 flex items-center text-white/70 text-sm group-hover:text-accent transition-colors duration-300 cursor-pointer w-fit">
-                    <span className="mr-2">Explore Step</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                {/* Hover Popover Box */}
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-72 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-50 pointer-events-none">
+                    <div className="bg-popover text-popover-foreground p-4 rounded-xl shadow-xl border border-border relative">
+                        <h4 className="font-bold text-accent mb-1">{item.title} ({item.year})</h4>
+                        <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                        {/* Arrown */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1.5 border-8 border-transparent border-t-popover" />
+                    </div>
                 </div>
             </motion.div>
-        </div>
-    </div>
-);
-
-const JourneySection = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-
-    const handleItemClick = (index: number) => {
-        // Check if mobile (lg breakpoint is 1024px in Tailwind)
-        const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-
-        if (isDesktop) {
-            setActiveIndex(index);
-        } else {
-            // On mobile, toggle the item
-            setActiveIndex((prev) => (prev === index ? -1 : index));
-        }
-    };
-
-    return (
-        <div className="w-full max-w-7xl mx-auto">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-                {/* Left Side: List */}
-                <div className="w-full lg:w-1/3 flex flex-col gap-2">
-                    {journeyItems.map((item, index) => (
-                        <div key={index} className="flex flex-col">
-                            <button
-                                onClick={() => handleItemClick(index)}
-                                className={`text-left px-6 py-4 rounded-xl transition-all duration-300 flex items-center justify-between group ${activeIndex === index
-                                    ? "bg-accent text-accent-foreground shadow-lg scale-105"
-                                    : "hover:bg-accent/10 text-muted-foreground hover:text-foreground hover:translate-x-2"
-                                    }`}
-                            >
-                                <div className="flex flex-col">
-                                    <span className={`text-sm font-medium ${activeIndex === index ? "text-accent-foreground/80" : "text-muted-foreground/70"}`}>
-                                        {item.year}
-                                    </span>
-                                    <span className="text-lg font-semibold">{item.title}</span>
-                                </div>
-
-                                {activeIndex === index && (
-                                    <motion.div
-                                        layoutId="active-arrow"
-                                        initial={{ opacity: 0, x: -10 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -10 }}
-                                    >
-                                        <ArrowRight className="w-5 h-5 hidden lg:block" />
-                                        <ArrowRight className="w-5 h-5 lg:hidden rotate-90" />
-                                    </motion.div>
-                                )}
-                            </button>
-
-                            {/* Mobile Content (Accordion style) */}
-                            <div className="lg:hidden">
-                                <AnimatePresence>
-                                    {activeIndex === index && (
-                                        <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="overflow-hidden"
-                                        >
-                                            <div className="pt-4 pb-2">
-                                                <JourneyCard item={item} />
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Right Side: Content Display (Desktop Only) */}
-                <div className="hidden lg:block w-full lg:w-2/3 relative min-h-[400px]">
-                    <AnimatePresence mode="wait">
-                        {activeIndex !== -1 && (
-                            <motion.div
-                                key={activeIndex}
-                                initial={{ opacity: 0, x: 20, filter: "blur(10px)" }}
-                                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                                exit={{ opacity: 0, x: -20, filter: "blur(10px)" }}
-                                transition={{ duration: 0.5, ease: "easeOut" }}
-                                className="relative h-full"
-                            >
-                                <JourneyCard item={journeyItems[activeIndex]} />
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
-                </div>
-            </div>
         </div>
     );
 };

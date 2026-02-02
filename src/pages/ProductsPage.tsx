@@ -1,158 +1,147 @@
+
 import { useState } from "react";
-import { PageHero } from "@/components/PageHero";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { ProductsHero, productsData } from "@/components/ProductsHero";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
-
-// Mock Product Data
-const products = [
-    {
-        id: 1,
-        title: "VCB Panel",
-        category: "Switchgear",
-        image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&auto=format&fit=crop",
-        description: "High-performance Vacuum Circuit Breaker panels for reliable medium voltage protection.",
-        features: ["11kV - 33kV Rating", "Indoor/Outdoor Type", "SCADA Compatible"]
-    },
-    {
-        id: 2,
-        title: "PCC Panel",
-        category: "Control Panels",
-        image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=800&auto=format&fit=crop",
-        description: "Power Control Center panels designed for efficient power distribution and fault protection.",
-        features: ["Up to 6300A", "Form 4 Separation", "Intelligent Protection"]
-    },
-    {
-        id: 3,
-        title: "MCC Panel",
-        category: "Control Panels",
-        image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&auto=format&fit=crop",
-        description: "Motor Control Center panels for centralized control of electric motors.",
-        features: ["Fixed/Draw-out Type", "Soft Starter/VFD", "PLC Integration"]
-    },
-    {
-        id: 4,
-        title: "APFC Panel",
-        category: "Power Quality",
-        image: "https://images.unsplash.com/photo-1563770095-39d468f9a51d?w=800&auto=format&fit=crop",
-        description: "Automatic Power Factor Correction panels to improve energy efficiency and reduce penalties.",
-        features: ["Microprocessor Based", "Real-time Correction", "Low Harmonic Filters"]
-    },
-    {
-        id: 5,
-        title: "Compact Substation",
-        category: "Infrastructure",
-        image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&auto=format&fit=crop",
-        description: "Ready-to-install package substations for urban and industrial power distribution.",
-        features: ["Transformer + RMU + LV", "Space Saving", "Safety Interlocked"]
-    },
-    {
-        id: 6,
-        title: "Bus Duct System",
-        category: "Distribution",
-        image: "https://images.unsplash.com/photo-1544724569-5f546fd6dd2d?w=800&auto=format&fit=crop",
-        description: "Efficient and reliable bus duct systems for high power transmission.",
-        features: ["Sandwich/Air Insulated", "Aluminium/Copper", "Fire Retardant"]
-    }
-];
-
-const categories = ["All", "Control Panels", "Switchgear", "Power Quality", "Infrastructure", "Distribution"];
+import { CheckCircle2, ChevronDown, ChevronUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const ProductsPage = () => {
-    const [activeCategory, setActiveCategory] = useState("All");
+    // State to track which product's details are open. 
+    // We can allow multiple to be open or just one. Let's allow one at a time for focus.
+    const [openProductId, setOpenProductId] = useState<number | null>(null);
 
-    const filteredProducts = activeCategory === "All"
-        ? products
-        : products.filter(p => p.category === activeCategory);
+    const toggleProduct = (id: number) => {
+        const isOpening = openProductId !== id;
+        setOpenProductId(prev => prev === id ? null : id);
+
+        if (isOpening) {
+            // Wait for partial or full close animation to stabilize positions
+            // Animation duration is 0.4s (400ms). We wait slightly longer to ensure accurate bounding box.
+            setTimeout(() => {
+                const element = document.getElementById(`product-details-${id}`);
+                if (element) {
+                    const yOffset = -20; // Reduced offset to land closer to the header
+                    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            }, 500);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-background">
-            <PageHero
-                title="Our Premium Products"
-                description="State-of-the-art electrical infrastructure solutions engineered for reliability, safety, and performance."
-                imageUrl="https://images.unsplash.com/photo-1565619624098-e659b7b68632?w=1920&fit=crop"
-            />
+            <ProductsHero />
 
-            <section className="py-20 container mx-auto px-4">
-                {/* Category Filter */}
-                <div className="flex flex-wrap justify-center gap-4 mb-16">
-                    {categories.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${activeCategory === cat
-                                    ? "bg-primary text-white shadow-lg scale-105"
-                                    : "bg-secondary text-foreground hover:bg-accent/10 hover:text-accent"
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
+            <section className="py-24 container mx-auto px-4 space-y-32">
+                {productsData.map((product, index) => {
+                    const isEven = index % 2 === 0;
+                    const isOpen = openProductId === product.id;
 
-                {/* Product Grid */}
-                <motion.div
-                    layout
-                    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-                >
-                    {filteredProducts.map((product) => (
-                        <motion.div
-                            layout
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.9 }}
-                            transition={{ duration: 0.3 }}
+                    return (
+                        <div
                             key={product.id}
+                            id={`product-${product.id}`}
+                            className="scroll-mt-32" // Offset for sticky headers if any
                         >
-                            <Card className="h-full hover:shadow-xl transition-shadow duration-300 border-primary/10 overflow-hidden group flex flex-col">
-                                <div className="relative h-64 overflow-hidden">
-                                    <img
-                                        src={product.image}
-                                        alt={product.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <Button variant="secondary" className="gap-2">
-                                            View Details <ArrowRight className="w-4 h-4" />
-                                        </Button>
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.6 }}
+                                className={cn(
+                                    "flex flex-col gap-12 lg:gap-20 items-center",
+                                    isEven ? "lg:flex-row" : "lg:flex-row-reverse"
+                                )}
+                            >
+                                {/* Image Section */}
+                                <div className="w-full lg:w-1/2 group">
+                                    <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-[4/3]">
+                                        <img
+                                            src={product.image}
+                                            alt={product.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
+
+                                        {/* Decorative Badge */}
+                                        <div className="absolute top-6 left-6 px-4 py-2 bg-accent/90 text-white rounded-full text-sm font-semibold backdrop-blur-sm shadow-lg">
+                                            {product.category}
+                                        </div>
                                     </div>
-                                    <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground hover:bg-accent">
-                                        {product.category}
-                                    </Badge>
                                 </div>
 
-                                <CardHeader>
-                                    <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
-                                        {product.title}
-                                    </CardTitle>
-                                </CardHeader>
+                                {/* Content Section */}
+                                <div className="w-full lg:w-1/2 space-y-6">
+                                    <div className="space-y-2">
+                                        <h3 className="text-accent text-lg font-medium tracking-wide border-l-4 border-accent pl-4">
+                                            {product.subtitle}
+                                        </h3>
+                                        <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60 dark:from-white dark:to-white/60">
+                                            {product.title}
+                                        </h2>
+                                    </div>
 
-                                <CardContent className="flex-grow">
-                                    <p className="text-muted-foreground mb-4 line-clamp-2">
+                                    <p className="text-lg text-muted-foreground leading-relaxed">
                                         {product.description}
                                     </p>
-                                    <div className="space-y-2">
-                                        {product.features.slice(0, 2).map((feat, i) => (
-                                            <div key={i} className="flex items-center text-sm text-foreground/80">
-                                                <Zap className="w-4 h-4 text-accent mr-2" />
-                                                {feat}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </CardContent>
 
-                                <CardFooter className="pt-0 pb-6 border-t border-border/50 mt-4">
-                                    <Button variant="ghost" className="w-full p-0 h-auto font-semibold text-primary hover:text-accent hover:bg-transparent justify-between items-center mt-4">
-                                        Learn More
-                                        <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                                    <div className="pt-4">
+                                        <Button
+                                            onClick={() => toggleProduct(product.id)}
+                                            size="lg"
+                                            variant={isOpen ? "secondary" : "default"}
+                                            className="min-w-[200px] gap-2 rounded-full text-lg h-14 transition-all duration-300 shadow-lg hover:shadow-xl hover:translate-y-[-2px]"
+                                        >
+                                            {isOpen ? "Close Specifications" : "View Specifications"}
+                                            {isOpen ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                                        </Button>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* Expandable Details Section */}
+                            <AnimatePresence>
+                                {isOpen && (
+                                    <motion.div
+                                        id={`product-details-${product.id}`}
+                                        initial={{ height: 0, opacity: 0, marginTop: 0 }}
+                                        animate={{ height: "auto", opacity: 1, marginTop: 40 }}
+                                        exit={{ height: 0, opacity: 0, marginTop: 0 }}
+                                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                                        className="overflow-hidden w-full bg-secondary/30 rounded-3xl border border-border/50"
+                                    >
+                                        <div className="p-8 md:p-12">
+                                            <h4 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                                                <span className="w-2 h-8 bg-accent rounded-full" />
+                                                Product Range & Specifications
+                                            </h4>
+
+                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                                {product.details.map((item, idx) => (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, x: -20 }}
+                                                        animate={{ opacity: 1, x: 0 }}
+                                                        transition={{ delay: idx * 0.05 }}
+                                                        key={idx}
+                                                        className="flex items-center gap-4 p-4 rounded-xl bg-background border border-border/50 hover:border-accent/50 hover:shadow-md transition-all duration-300 group"
+                                                    >
+                                                        <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent group-hover:text-white transition-colors">
+                                                            <CheckCircle2 className="w-3.5 h-3.5 text-accent group-hover:text-white" />
+                                                        </div>
+                                                        <span className="text-foreground/90 font-medium leading-tight group-hover:text-primary transition-colors">
+                                                            {item}
+                                                        </span>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    );
+                })}
             </section>
         </div>
     );

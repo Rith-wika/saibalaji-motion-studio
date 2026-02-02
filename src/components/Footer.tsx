@@ -27,13 +27,13 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-16">
+      <div className="w-full px-4 md:px-10 lg:px-16 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-auto h-24 overflow-hidden flex items-center justify-center bg-transparent">
-                <img src="/logo.png" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
+                <img src="/logo-bg.png" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
               </div>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">

@@ -115,7 +115,7 @@ const Credentials = () => {
     return (
         <div className="min-h-screen bg-slate-50">
             {/* Header */}
-            <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+            <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0">
                     <img
                         src={achievementsImage}

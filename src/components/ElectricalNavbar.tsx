@@ -83,7 +83,7 @@ const ElectricalNavbar: React.FC = () => {
       className="fixed top-0 left-0 right-0 z-50 transition-smooth bg-white shadow-medium font-sans"
     >
       {/* TOP ROW: Header (Logo & Certs) */}
-      <div className="container mx-auto px-4 py-2 flex justify-between items-center border-b border-gray-100/50">
+      <div className="w-full px-4 md:px-10 lg:px-16 py-2 flex justify-between items-center border-b border-gray-100/50">
         {/* Left: Logo */}
         <Link to="/" className="flex items-center gap-3">
           <div className="w-auto h-16 md:h-20 flex items-center justify-center">
@@ -91,24 +91,24 @@ const ElectricalNavbar: React.FC = () => {
           </div>
         </Link>
 
-        {/* Right: Certifications (Desktop) */}
-        <div className="hidden md:flex items-center gap-6">
-          <div className="flex items-center gap-3 px-3 py-1.5 bg-secondary/5 rounded-lg border border-secondary/10 hover:bg-secondary/10 transition-colors cursor-default group">
-            <div className="bg-white p-1.5 rounded-full shadow-sm group-hover:scale-110 transition-transform">
-              <ShieldCheck className="w-6 h-6 text-accent" />
+        {/* Right: Certifications (Desktop & Mobile) */}
+        <div className="flex items-center gap-2 md:gap-6">
+          <div className="flex items-center gap-1.5 md:gap-3 px-1.5 py-1 md:px-3 md:py-1.5 bg-secondary/5 rounded-lg border border-secondary/10 hover:bg-secondary/10 transition-colors cursor-default group">
+            <div className="bg-white p-1 md:p-1.5 rounded-full shadow-sm group-hover:scale-110 transition-transform">
+              <ShieldCheck className="w-4 h-4 md:w-6 md:h-6 text-accent" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xs font-bold text-primary leading-tight tracking-tight">ISO 9001:2015</span>
-              <span className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
+              <span className="text-[10px] md:text-xs font-bold text-primary leading-tight tracking-tight">ISO 9001:2015</span>
+              <span className="hidden sm:block text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
             </div>
           </div>
-          <div className="flex items-center gap-3 px-3 py-1.5 bg-secondary/5 rounded-lg border border-secondary/10 hover:bg-secondary/10 transition-colors cursor-default group">
-            <div className="bg-white p-1.5 rounded-full shadow-sm group-hover:scale-110 transition-transform">
-              <Award className="w-6 h-6 text-accent" />
+          <div className="flex items-center gap-1.5 md:gap-3 px-1.5 py-1 md:px-3 md:py-1.5 bg-secondary/5 rounded-lg border border-secondary/10 hover:bg-secondary/10 transition-colors cursor-default group">
+            <div className="bg-white p-1 md:p-1.5 rounded-full shadow-sm group-hover:scale-110 transition-transform">
+              <Award className="w-4 h-4 md:w-6 md:h-6 text-accent" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xs font-bold text-primary leading-tight tracking-tight">ISO 45001:2018</span>
-              <span className="text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
+              <span className="text-[10px] md:text-xs font-bold text-primary leading-tight tracking-tight">ISO 45001:2018</span>
+              <span className="hidden sm:block text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ const ElectricalNavbar: React.FC = () => {
 
       {/* BOTTOM ROW: Navigation (Desktop) */}
       <div className="hidden md:block border-t border-transparent relative">
-        <div className="container mx-auto px-4 relative">
+        <div className="w-full px-4 md:px-10 lg:px-16 relative">
           {/* Electric Flow Effects (Full Width of Container) */}
           <div className="absolute inset-0 pointer-events-none z-10">
             <div

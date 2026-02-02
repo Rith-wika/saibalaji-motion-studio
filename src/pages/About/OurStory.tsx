@@ -14,7 +14,7 @@ const OurStory = () => {
   return (
     <div className="min-h-screen ">
       {/* Header */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={ourStoryImage}
@@ -43,8 +43,8 @@ const OurStory = () => {
 
       {/* Company Overview - Journey */}
       <section className="py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center text-4xl font-bold text-accent mb-16">
+        <div className="w-full px-4 md:px-10 lg:px-16">
+          <div className="text-center text-4xl font-bold text-accent mb-0">
             Our Journey
           </div>
 
@@ -54,7 +54,7 @@ const OurStory = () => {
 
       {/* NEW SECTION: 24 Years of Excellence */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="w-full px-4 md:px-10 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
