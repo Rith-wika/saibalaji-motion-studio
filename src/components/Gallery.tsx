@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { X } from "lucide-react";
 import galleryImage from "@/assets/gallery.jpg";
@@ -9,14 +9,12 @@ import allImagesData from "@/data/gallery.json"
 interface ProjectImage {
   url: string;
   title: string;
-  category: "all" | "prestigious" | "site_progress";
+  category: "product_installation" | "execution";
 }
 
-// Name suggestion for 'Some Actual Site Photographs': Site Progress
 const categories = [
-  { key: "all", label: "All Projects" },
-  { key: "prestigious", label: "Prestigious Projects" },
-  { key: "site_progress", label: "On-Site Reality" },
+  { key: "product_installation", label: "Product Installation" },
+  { key: "execution", label: "Execution Photos" },
 ];
 
 const allImages: ProjectImage[] = allImagesData as ProjectImage[];
@@ -28,16 +26,16 @@ const Gallery = () => {
   });
 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState<ProjectImage["category"]>("all");
-  const [activeOverlay,setActiveOverlay] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<ProjectImage["category"]>("execution");
+  const [activeOverlay, setActiveOverlay] = useState<string | null>(null);
 
   // Filter the images based on the active category
   const filteredImages = allImages.filter((image) =>
-    activeCategory === "all" ? true : image.category === activeCategory
+    image.category === activeCategory
   );
 
   // Animation variants for the images
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100, damping: 20 } },
     exit: { opacity: 0, scale: 0.8, transition: { duration: 0.3 } },
@@ -45,7 +43,7 @@ const Gallery = () => {
   const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
   return (
     <div className="min-h-screen">
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={galleryImage}
@@ -71,7 +69,7 @@ const Gallery = () => {
           </motion.div>
         </div>
       </section>
-      
+
       <section id="gallery" className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
@@ -98,11 +96,10 @@ const Gallery = () => {
               <motion.button
                 key={category.key}
                 onClick={() => setActiveCategory(category.key as ProjectImage["category"])}
-                className={`px-6 py-2 rounded-full font-medium transition-colors duration-300 ${
-                  activeCategory === category.key
-                    ? "bg-primary text-primary-foreground shadow-lg"
-                    : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
-                }`}
+                className={`px-6 py-2 rounded-full font-medium transition-colors duration-300 ${activeCategory === category.key
+                  ? "bg-primary text-primary-foreground shadow-lg"
+                  : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -117,20 +114,20 @@ const Gallery = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <AnimatePresence>
-              { filteredImages.map((image) => {
+              {filteredImages.map((image) => {
                 const isOverlayActive = activeOverlay === image.url;
                 const handleImageClick = () => {
                   if (isTouchDevice()) {
-                        if (isOverlayActive) {
-                          setSelectedImage(image.url);
-                            setActiveOverlay(null);
-                            } else {
-                            setActiveOverlay(image.url);
-                        }
-                        } else {
-                        // Desktop/Non-touch: Always open lightbox on click
-                        setSelectedImage(image.url);
+                    if (isOverlayActive) {
+                      setSelectedImage(image.url);
+                      setActiveOverlay(null);
+                    } else {
+                      setActiveOverlay(image.url);
                     }
+                  } else {
+                    // Desktop/Non-touch: Always open lightbox on click
+                    setSelectedImage(image.url);
+                  }
                 };
                 return (
                   <motion.div
@@ -142,26 +139,25 @@ const Gallery = () => {
                     layout
                     className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer shadow-medium hover:shadow-large transition-spring"
                     onClick={handleImageClick}
-                    >
-                      <img 
+                  >
+                    <img
                       src={image.url}
                       alt={image.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-700"
-                      />
-                      <div className={`absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent transition-smooth ${
-                        isOverlayActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-                          <div className="absolute bottom-0 left-0 right-0 p-6">
-                            <h3 className="text-primary-foreground font-bold text-lg">
-                              {image.title}
-                            </h3>
-                          </div>
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent transition-smooth ${isOverlayActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <h3 className="text-primary-foreground font-bold text-lg">
+                          {image.title}
+                        </h3>
                       </div>
+                    </div>
                   </motion.div>
 
                 );
 
               })}
-            </AnimatePresence> 
+            </AnimatePresence>
           </motion.div>
 
           {/* Lightbox */}

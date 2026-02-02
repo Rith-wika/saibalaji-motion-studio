@@ -143,32 +143,19 @@ const Credentials = () => {
             </section>
             {/* Main Content */}
             <section className="py-20 container mx-auto px-4">
-                <Tabs defaultValue="achievements" className="w-full">
+                <Tabs defaultValue="certifications" className="w-full">
                     <div className="flex justify-center mb-0">
                         <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-                            <TabsTrigger value="achievements" className="text-base">
-                                <Award className="w-4 h-4 mr-2" />
-                                Achievements
-                            </TabsTrigger>
                             <TabsTrigger value="certifications" className="text-base">
                                 <FileCheck className="w-4 h-4 mr-2" />
                                 Certifications
                             </TabsTrigger>
+                            <TabsTrigger value="achievements" className="text-base">
+                                <Award className="w-4 h-4 mr-2" />
+                                Achievements
+                            </TabsTrigger>
                         </TabsList>
                     </div>
-
-                    {/* Achievements Tab */}
-                    <TabsContent value="achievements" className="animate-in fade-in slide-in-from-bottom-8 duration-700">
-                        <ImageGrid
-                            images={achievementImages}
-                            inView={achievementsInView}
-                            triggerRef={achievementsRef}
-                            variant="standard"
-                        />
-                        <div className="mt-16 text-center">
-                            <p className="text-slate-500 mb-4">Recognized by industry leaders for our commitment to quality and excellence.</p>
-                        </div>
-                    </TabsContent>
 
                     {/* Certifications Tab */}
                     <TabsContent value="certifications" className="animate-in fade-in slide-in-from-bottom-8 duration-700">
@@ -180,6 +167,19 @@ const Credentials = () => {
                         />
                         <div className="mt-16 text-center">
                             <p className="text-slate-500 mb-4">We are continuously striving for excellence and adding more credentials to our portfolio.</p>
+                        </div>
+                    </TabsContent>
+
+                    {/* Achievements Tab */}
+                    <TabsContent value="achievements" className="animate-in fade-in slide-in-from-bottom-8 duration-700">
+                        <ImageGrid
+                            images={achievementImages}
+                            inView={achievementsInView}
+                            triggerRef={achievementsRef}
+                            variant="standard"
+                        />
+                        <div className="mt-16 text-center">
+                            <p className="text-slate-500 mb-4">Recognized by industry leaders for our commitment to quality and excellence.</p>
                         </div>
                     </TabsContent>
                 </Tabs>

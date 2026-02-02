@@ -15,7 +15,7 @@ import ServicesPage from "./pages/ServicesPage";
 import Credentials from "./components/Credentials";
 import KeyPersonsPage from "./pages/KeyPersonsPage";
 import Gallery from "./components/Gallery";
-import Careers from "./components/Careers";
+
 import Contact from "./components/Contact";
 import NotFound from "./pages/NotFound";
 import SaiBalajiMEP from "./pages/GroupCompanies/SaiBalajiMEP";
@@ -50,7 +50,7 @@ const App = () => (
             <Route path="key-persons" element={<KeyPersonsPage />} />
 
             <Route path="gallery" element={<Gallery />} />
-            <Route path="careers" element={<Careers />} />
+
             <Route path="contact" element={<Contact />} />
 
             {/* Group Companies */}

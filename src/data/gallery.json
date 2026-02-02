@@ -1,284 +1,122 @@
-
 [
   {
-    "url": "/gallery/prestigehighfields.png",
+    "url": "/gallery/1.JPG",
     "title": "Prestige HighFields",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/palladiumkessaku.png",
+    "url": "/gallery/2.JPG",
     "title": "Palladium Kessaku",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/palladium.jpg",
+    "url": "/gallery/3.JPG",
     "title": "Palladium Sub-Station",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/brigadeden.png",
+    "url": "/gallery/4.jpg",
     "title": "Brigade Eden",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/prestigeparksquare.webp",
+    "url": "/gallery/5.jpeg",
     "title": "Prestige Park Square",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/indiabullskyforest.jpeg",
+    "url": "/gallery/6.JPG",
     "title": "India Bulls Skyforest",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/bscplbion.png",
+    "url": "/gallery/7.jpeg",
     "title": "BSCPL Bion",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/myhomebhooja.avif",
+    "url": "/gallery/8.JPG",
     "title": "My Home- Bhooja",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/indiabullsgreenpanvel.jpg",
+    "url": "/gallery/9.jpeg",
     "title": "India Bulls Green Panvel",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/aparnaone.avif",
+    "url": "/gallery/10.JPG",
     "title": "Aparna One",
-    "category": "prestigious"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite1.jpg",
+    "url": "/gallery/11.JPG",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite2.jpg",
+    "url": "/gallery/12.jpeg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite3.jpg",
+    "url": "/gallery/13.JPG",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite4.jpg",
+    "url": "/gallery/14.JPG",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite5.png",
+    "url": "/gallery/15.JPG",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite6.png",
+    "url": "/gallery/16.jpg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite7.png",
+    "url": "/gallery/17.jpg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite8.png",
+    "url": "/gallery/18.jpeg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite9.png",
+    "url": "/gallery/19.JPG",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite10.png",
+    "url": "/gallery/20.jpeg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite11.png",
+    "url": "/gallery/21.jpeg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite12.png",
+    "url": "/gallery/22.jpeg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite13.png",
+    "url": "/gallery/23.jpg",
     "title": "On-Site",
-    "category": "site_progress"
+    "category": "execution"
   },
   {
-    "url": "/gallery/onsite14.png",
+    "url": "/gallery/24.jpg",
     "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/onsite15.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/onsite16.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/onsite17.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/onsite18.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/onsite19.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/onsite20.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/onsite21.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-   {
-    "url": "/gallery/onsite22.png",
-    "title": "On-Site",
-    "category": "site_progress"
-  },
-  {
-    "url": "/gallery/signaturetowerbanglore.webp",
-    "title": "Signature Tower- Banglore",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/ramakrishna.jpg",
-    "title": "Ramakrishna Venuzia- Guntur",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/myhomebhoojahyd.jpeg",
-    "title": "My Home- Bhooja- Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/riodegoa.jpg",
-    "title": "RIO-DE-TATA-GOA",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/prestigehighfieldshyd.webp",
-    "title": "Prestige HighFields-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/aparnaonehyd.jpg",
-    "title": "Aparna One-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/honoraquanties.webp",
-    "title": "Honor Aquanties-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/praneethpranav.jpg",
-    "title": "Praneeth-Leaf-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/indiabullsmumbai.jpg",
-    "title": "IndiaBulls-Green-Panvel-Mumbai",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/tatapromont.jpg",
-    "title": "Tata Promont-Banglore",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/mahindrashvitahyd.jpeg",
-    "title": "Mahindra Ashvita-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/tatapeenya.jpg",
-    "title": "Tata Peenya-Banglore",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/aparnakanpoy.jpeg",
-    "title": "Aparna Kanpoy-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/aparnasarovar.jpeg",
-    "title": "Aparna Sarovar-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/lodhapalava.webp",
-    "title": "Lodha-Palava-Mumbai",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/brigadebanjara.jpg",
-    "title": "Brigade-BanjaraHills-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/aurobindohyd.jpg",
-    "title": "Aurobindo-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/drreddys.webp",
-    "title": "Dr Reddy's,Bachupally-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/bitspilani.avif",
-    "title": "BITS Pilani-Shameerpet-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/navodaya.webp",
-    "title": "Navodaya Institute Of Technology(NIT)-Raichur",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/nuclearfuel.avif",
-    "title": "Nuclear Fuel Complex-Hyderabad",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/panoramahills.jpg",
-    "title": "Panorama Hills-Vishakapatnam",
-    "category": "prestigious"
-  },
-  {
-    "url": "/gallery/aparnacyber.jpg",
-    "title": "Aparna-Cyber-Commune-Nalagandla-Hyderabad",
-    "category": "prestigious"
-  },
-   {
-    "url": "/gallery/meruinternational.jpg",
-    "title": "My Home-Meru International School-Hyderabad",
-    "category": "prestigious"
+    "category": "execution"
   }
-
 ]
