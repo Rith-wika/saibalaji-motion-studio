@@ -32,8 +32,8 @@ const Footer = () => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-auto h-24 overflow-hidden flex items-center justify-center bg-transparent">
-                <img src="/logo-bg.png" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
+              <div className="w-full md:w-auto h-auto md:h-24 overflow-hidden flex items-center justify-start bg-transparent">
+                <img src="/logo-bg.png" alt="SAI BALAJI Logo" className="w-full h-auto md:h-full md:w-auto object-contain p-0" />
               </div>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">
@@ -132,12 +132,12 @@ const Footer = () => {
           </div>
 
           {/* Logos */}
-          <div className="flex flex-col items-center gap-4 space-x-3 mb-6">
-            <div className="w-auto h-24 overflow-hidden flex items-center justify-center bg-transparent">
-              <img src="/MLP.jpeg" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
+          <div className="flex flex-col items-start md:items-center gap-4 mb-6 w-full">
+            <div className="w-full md:w-auto h-auto md:h-24 overflow-hidden flex items-center justify-center bg-transparent">
+              <img src="/MLP.jpeg" alt="SAI BALAJI Logo" className="w-full h-auto md:h-full md:w-auto object-contain p-0" />
             </div>
-            <div className="w-auto h-24 overflow-hidden flex items-center justify-center bg-transparent">
-              <img src="/LLP.jpeg" alt="SAI BALAJI Logo" className="w-full h-full object-cover p-0" />
+            <div className="w-full md:w-auto h-auto md:h-24 overflow-hidden flex items-center justify-center bg-transparent">
+              <img src="/LLP.jpeg" alt="SAI BALAJI Logo" className="w-full h-auto md:h-full md:w-auto object-contain p-0" />
             </div>
           </div>
 
