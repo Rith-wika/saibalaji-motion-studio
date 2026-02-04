@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Users, CalendarRange, CheckCircle2, Award, MapPin, ShieldCheck, Building2, HardHat } from "lucide-react";
+import { ArrowRight, Users, CalendarRange, CheckCircle2, Award, MapPin, ShieldCheck, Building2, HardHat, FileText, BookOpen } from "lucide-react";
 import heroImage from "@/assets/hero-bg.jpg";
 // import heroVideo from "@/assets/hero-video.mp4";
 import ServicesCarousel from "@/pages/Home/ServicesCarousel";
@@ -37,34 +37,52 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          {/* <video
+          <video
             autoPlay
             loop
             muted
             playsInline
             poster={heroImage}
             className="w-full h-screen object-cover "
-            >
-              <source src={heroVideo} type="video/mp4" />
-              Your browser does not support the video tag.
+          >
+            <source src='/sai_balaji.mp4' type="video/mp4" />
+            Your browser does not support the video tag.
 
-            </video> */}
-          <img
+          </video>
+          {/* <img
             src={heroImage}
             alt="Electrical Infrastructure"
             className="w-full h-screen object-cover bg-fixed"
-          />
+          /> */}
           <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/40 to-primary/60" />
         </div>
 
+// {/* <a
+      //   aria-label="Chat on WhatsApp"
+      //   href={`https://wa.me/919848745295?text=${encodeURIComponent("Hi, I would like to know more about substation electrical services")}`}
+      //   target="_blank"
+      //   rel="noreferrer noopener"
+      //   className="fixed right-6 bottom-28 z-10 bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:h-16 hover:w-16 hover:shadow-2xl"
+      // >
+      //   <FaWhatsapp className="w-8 h-8" />
+      // </a> */}
+
         <a
-          aria-label="Chat on WhatsApp"
-          href={`https://wa.me/919848745295?text=${encodeURIComponent("Hi, I would like to know more about substation electrical services")}`}
-          target="_blank"
-          rel="noreferrer noopener"
-          className="fixed right-6 bottom-28 z-10 bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:h-16 hover:w-16 hover:shadow-2xl"
+          href="/Brochure-%20Sai%20Balaji%20Power%20Controls%20LLP.pdf"
+          download="Sai Balaji Brochure.pdf"
+          className="fixed right-6 bottom-24 z-10 bg-white text-accent border-2 border-accent rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:h-16 hover:w-16 hover:shadow-2xl transition-all duration-300"
+          title="Download Our Brochure"
         >
-          <FaWhatsapp className="w-8 h-8" />
+          <BookOpen className="w-7 h-7" />
+        </a>
+
+        <a
+          href="/Profile%20-%20Sai%20Balaji%20Infra%20India%20Pvt.%20Ltd.pdf"
+          download="Sai Balaji Profile.pdf"
+          className="fixed right-6 bottom-8 z-10 bg-accent text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:h-16 hover:w-16 hover:shadow-2xl transition-all duration-300"
+          title="Download Our Profile"
+        >
+          <FileText className="w-7 h-7" />
         </a>
 
         <motion.div

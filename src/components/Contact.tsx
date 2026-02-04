@@ -96,7 +96,7 @@ const Contact = () => {
                           Full Name
                         </label>
                         <Input
-                          placeholder="John Doe"
+                          placeholder="Sai Balaji"
                           required
                           className="transition-smooth focus:shadow-soft"
                         />
@@ -107,7 +107,7 @@ const Contact = () => {
                         </label>
                         <Input
                           type="email"
-                          placeholder="john@example.com"
+                          placeholder="balaji@gmail.com"
                           required
                           className="transition-smooth focus:shadow-soft"
                         />
@@ -119,7 +119,7 @@ const Contact = () => {
                       </label>
                       <Input
                         type="tel"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 98765 xxxxx"
                         required
                         className="transition-smooth focus:shadow-soft"
                       />
