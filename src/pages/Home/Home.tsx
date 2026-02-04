@@ -42,7 +42,6 @@ const Home = () => {
             loop
             muted
             playsInline
-            poster={heroImage}
             className="w-full h-screen object-cover "
           >
             <source src='/sai_balaji.mp4' type="video/mp4" />
