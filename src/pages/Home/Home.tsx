@@ -53,7 +53,7 @@ const Home = () => {
             alt="Electrical Infrastructure"
             className="w-full h-screen object-cover bg-fixed"
           /> */}
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-primary/40 to-primary/60" />
+          <div className="absolute inset-0" />
         </div>
 
 // {/* <a
