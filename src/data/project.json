@@ -42,7 +42,7 @@
     },
     {
       "title": "Godrej Ascend",
-      "location": "Pune",
+      "location": "Mumbai",
       "description": "Ongoing electrical and infrastructure works.",
       "image": "/ONgoing project- Diary/Godrej-Ascend_-Mumbai.jpg",
       "type": "Residential",
@@ -111,6 +111,16 @@
       "service": "Electrical"
     },
     {
+      "title": "R-One Diamond",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/SAS Diamond- HYD.jpg",
+      "type": "Commercial",
+      "category": "Commercial",
+      "sft": "4,00,000 SFT",
+      "service": "Fire Fighting"
+    },
+    {
       "title": "IB Panvel Phase -II by Embassy Group",
       "location": "Mumbai",
       "description": "Ongoing electrical and infrastructure works.",
@@ -119,6 +129,206 @@
       "category": "Commercial",
       "sft": "1,00,000 SFT",
       "service": "Plumbing"
+    },
+    {
+      "title": "Ginger Hotel",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Ginger Hotel.jpeg",
+      "type": "Commercial",
+      "category": "Commercial",
+      "sft": "1,00,000 SFT",
+      "service": "Electrical"
+    },
+    {
+      "title": "Prestige Siesta",
+      "location": "Mumbai",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Prestige Siesta, Mumbai.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,50,000 SFT",
+      "service": "Plumbing"
+    },
+    {
+      "title": "Lodha NIBM",
+      "location": "Pune",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Lodha bella-vita.jpeg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "3,00,000 SFT",
+      "service": "Fire Fighting"
+    },
+    {
+      "title": "Prestige Bellanza",
+      "location": "Mumbai",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Prestige Bellanza.webp",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,00,000 SFT",
+      "service": "ELV"
+    },
+    {
+      "title": "Chidrupi Towers",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/chidrupi_towers.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "1,50,000 SFT",
+      "service": "HVAC"
+    },
+    {
+      "title": "Vasavi Ananda Nilayam",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/vasavi-anandanilayam.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "6,00,000 SFT",
+      "service": "Electrical"
+    },
+    {
+      "title": "Godrej Panel Phase V",
+      "location": "Mumbai",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Godrej Panvel Vity Phase-V.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "4,50,000 SFT",
+      "service": "Plumbing"
+    },
+    {
+      "title": "Prestige Jasdan Classic",
+      "location": "Mumbai",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Prestige Jasdaan Classic.jfif",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,00,000 SFT",
+      "service": "Fire Fighting"
+    },
+    {
+      "title": "Aparna Synergy",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Aparna Synergy-hyderabad.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "3,00,000 SFT",
+      "service": "ELV"
+    },
+    {
+      "title": "Aparna Zicon",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Aparna Zicon.jpeg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,80,000 SFT",
+      "service": "HVAC"
+    },
+    {
+      "title": "Divyasree 77 Life",
+      "location": "Bengaluru",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/divyasree_77_life.jpeg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "1,90,000 SFT",
+      "service": "Electrical"
+    },
+    {
+      "title": "Godrej Horizon",
+      "location": "Mumbai",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Godrej Horizon- Mumbai.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "3,20,000 SFT",
+      "service": "Plumbing"
+    },
+    {
+      "title": "Godrej Woodsville",
+      "location": "Pune",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Godrej Woodsville.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,10,000 SFT",
+      "service": "Fire Fighting"
+    },
+    {
+      "title": "Godrej Sky Greens Phase 1",
+      "location": "Pune",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Godrej-Sky-Greens-Phase-1 Pune.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,40,000 SFT",
+      "service": "ELV"
+    },
+    {
+      "title": "Idea Shobhanath",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Idea Shobhanath.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "1,70,000 SFT",
+      "service": "Electrical"
+    },
+    {
+      "title": "Purvankara Park Hills",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Purvankara Park Hills.jfif",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,30,000 SFT",
+      "service": "Plumbing"
+    },
+    {
+      "title": "Western The Springs",
+      "location": "Hyderabad",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Western Springs.jpg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,60,000 SFT",
+      "service": "HVAC"
+    },
+    {
+      "title": "Godrej Woodscape",
+      "location": "Bengaluru",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Godrej Woodscape.jpeg",
+      "type": "Commercial",
+      "category": "Commercial",
+      "sft": "5,00,000 SFT",
+      "service": "ELV"
+    },
+    {
+      "title": "Godrej Anandha Phase-III",
+      "location": "Bengaluru",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Godrej Anandha Phase -III.jpeg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,50,000 SFT",
+      "service": "HVAC"
+    },
+    {
+      "title": "Aadrash Park Height Phase -1",
+      "location": "Bengaluru",
+      "description": "Ongoing electrical and infrastructure works.",
+      "image": "/ONgoing project- Diary/Aadrash Park Heights- II.jpeg",
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "2,50,000 SFT",
+      "service": "HVAC"
     }
   ],
   "completedProjects": [
