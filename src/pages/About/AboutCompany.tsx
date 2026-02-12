@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from "@/components/ui/card";
-import { BadgeCheck, ShieldCheck, Clock, TrendingUp, Lightbulb, CheckCircle2 } from "lucide-react";
+import { BadgeCheck, ShieldCheck, Clock, TrendingUp, Lightbulb, CheckCircle2, Award } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 
 const AboutCompany = () => {
@@ -95,6 +95,115 @@ const AboutCompany = () => {
                             </p>
                         </motion.div>
                     </div>
+                </div>
+            </section>
+
+            {/* Managing Director's Message */}
+            <section className="py-20 bg-gradient-to-br from-slate-50 to-white relative overflow-hidden">
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+
+                <div className="container mx-auto px-4 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="max-w-6xl mx-auto"
+                    >
+                        {/* Section Title */}
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold mb-3 font-heading text-foreground">
+                                MESSAGE FROM THE MANAGING DIRECTOR
+                            </h2>
+                            <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
+                        </div>
+
+                        {/* Content Grid */}
+                        <div className="grid lg:grid-cols-5 gap-12 items-center">
+                            {/* Left: MD Photo */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="lg:col-span-2"
+                            >
+                                <div className="relative group">
+                                    {/* Decorative border */}
+                                    <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+
+                                    {/* Image container */}
+                                    <div className="relative bg-white p-2 rounded-2xl shadow-xl">
+                                        <img
+                                            src="/persons/ramaprabhu.jpg"
+                                            alt="Managing Director"
+                                            className="w-full h-auto rounded-xl object-cover aspect-[4/5]"
+                                        />
+                                        {/* Name plate overlay */}
+                                        <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-accent/20">
+                                            <h3 className="font-bold text-lg text-foreground">Managing Director</h3>
+                                            <p className="text-sm text-muted-foreground">Sai Balaji Infra (India) Pvt. Ltd</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* Right: Message Content */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.3 }}
+                                className="lg:col-span-3"
+                            >
+                                <div className="relative">
+                                    {/* Opening Quote */}
+                                    <div className="absolute -top-4 -left-2 text-6xl text-accent/20 font-serif leading-none">"</div>
+
+                                    {/* Message Card */}
+                                    <div className="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-accent relative">
+                                        <div className="space-y-4 text-gray-700 leading-relaxed">
+                                            <p className="text-base">
+                                                It is a privilege to introduce <span className="font-semibold text-foreground">Sai Balaji Infra (India) Pvt. Ltd.</span>, a company built over <span className="font-semibold text-accent">23 years</span> on trust, quality, and committed teamwork. Our growth has been driven by continuous improvement, disciplined execution, and long-standing relationships with our clients and partners.
+                                            </p>
+
+                                            <p className="text-base">
+                                                Our strength lies in our dedicated team, whose professionalism supports our core values of quality, timely delivery, safety, and transparency. These principles guide every decision we make and define the way we approach each project.
+                                            </p>
+
+                                            <p className="text-base">
+                                                As we move ahead, our focus remains on strengthening systems, adopting better practices, and delivering work that reflects reliability and integrity. I am grateful to our clients, partners, and team members for their constant support, which motivates us to achieve new milestones with confidence.
+                                            </p>
+                                        </div>
+
+                                        {/* Signature Section */}
+                                        <div className="mt-8 pt-6 border-t border-gray-200">
+                                            <div className="flex items-end justify-between">
+                                                <div>
+                                                    <div className="font-signature text-2xl text-primary mb-1" style={{ fontFamily: 'cursive' }}>
+                                                        Managing Director
+                                                    </div>
+                                                    <p className="text-sm text-muted-foreground font-medium">
+                                                        Sai Balaji Infra (India) Pvt. Ltd
+                                                    </p>
+                                                </div>
+                                                <div className="hidden sm:block">
+                                                    <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                                                        <Award className="w-8 h-8 text-accent" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Closing Quote */}
+                                    <div className="absolute -bottom-8 -right-2 text-6xl text-accent/20 font-serif leading-none">"</div>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </motion.div>
                 </div>
             </section>
 

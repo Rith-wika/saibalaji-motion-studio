@@ -6,7 +6,9 @@ import { ShieldCheck, Award } from "lucide-react";
 
 const navItems = [
   { label: "About Us", path: "#" }, // Will also have dropdown
-  { label: "Group Companies", path: "#" }, // Will also have dropdown
+  // { label: "Group Companies", path: "#" }, // Will also have dropdown
+  { label: "Sai Balaji MEP LLP", path: "/group-companies/mep-llp" },
+  { label: "Sai Balaji Power Control LLP", path: "/group-companies/power-control-llp" },
   { label: "Products", path: "/products" },
   { label: "Services", path: "/services" },
   { label: "Projects", path: "/projects" },
