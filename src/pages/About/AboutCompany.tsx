@@ -166,7 +166,7 @@ const AboutCompany = () => {
                                     <div className="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-accent relative">
                                         <div className="space-y-4 text-gray-700 leading-relaxed">
                                             <p className="text-base">
-                                                It is a privilege to introduce <span className="font-semibold text-foreground">Sai Balaji Infra (India) Pvt. Ltd.</span>, a company built over <span className="font-semibold text-accent">23 years</span> on trust, quality, and committed teamwork. Our growth has been driven by continuous improvement, disciplined execution, and long-standing relationships with our clients and partners.
+                                                It is a privilege to introduce <span className="font-semibold text-foreground">Sai Balaji Infra (India) Pvt. Ltd.</span>, a company built over <span className="font-semibold text-accent">24 years</span> on trust, quality, and committed teamwork. Our growth has been driven by continuous improvement, disciplined execution, and long-standing relationships with our clients and partners.
                                             </p>
 
                                             <p className="text-base">
