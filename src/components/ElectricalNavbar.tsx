@@ -10,9 +10,9 @@ const navItems = [
   { label: "Products", path: "/products" },
   { label: "Services", path: "/services" },
   { label: "Projects", path: "/projects" },
-  { label: "Credentials", path: "/credentials" },
-  { label: "Key Persons", path: "/key-persons" },
-  { label: "Gallery", path: "/gallery" },
+  // { label: "Credentials", path: "/credentials" },
+  // { label: "Key Persons", path: "/key-persons" },
+  // { label: "Gallery", path: "/gallery" },
 
   { label: "Contact", path: "/contact" },
 ];
@@ -21,6 +21,9 @@ const aboutDropdownItems = [
   { label: "About Company", path: "/about-company" },
   { label: "Our Story", path: "/our-story" },
   { label: "Client List", path: "/client-list" },
+  { label: "Credentials", path: "/credentials" },
+  { label: "Key Persons", path: "/key-persons" },
+  { label: "Gallery", path: "/gallery" },
 ];
 
 const groupCompaniesDropdownItems = [
