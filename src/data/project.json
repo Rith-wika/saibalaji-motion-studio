@@ -13,22 +13,22 @@
     {
       "title": "Birla Trimaya",
       "location": "Bengaluru",
-      "Scope of Work": "Ongoing electrical and infrastructure works.",
+      "Scope of Work": "Internal Electrical works.",
       "image": "/ONgoing project- Diary/Birla-Trimaya-Phase-2.jpeg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "1,50,000 SFT",
-      "service": "Plumbing"
+      "sft": "39,00,000 SFT",
+      "service": "Electrical"
     },
     {
       "title": "Prestige City",
       "location": "Hyderabad",
-      "Scope of Work": "Ongoing electrical and infrastructure works.",
+      "Scope of Work": "Internal Electrical works.",
       "image": "/ONgoing project- Diary/Prestige City- Bengaluru.jpg",
-      "type": "Township",
-      "category": "Township",
-      "sft": "5,00,000 SFT",
-      "service": "Fire Fighting"
+      "type": "Residential",
+      "category": "Residential",
+      "sft": "1,00,00,000 SFT",
+      "service": "Electrical"
     },
     {
       "title": "NSL East County Phase-II",
@@ -63,12 +63,12 @@
     {
       "title": "The Line by Terminus Group",
       "location": "Hyderabad",
-      "Scope of Work": "Internal Electrical works.",
+      "Scope of Work":"Internal Electrical works.",
       "image": "/ONgoing project- Diary/The Line project.jpg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "1,20,000 SFT",
-      "service": "Plumbing"
+      "sft": "18,00,000 SFT",
+      "service": "Electrical"
     },
     {
       "title": "Brigade Sanctuary",
@@ -335,13 +335,13 @@
     {
       "title": "Palladium Phoenix Kassaku",
       "location": "Bengaluru",
-      "Scope of Work": "Completed electrical infrastructure works.",
+      "Scope of Work": "66/11 KV substation & Electrical works.",
       "image": "/Completed Project/Phoenix Kessaku.jpeg",
       "type": "Residential",
       "category": "Residential",
-      "sft": "1,50,000 SFT",
+      "sft": "12,50,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Fire Fighting"
+      "service": "Electrical"
     },
     {
       "title": "Prestige Skytech Commercial",
@@ -427,7 +427,7 @@
       "image": "/Completed Project/bscpl_bollineni_bion_.png",
       "type": "Residential",
       "category": "Residential",
-      "sft": "1,75,000 SFT",
+      "sft": "15,00,000 SFT",
       "contractType": "MEP CONTRACTS",
       "service": "Electrical"
     },
@@ -532,12 +532,12 @@
     },
     {
       "title": "IB Citra One09",
-      "location": "Bengaluru",
-      "Scope of Work": "Completed electrical infrastructure works.",
+      "location": "Gurugram",
+      "Scope of Work": "PHE + FF + HVAC",
       "image": "/Completed Project/ibcitra.jpeg",
       "type": "Commercial",
       "category": "Commercial",
-      "sft": "1,40,000 SFT",
+      "sft": "11,50,000 SFT",
       "contractType": "MEP CONTRACTS",
       "service": "Fire Fighting"
     }
