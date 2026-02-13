@@ -120,7 +120,7 @@ const Projects = () => {
         </CardHeader>
         <CardContent className="space-y-3 flex-grow flex flex-col justify-between">
           <p className="text-muted-foreground text-sm leading-relaxed">
-            {project.description}
+            {project["Scope of Work"]}
           </p>
           <div className="flex flex-wrap gap-4 pt-2">
             <div className="flex items-center space-x-2 text-sm text-muted-foreground">

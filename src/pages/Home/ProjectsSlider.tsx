@@ -74,7 +74,7 @@ const ProjectsSlider = () => {
                                     </h3>
                                     <div className="max-h-0 opacity-0 group-hover:max-h-[200px] group-hover:opacity-100 transition-all duration-700 ease-in-out overflow-hidden">
                                         <p className="text-white/90 text-base font-medium leading-relaxed pb-2">
-                                            {project.description}
+                                            {project["Scope of Work"]}
                                         </p>
                                     </div>
                                 </div>
