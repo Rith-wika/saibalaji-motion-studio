@@ -8,7 +8,9 @@
       "type": "Commercial",
       "category": "Commercial",
       "sft": "20,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Birla Trimaya",
@@ -18,7 +20,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "39,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Prestige City",
@@ -28,7 +32,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "1,00,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "NSL East County Phase-II",
@@ -38,7 +44,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "10,00,000 SFT",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Godrej Ascend",
@@ -48,7 +56,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "12,00,000 SFT",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Purvankara Clermont",
@@ -58,17 +68,21 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "5,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "The Line by Terminus Group",
       "location": "Hyderabad",
-      "Scope of Work":"Internal Electrical works.",
+      "Scope of Work": "Internal Electrical works.",
       "image": "/ONgoing project- Diary/The Line project.jpg",
       "type": "Residential",
       "category": "Residential",
       "sft": "18,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Brigade Sanctuary",
@@ -78,7 +92,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "12,00,000 SFT",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Honer Signatis",
@@ -88,7 +104,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "3,25,56,630 SFT",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Aparna Zenon",
@@ -98,7 +116,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "9,00,000 SFT",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Myhome Avali",
@@ -108,7 +128,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "6,50,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "R-One Diamond",
@@ -118,7 +140,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "20,00,000 SFT",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "IB Panvel Phase -II by Embassy Group",
@@ -128,7 +152,11 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "15,00,000 SFT",
-      "service": "Plumbing"
+      "services": [
+        "Electrical",
+        "Fire Fighting Systems",
+        "Plumbing & Public Health Engineering"
+      ]
     },
     {
       "title": "Ginger Hotel",
@@ -138,7 +166,9 @@
       "type": "Hotel",
       "category": "Hotel",
       "sft": "1,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Prestige Siesta",
@@ -148,7 +178,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "13,66,000 SFT",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Lodha NIBM",
@@ -158,7 +190,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "10,00,000 SFT",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Prestige Bellanza",
@@ -168,7 +202,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "11,00,000 SFT",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Chidrupi Towers",
@@ -178,7 +214,11 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "4,00,000 SFT",
-      "service": "HVAC"
+      "services": [
+        "Electrical",
+        "Fire Fighting Systems",
+        "Plumbing & Public Health Engineering"
+      ]
     },
     {
       "title": "Vasavi Ananda Nilayam",
@@ -188,7 +228,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "20,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Godrej Panel Phase V",
@@ -198,7 +240,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "5,50,000 SFT",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Prestige Jasdan Classic",
@@ -208,7 +252,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "8,00,000 SFT",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Aparna Synergy",
@@ -218,7 +264,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "7,00,000 SFT",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Aparna Zicon",
@@ -228,7 +276,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "13,00,000 SFT",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Divyasree 77 Life",
@@ -238,7 +288,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "3,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Godrej Horizon",
@@ -248,7 +300,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "5,00,000 SFT",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Godrej Woodsville",
@@ -258,7 +312,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "11,00,000 SFT",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Godrej Sky Greens Phase 1",
@@ -268,7 +324,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "6,00,000 SFT",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Idea Shobhanath",
@@ -278,7 +336,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "9,00,000 SFT",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Purvankara Park Hills",
@@ -288,7 +348,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "18,00,000 SFT",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Western The Springs",
@@ -298,7 +360,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "3,50,000 SFT",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Godrej Woodscape",
@@ -308,7 +372,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "25,00,000 SFT",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Godrej Anandha Phase-III",
@@ -318,7 +384,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "18,00,000 SFT",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Aadrash Park Height Phase -1",
@@ -328,7 +396,9 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "32,03,959 SFT",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     }
   ],
   "completedProjects": [
@@ -341,7 +411,9 @@
       "category": "Residential",
       "sft": "12,50,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Prestige Skytech Commercial",
@@ -352,7 +424,9 @@
       "category": "Commercial",
       "sft": "28,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Brigade Signature",
@@ -363,7 +437,9 @@
       "category": "Commercial",
       "sft": "6,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Myhome Bhooja",
@@ -374,7 +450,9 @@
       "category": "Residential",
       "sft": "11,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Aparna One",
@@ -385,7 +463,9 @@
       "category": "Residential",
       "sft": "19,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Tata Promont",
@@ -396,7 +476,9 @@
       "category": "Residential",
       "sft": "12,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Purva Zenium",
@@ -407,7 +489,9 @@
       "category": "Residential",
       "sft": "17,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "ELV"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Brigade Utopia",
@@ -418,7 +502,9 @@
       "category": "Residential",
       "sft": "5,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "HVAC"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "BSCPL Bollineni Bion",
@@ -429,7 +515,9 @@
       "category": "Residential",
       "sft": "15,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Electrical"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Indiabulls Skyforest",
@@ -440,7 +528,10 @@
       "category": "Residential",
       "sft": "16,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Plumbing"
+      "services": [
+        "Electrical",
+        "Fire Fighting Systems"
+      ]
     },
     {
       "title": "Indiabulls Sierra",
@@ -451,7 +542,9 @@
       "category": "Residential",
       "sft": "1,40,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Prestige Highfields",
@@ -462,7 +555,9 @@
       "category": "Residential",
       "sft": "33,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Brigade Woods",
@@ -473,7 +568,9 @@
       "category": "Residential",
       "sft": "3,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Prestige Parksquare",
@@ -484,7 +581,9 @@
       "category": "Residential",
       "sft": "8,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Honer Aquanties",
@@ -495,7 +594,9 @@
       "category": "Residential",
       "sft": "10,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Plumbing"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Lodha Group Palava II",
@@ -506,7 +607,9 @@
       "category": "Residential",
       "sft": "20,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "India Bulls Green Panvel phase -I",
@@ -517,7 +620,9 @@
       "category": "Residential",
       "sft": "20,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "Tata NBCC",
@@ -528,7 +633,9 @@
       "category": "Residential",
       "sft": "3,00,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Fire Fighting"
+      "services": [
+        "Electrical"
+      ]
     },
     {
       "title": "IB Citra One09",
@@ -539,7 +646,11 @@
       "category": "Commercial",
       "sft": "11,50,000 SFT",
       "contractType": "MEP CONTRACTS",
-      "service": "Fire Fighting"
+      "services": [
+        "Fire Fighting Systems",
+        "HVAC",
+        "Plumbing & Public Health Engineering"
+      ]
     }
   ]
 }

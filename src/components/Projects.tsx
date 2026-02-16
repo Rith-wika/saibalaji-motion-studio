@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, User, Zap, CheckCircle, ListFilter } from "lucide-react";
+import { MapPin, Zap, CheckCircle } from "lucide-react";
 import projectImage from "@/assets/projects.jpg";
 import projectData from "@/data/project.json";
 
@@ -49,20 +49,32 @@ const Projects = () => {
   // --- Dynamically generate filter options ---
   const ongoingCategories = useMemo(() => ["all", ...new Set(ongoingProjects.map((p) => p.category))], [ongoingProjects]);
   const ongoingLocations = useMemo(() => ["all", ...new Set(ongoingProjects.map((p) => p.location))], [ongoingProjects]);
-  const ongoingServices = useMemo(() => ["all", "Electrical", "Plumbing", "Fire Fighting", "ELV", "HVAC"], []); // Fixed list as per requirement
+
+  // Updated services list based on user requirements and data
+  const availableServices = [
+    "all",
+    "Electrical",
+    "Plumbing & Public Health Engineering",
+    "Fire Fighting Systems",
+    "ELV",
+    "HVAC"
+  ];
+
+  const ongoingServices = useMemo(() => availableServices, []);
 
   const completedCategories = useMemo(() => ["all", ...new Set(completedProjects.map((p) => p.category))], [completedProjects]);
   const completedContractTypes = useMemo(() => ["all", ...new Set(completedProjects.map((p) => p.contractType))], [completedProjects]);
   const completedCivilTypes = useMemo(() => ["all", ...new Set(completedProjects.filter(p => p.contractType === "CIVIL & STRUCTURAL CONTRACTS").map(p => p.type))], [completedProjects]);
   const completedMepLocations = useMemo(() => ["all", ...new Set(completedProjects.filter(p => p.contractType === "MEP CONTRACTS").map(p => p.location))], [completedProjects]);
-  const completedServices = useMemo(() => ["all", "Electrical", "Plumbing", "Fire Fighting", "ELV", "HVAC"], []);
+  const completedServices = useMemo(() => availableServices, []);
 
   // --- Filtered Project Lists ---
   const filteredOngoingProjects = useMemo(() => {
     return ongoingProjects.filter((project) => {
       const categoryMatch = ongoingType === "all" || project.category === ongoingType;
       const locationMatch = ongoingLocation === "all" || project.location === ongoingLocation;
-      const serviceMatch = ongoingService === "all" || (project as any).service === ongoingService;
+      // Check if the service array includes the selected service
+      const serviceMatch = ongoingService === "all" || ((project as any).services && (project as any).services.includes(ongoingService));
       return categoryMatch && locationMatch && serviceMatch;
     });
   }, [ongoingProjects, ongoingType, ongoingLocation, ongoingService]);
@@ -71,7 +83,8 @@ const Projects = () => {
     return completedProjects.filter((project) => {
       const categoryMatch = completedCategory === "all" || project.category === completedCategory;
       const contractMatch = completedContract === "all" || project.contractType === completedContract;
-      const serviceMatch = completedService === "all" || (project as any).service === completedService;
+      // Check if the service array includes the selected service
+      const serviceMatch = completedService === "all" || ((project as any).services && (project as any).services.includes(completedService));
 
       if (!categoryMatch || !contractMatch || !serviceMatch) return false;
 
@@ -102,15 +115,12 @@ const Projects = () => {
             <Badge className="bg-accent text-accent-foreground shadow-glow">
               {project.category}
             </Badge>
-            {(project as any).service && (
-              <Badge variant="secondary" className="backdrop-blur-md bg-white/80">
-                {(project as any).service}
+            {/* Map through services array */}
+            {(project as any).services && (project as any).services.map((service: string, i: number) => (
+              <Badge key={i} variant="secondary" className="backdrop-blur-md bg-white/80">
+                {service}
               </Badge>
-            )}
-
-            {/* <Badge variant="outline" className="bg-black/50 text-white border-none backdrop-blur-sm">
-              {project.sft}
-            </Badge> */}
+            ))}
           </div>
         </div>
         <CardHeader>
