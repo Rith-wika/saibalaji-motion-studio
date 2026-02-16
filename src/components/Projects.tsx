@@ -56,7 +56,6 @@ const Projects = () => {
     "Electrical",
     "Plumbing & Public Health Engineering",
     "Fire Fighting Systems",
-    "ELV",
     "HVAC"
   ];
 

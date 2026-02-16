@@ -17,9 +17,10 @@ const ServicesPage = () => {
     imageAlt: string;
     title: string;
     filterValue: string;
+    hasProjects?: boolean;
   }
 
-  const AnimatedServicePoint = ({ points, index, isImageLeft, imageSrc, imageAlt, title, filterValue }: ServicePointProps) => {
+  const AnimatedServicePoint = ({ points, index, isImageLeft, imageSrc, imageAlt, title, filterValue, hasProjects = true }: ServicePointProps) => {
     // Parent container variants to stagger children when the section comes into view
     const containerVariants = {
       hidden: {},
@@ -97,12 +98,14 @@ const ServicesPage = () => {
                   ))}
                 </motion.ul>
 
-                <motion.a
-                  href={`/projects?service=${encodeURIComponent(filterValue)}`}
-                  className="inline-flex items-center gap-2 mt-6 text-primary font-bold uppercase tracking-wider text-xs hover:text-accent transition-colors"
-                >
-                  View Projects <ArrowRight className="w-3 h-3" />
-                </motion.a>
+                {hasProjects && (
+                  <motion.a
+                    href={`/projects?service=${encodeURIComponent(filterValue)}`}
+                    className="inline-flex items-center gap-2 mt-6 text-primary font-bold uppercase tracking-wider text-xs hover:text-accent transition-colors"
+                  >
+                    View Projects <ArrowRight className="w-3 h-3" />
+                  </motion.a>
+                )}
               </motion.div>
             )}
           </div>
@@ -170,12 +173,14 @@ const ServicesPage = () => {
                   ))}
                 </motion.ul>
 
-                <motion.a
-                  href={`/projects?service=${encodeURIComponent(filterValue)}`}
-                  className="inline-flex items-center gap-2 mt-6 text-primary font-bold uppercase tracking-wider text-xs hover:text-accent transition-colors"
-                >
-                  View Projects <ArrowRight className="w-3 h-3" />
-                </motion.a>
+                {hasProjects && (
+                  <motion.a
+                    href={`/projects?service=${encodeURIComponent(filterValue)}`}
+                    className="inline-flex items-center gap-2 mt-6 text-primary font-bold uppercase tracking-wider text-xs hover:text-accent transition-colors"
+                  >
+                    View Projects <ArrowRight className="w-3 h-3" />
+                  </motion.a>
+                )}
               </motion.div>
             )}
           </div>
@@ -229,6 +234,7 @@ const ServicesPage = () => {
       id: "elv-systems",
       title: "ELV / Low Current Systems",
       filterValue: "ELV",
+      hasProjects: false,
       points: [
         "CCTV & Surveillance",
         "Access Control Systems",
