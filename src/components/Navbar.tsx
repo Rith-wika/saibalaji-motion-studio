@@ -49,11 +49,11 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo and Company Info */}
-          <Link to="/" className="flex items-center space-x-4">
+          <Link to="/" className="flex items-center space-x-4 shrink-0">
             <div className="w-16 h-16 flex items-center justify-center shadow-glow overflow-hidden">
               <img src="/logo.png" alt="SAI BALAJI Logo" className="h-full w-full object-cover rounded-full" />
             </div>
-            <div className="hidden md:block">
+            <div className="hidden xl:block">
               <h1 className={`text-lg font-bold ${isScrolled ? 'text-black' : 'text-white'} leading-tight`}>
                 SAI BALAJI Infra India Pvt. Ltd.
               </h1>
@@ -64,17 +64,17 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-0 xl:space-x-1 ml-4">
             {navItems.map((item) => (
               <div
                 key={item.label}
-                className="relative group"
+                className="relative group shrink-0"
                 onMouseEnter={() => item.children && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {item.children ? (
                   <button
-                    className={`px-3 py-2 text-sm font-medium transition-smooth relative flex items-center gap-1 ${isScrolled
+                    className={`px-2 xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-smooth relative flex items-center gap-1 ${isScrolled
                       ? 'text-black hover:text-accent'
                       : 'text-white hover:text-accent'
                       }`}
@@ -84,7 +84,7 @@ const Navbar = () => {
                 ) : (
                   <Link
                     to={item.path}
-                    className={`px-3 py-2 text-sm font-medium transition-smooth relative group ${isActive(item.path)
+                    className={`px-2 xl:px-3 py-2 text-sm font-medium whitespace-nowrap transition-smooth relative group ${isActive(item.path)
                       ? 'text-accent'
                       : isScrolled
                         ? 'text-black hover:text-accent'
@@ -133,7 +133,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 animate-fade-in bg-white/95 backdrop-blur-lg absolute top-full left-0 right-0 shadow-lg">
+          <div className="lg:hidden py-4 animate-fade-in bg-white/95 backdrop-blur-lg max-h-[calc(100vh-6rem)] overflow-y-auto absolute top-full left-0 right-0 shadow-lg">
             <div className="flex flex-col space-y-2 px-4">
               {navItems.map((item) => (
                 <div key={item.label}>

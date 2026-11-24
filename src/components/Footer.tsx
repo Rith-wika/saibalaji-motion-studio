@@ -37,7 +37,8 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-primary-foreground/80 text-sm leading-relaxed mb-6">
-              Your Satisfaction Is Our Mission. Leading electrical infrastructure solutions across India.
+              Your Satisfaction Is Our Mission.
+              Leading MEP infrastructure solutions across India.
             </p>
             <div className="flex space-x-3">
               <a
@@ -98,7 +99,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-primary-foreground/70 hover:text-accent transition-smooth cursor-pointer"
                 >
-                  SAI BALAJI INFRA INDIA PVT LTD, LAXMI NAGAR, MIYAPUR, HYDERABAD 500049.
+                  PLOT NO.135,SAI BALAJI HEIGHTS,LAXMI NAGAR MIYAPUR HYDERABAD
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-sm">

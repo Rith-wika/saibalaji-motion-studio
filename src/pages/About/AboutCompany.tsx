@@ -1,18 +1,35 @@
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { BadgeCheck, ShieldCheck, Clock, TrendingUp, Lightbulb, CheckCircle2, Award } from "lucide-react";
+import { BadgeCheck, ShieldCheck, Clock, TrendingUp, Lightbulb, CheckCircle2, Award, ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 
 const AboutCompany = () => {
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0);
+
+    useEffect(() => {
+        if (!api) return;
+        const onSelect = () => setCurrent(api.selectedScrollSnap());
+        onSelect();
+        api.on('select', onSelect);
+        const timer = setInterval(() => api.scrollNext(), 8000);
+        return () => {
+            clearInterval(timer);
+            api.off('select', onSelect);
+        };
+    }, [api]);
+
     const segments = [
         "Residential High-Rise Projects",
         "Commercial & Corporate Buildings",
-        "Retail & Mixed-Use Developments",
+        "IT/ITES & Data Centers",
         "Hotels",
         "Hospitals",
         "Industrial & Manufacturing Facilities",
         "Warehousing & Logistics Parks",
-        "IT/ITES & Data Centers",
+        "Retail & Mixed-Use Developments",
         "Institutional & Infrastructure Works"
     ];
 
@@ -57,6 +74,45 @@ const AboutCompany = () => {
         "Reduced rework, delays, and material wastage",
         "Faster installation planning and execution",
         "Better cost control and predictable project delivery"
+    ];
+
+    const messages = [
+        {
+            title: "MESSAGE FROM THE MANAGING DIRECTOR",
+            role: "Managing Director",
+            image: "/persons/ramaprabhu.jpg",
+            paragraphs: (
+                <>
+                    <p className="text-base">
+                        It is a privilege to introduce <span className="font-semibold text-foreground">Sai Balaji Infra (India) Pvt. Ltd.</span>, a company built over <span className="font-semibold text-accent">24 years</span> on trust, quality, and committed teamwork. Our growth has been driven by continuous improvement, disciplined execution, and long-standing relationships with our clients and partners.
+                    </p>
+                    <p className="text-base">
+                        Our strength lies in our dedicated team, whose professionalism supports our core values of quality, timely delivery, safety, and transparency. These principles guide every decision we make and define the way we approach each project.
+                    </p>
+                    <p className="text-base">
+                        As we move ahead, our focus remains on strengthening systems, adopting better practices, and delivering work that reflects reliability and integrity. I am grateful to our clients, partners, and team members for their constant support, which motivates us to achieve new milestones with confidence.
+                    </p>
+                </>
+            ),
+        },
+        {
+            title: "MESSAGE FROM THE EXECUTIVE DIRECTOR",
+            role: "Executive Director",
+            image: "/persons/purshottamu.jpg",
+            paragraphs: (
+                <>
+                    <p className="text-base">
+                        At Sai Balaji Infra (India) Pvt. Ltd., our commitment is to transform every project requirement into a successful outcome through effective execution and dedicated teamwork. Over the years, we have built our reputation by standing behind our commitments and ensuring that every project is carried forward with responsibility, precision, and a clear focus on results.
+                    </p>
+                    <p className="text-base">
+                        I believe that successful execution is the foundation of every strong business relationship. From planning and coordination to on-site execution and final delivery, every stage demands proper attention, teamwork, and accountability. Our approach is to understand client expectations, address challenges with practical solutions, and ensure that the quality of our work remains consistent across every project.
+                    </p>
+                    <p className="text-base">
+                        Moving forward, we remain committed to enhancing our execution capabilities, strengthening our teams, and maintaining the standards that define Sai Balaji. I sincerely appreciate the dedication of our employees and the continued trust of our clients and partners, whose support plays an important role in our journey.
+                    </p>
+                </>
+            ),
+        },
     ];
 
     return (
@@ -112,96 +168,109 @@ const AboutCompany = () => {
                         transition={{ duration: 0.6 }}
                         className="max-w-6xl mx-auto"
                     >
-                        {/* Section Title */}
-                        <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold mb-3 font-heading text-foreground">
-                                MESSAGE FROM THE MANAGING DIRECTOR
-                            </h2>
-                            <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
-                        </div>
+                        <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
+                            <CarouselContent>
+                                {messages.map((m) => (
+                                    <CarouselItem key={m.title}>
+                                        <div className="px-1 pb-10">
+                                            {/* Section Title */}
+                                            <div className="text-center mb-12">
+                                                <h2 className="text-2xl md:text-3xl font-bold mb-3 font-heading text-foreground">
+                                                    {m.title}
+                                                </h2>
+                                                <div className="w-24 h-1 bg-accent mx-auto rounded-full" />
+                                            </div>
 
-                        {/* Content Grid */}
-                        <div className="grid lg:grid-cols-5 gap-12 items-center">
-                            {/* Left: MD Photo */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.2 }}
-                                className="lg:col-span-2"
-                            >
-                                <div className="relative group">
-                                    {/* Decorative border */}
-                                    <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-
-                                    {/* Image container */}
-                                    <div className="relative bg-white p-2 rounded-2xl shadow-xl">
-                                        <img
-                                            src="/persons/ramaprabhu.jpg"
-                                            alt="Managing Director"
-                                            className="w-full h-auto rounded-xl object-cover aspect-[4/5]"
-                                        />
-                                        {/* Name plate overlay */}
-                                        <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-accent/20">
-                                            <h3 className="font-bold text-lg text-foreground">Managing Director</h3>
-                                            <p className="text-sm text-muted-foreground">Sai Balaji Infra (India) Pvt. Ltd</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            {/* Right: Message Content */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.3 }}
-                                className="lg:col-span-3"
-                            >
-                                <div className="relative">
-                                    {/* Opening Quote */}
-                                    <div className="absolute -top-4 -left-2 text-6xl text-accent/20 font-serif leading-none">"</div>
-
-                                    {/* Message Card */}
-                                    <div className="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-accent relative">
-                                        <div className="space-y-4 text-gray-700 leading-relaxed">
-                                            <p className="text-base">
-                                                It is a privilege to introduce <span className="font-semibold text-foreground">Sai Balaji Infra (India) Pvt. Ltd.</span>, a company built over <span className="font-semibold text-accent">24 years</span> on trust, quality, and committed teamwork. Our growth has been driven by continuous improvement, disciplined execution, and long-standing relationships with our clients and partners.
-                                            </p>
-
-                                            <p className="text-base">
-                                                Our strength lies in our dedicated team, whose professionalism supports our core values of quality, timely delivery, safety, and transparency. These principles guide every decision we make and define the way we approach each project.
-                                            </p>
-
-                                            <p className="text-base">
-                                                As we move ahead, our focus remains on strengthening systems, adopting better practices, and delivering work that reflects reliability and integrity. I am grateful to our clients, partners, and team members for their constant support, which motivates us to achieve new milestones with confidence.
-                                            </p>
-                                        </div>
-
-                                        {/* Signature Section */}
-                                        <div className="mt-8 pt-6 border-t border-gray-200">
-                                            <div className="flex items-end justify-between">
-                                                <div>
-                                                    <div className="font-signature text-2xl text-primary mb-1" style={{ fontFamily: 'cursive' }}>
-                                                        Managing Director
+                                            {/* Content Grid */}
+                                            <div className="grid lg:grid-cols-5 gap-12 items-center">
+                                                {/* Photo */}
+                                                <div className="lg:col-span-2 max-w-sm mx-auto w-full">
+                                                    <div className="relative group">
+                                                        <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+                                                        <div className="relative bg-white p-2 rounded-2xl shadow-xl">
+                                                            <img
+                                                                src={m.image}
+                                                                alt={m.role}
+                                                                className="w-full h-auto rounded-xl object-cover aspect-[4/5]"
+                                                            />
+                                                            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-lg shadow-lg border border-accent/20">
+                                                                <h3 className="font-bold text-lg text-foreground">{m.role}</h3>
+                                                                <p className="text-sm text-muted-foreground">Sai Balaji Infra (India) Pvt. Ltd</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <p className="text-sm text-muted-foreground font-medium">
-                                                        Sai Balaji Infra (India) Pvt. Ltd
-                                                    </p>
                                                 </div>
-                                                <div className="hidden sm:block">
-                                                    <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                                                        <Award className="w-8 h-8 text-accent" />
+
+                                                {/* Message Content */}
+                                                <div className="lg:col-span-3">
+                                                    <div className="relative">
+                                                        <div className="absolute -top-4 -left-2 text-6xl text-accent/20 font-serif leading-none">"</div>
+
+                                                        <div className="bg-white rounded-2xl p-8 shadow-lg border-l-4 border-accent relative">
+                                                            <div className="space-y-4 text-gray-700 leading-relaxed">
+                                                                {m.paragraphs}
+                                                            </div>
+
+                                                            {/* Signature Section */}
+                                                            <div className="mt-8 pt-6 border-t border-gray-200">
+                                                                <div className="flex items-end justify-between">
+                                                                    <div>
+                                                                        <div className="font-heading text-lg font-bold uppercase tracking-[0.15em] text-primary">
+                                                                            {m.role}
+                                                                        </div>
+                                                                        <div className="w-10 h-0.5 bg-accent my-2 rounded-full" />
+                                                                        <p className="text-sm text-muted-foreground font-medium tracking-wide">
+                                                                            Sai Balaji Infra (India) Pvt. Ltd
+                                                                        </p>
+                                                                    </div>
+                                                                    <div className="hidden sm:block">
+                                                                        <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                                                                            <Award className="w-8 h-8 text-accent" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="absolute -bottom-8 -right-2 text-6xl text-accent/20 font-serif leading-none">"</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                        </Carousel>
 
-                                    {/* Closing Quote */}
-                                    <div className="absolute -bottom-8 -right-2 text-6xl text-accent/20 font-serif leading-none">"</div>
-                                </div>
-                            </motion.div>
+                        {/* Carousel Controls */}
+                        <div className="flex items-center justify-center gap-4 mt-2">
+                            <button
+                                type="button"
+                                aria-label="Previous message"
+                                onClick={() => api?.scrollPrev()}
+                                className="w-10 h-10 rounded-full border border-accent/40 bg-white text-accent flex items-center justify-center hover:bg-accent hover:text-white transition-colors shadow-sm"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <div className="flex items-center gap-2">
+                                {messages.map((m, i) => (
+                                    <button
+                                        key={m.role}
+                                        type="button"
+                                        aria-label={`Show message from the ${m.role}`}
+                                        onClick={() => api?.scrollTo(i)}
+                                        className={`h-2.5 rounded-full transition-all ${current === i ? "w-8 bg-accent" : "w-2.5 bg-gray-300 hover:bg-gray-400"}`}
+                                    />
+                                ))}
+                            </div>
+                            <button
+                                type="button"
+                                aria-label="Next message"
+                                onClick={() => api?.scrollNext()}
+                                className="w-10 h-10 rounded-full border border-accent/40 bg-white text-accent flex items-center justify-center hover:bg-accent hover:text-white transition-colors shadow-sm"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
                         </div>
                     </motion.div>
                 </div>

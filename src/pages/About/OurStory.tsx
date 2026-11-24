@@ -79,11 +79,11 @@ const OurStory = () => {
               { title: "Fire Fighting", img: "/images/fire_fighting.png" },
               { title: "Plumbing", img: "/images/plumbing.png" },
               { title: "HVAC", img: "/images/hvac.png" },
-              { title: "WTP / HTP", img: "/images/wtp_htp.png" },
               { title: "66/11KV", img: "/images/substation_11kv.png" },
               { title: "LT Panels", img: "/images/lt_panels.png" },
               { title: "Busways & Rising Main", img: "/images/busways.png" },
               { title: "Cable Management", img: "/images/cable_management.png" },
+              { title: "WTP / HTP", img: "/images/wtp_htp.png" },
             ].map((item, index) => (
               <motion.div
                 key={index}

@@ -34,11 +34,11 @@ const KeyPersonsPage = () => {
       phone: "+91 9642311153",
     },
     {
-      name: "Mr. B.Vijay Gautham",
-      position: "Associate Vice President",
-      image: "persons/shivaiah.jpg",
-      mail: "vijaygoutham@saibalajiinfra.com",
-      phone: "+91 9989932325",
+      name: "Mr. Nayaz Ur Rahaman",
+      position: "GM- MEP",
+      image: "persons/nayazurrahaman.jpeg",
+      mail: "saibalajimepgm@saibalajiinfra.com",
+      phone: "+91 88842 19052",
     },
     {
       name: "Mr. W.Prasad",

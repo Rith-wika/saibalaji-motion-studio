@@ -85,18 +85,6 @@
       ]
     },
     {
-      "title": "Brigade Sanctuary",
-      "location": "Bengaluru",
-      "Scope of Work": "Internal Electrical works.",
-      "image": "/Completed Project/brigade-signature-towers-sale-2.jpg",
-      "type": "Residential",
-      "category": "Residential",
-      "sft": "12,00,000 SFT",
-      "services": [
-        "Electrical"
-      ]
-    },
-    {
       "title": "Honer Signatis",
       "location": "Hyderabad",
       "Scope of Work": "Internal Electrical works.",
@@ -159,18 +147,6 @@
       ]
     },
     {
-      "title": "Ginger Hotel",
-      "location": "Hyderabad",
-      "Scope of Work": "Internal and External Electrical works.",
-      "image": "/ONgoing project- Diary/Ginger Hotel.jpeg",
-      "type": "Hotel",
-      "category": "Hotel",
-      "sft": "1,00,000 SFT",
-      "services": [
-        "Electrical"
-      ]
-    },
-    {
       "title": "Prestige Siesta",
       "location": "Mumbai",
       "Scope of Work": "Internal and External Electrical works.",
@@ -178,18 +154,6 @@
       "type": "Residential",
       "category": "Residential",
       "sft": "13,66,000 SFT",
-      "services": [
-        "Electrical"
-      ]
-    },
-    {
-      "title": "Lodha NIBM",
-      "location": "Pune",
-      "Scope of Work": "Internal Electrical Works.",
-      "image": "/ONgoing project- Diary/Lodha bella-vita.jpeg",
-      "type": "Residential",
-      "category": "Residential",
-      "sft": "10,00,000 SFT",
       "services": [
         "Electrical"
       ]
@@ -221,7 +185,7 @@
       ]
     },
     {
-      "title": "Vasavi Ananda Nilayam",
+      "title": "Vasavi Aananda Nilayam",
       "location": "Hyderabad",
       "Scope of Work": "Internal Electrical Works.",
       "image": "/ONgoing project- Diary/vasavi-anandanilayam.jpg",
@@ -281,18 +245,6 @@
       ]
     },
     {
-      "title": "Divyasree 77 Life",
-      "location": "Bengaluru",
-      "Scope of Work": "Internal Electrical Works.",
-      "image": "/ONgoing project- Diary/divyasree_77_life.jpeg",
-      "type": "Residential",
-      "category": "Residential",
-      "sft": "3,00,000 SFT",
-      "services": [
-        "Electrical"
-      ]
-    },
-    {
       "title": "Godrej Horizon",
       "location": "Mumbai",
       "Scope of Work": "Internal and External Electrical works.",
@@ -342,7 +294,7 @@
     },
     {
       "title": "Purvankara Park Hills",
-      "location": "Hyderabad",
+      "location": "Bengaluru",
       "Scope of Work": "Internal and External Electrical works.",
       "image": "/ONgoing project- Diary/Purvankara Park Hills.jfif",
       "type": "Residential",
@@ -389,7 +341,7 @@
       ]
     },
     {
-      "title": "Aadrash Park Height Phase -1",
+      "title": "Adrash Park Height Phase -1",
       "location": "Bengaluru",
       "Scope of Work": "Internal Electrical Works & LT Works.",
       "image": "/ONgoing project- Diary/Aadrash Park Heights- II.jpeg",
@@ -402,6 +354,19 @@
     }
   ],
   "completedProjects": [
+    {
+      "title": "Ginger Hotel",
+      "location": "Hyderabad",
+      "Scope of Work": "Internal and External Electrical works.",
+      "image": "/ONgoing project- Diary/Ginger Hotel.jpeg",
+      "type": "Hotel",
+      "category": "Hotel",
+      "sft": "1,00,000 SFT",
+      "contractType": "MEP CONTRACTS",
+      "services": [
+        "Electrical"
+      ]
+    },
     {
       "title": "Palladium Phoenix Kassaku",
       "location": "Bengaluru",
@@ -587,7 +552,7 @@
     },
     {
       "title": "Honer Aquanties",
-      "location": "Bengaluru",
+      "location": "Hyderabad",
       "Scope of Work": "Internal Electrical Works.",
       "image": "/Completed Project/honer.webp",
       "type": "Residential",

@@ -7,7 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Zap, CheckCircle } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { MapPin, Zap, CheckCircle, Search, X } from "lucide-react";
 import projectImage from "@/assets/projects.jpg";
 import projectData from "@/data/project.json";
 
@@ -24,6 +25,7 @@ const Projects = () => {
 
   const { ongoingProjects, completedProjects } = projectData;
   // --- State for Filters ---
+  const [searchQuery, setSearchQuery] = useState("");
   const [ongoingType, setOngoingType] = useState("all");
   const [ongoingLocation, setOngoingLocation] = useState("all");
   const [ongoingService, setOngoingService] = useState("all");
@@ -68,18 +70,28 @@ const Projects = () => {
   const completedServices = useMemo(() => availableServices, []);
 
   // --- Filtered Project Lists ---
+  const matchesSearch = (project: any) => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return true;
+    return [project.title, project.location, project.category, project.type, project.contractType, project["Scope of Work"], ...(project.services || [])]
+      .filter(Boolean)
+      .some((v: string) => String(v).toLowerCase().includes(q));
+  };
+
   const filteredOngoingProjects = useMemo(() => {
     return ongoingProjects.filter((project) => {
+      if (!matchesSearch(project)) return false;
       const categoryMatch = ongoingType === "all" || project.category === ongoingType;
       const locationMatch = ongoingLocation === "all" || project.location === ongoingLocation;
       // Check if the service array includes the selected service
       const serviceMatch = ongoingService === "all" || ((project as any).services && (project as any).services.includes(ongoingService));
       return categoryMatch && locationMatch && serviceMatch;
     });
-  }, [ongoingProjects, ongoingType, ongoingLocation, ongoingService]);
+  }, [ongoingProjects, ongoingType, ongoingLocation, ongoingService, searchQuery]);
 
   const filteredCompletedProjects = useMemo(() => {
     return completedProjects.filter((project) => {
+      if (!matchesSearch(project)) return false;
       const categoryMatch = completedCategory === "all" || project.category === completedCategory;
       const contractMatch = completedContract === "all" || project.contractType === completedContract;
       // Check if the service array includes the selected service
@@ -95,7 +107,7 @@ const Projects = () => {
       }
       return true;
     });
-  }, [completedProjects, completedContract, completedSubFilter, completedCategory, completedService]);
+  }, [completedProjects, completedContract, completedSubFilter, completedCategory, completedService, searchQuery]);
 
   const ProjectCard = ({ project, index }: { project: any; index: number }) => (
     <motion.div
@@ -171,6 +183,29 @@ const Projects = () => {
               From transmission lines to renewable energy, discover our portfolio of cutting-edge electrical infrastructure projects.
             </p>
           </motion.div>
+
+          {/* --- Search (applies to both ongoing and completed projects) --- */}
+          <div className="relative max-w-xl mx-auto mb-8">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search projects by name, location, category or service..."
+              className="pl-10 pr-10"
+              aria-label="Search projects"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                aria-label="Clear search"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
 
           <Tabs defaultValue="ongoing" className="w-full">
             <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">

@@ -35,10 +35,10 @@ const groupCompaniesDropdownItems = [
 
 function SplitChars({ text }: { text: string }) {
   return (
-    <span className="electric-link-container inline-flex">
+    <span className="electric-link-container inline-flex whitespace-nowrap">
       {text.split("").map((ch, i) => (
         <span key={i} className="electric-char inline-block px-[1px] leading-none">
-          {ch}
+          {ch === " " ? " " : ch}
         </span>
       ))}
     </span>
@@ -96,14 +96,14 @@ const ElectricalNavbar: React.FC = () => {
               <img
                 src="/logo-sai.png"
                 alt="SAI BALAJI Logo"
-                className="h-[120px] md:h-[140px] w-auto object-contain"
+                className="h-[100px] md:h-[110px] lg:h-[140px] w-auto object-contain"
               />
             </div>
           </Link>
         </div>
 
         {/* RIGHT: Two-row content */}
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 min-w-0 flex flex-col">
           {/* TOP ROW: Company Logos & Certifications */}
           <div className="px-2 md:px-0 py-2 flex flex-col-reverse md:flex-row justify-between items-end md:items-center border-b border-gray-100/50 gap-2 md:gap-0">
             {/* Left: Additional Company Logos */}
@@ -121,14 +121,14 @@ const ElectricalNavbar: React.FC = () => {
             </div>
 
             {/* Right: Certifications & Mobile Toggle */}
-            <div className="flex items-center gap-1 md:gap-6">
+            <div className="flex items-center gap-1 md:gap-3 xl:gap-6">
               <div className="flex items-center gap-1.5 md:gap-3 px-1.5 py-1 md:px-3 md:py-1.5 bg-secondary/5 rounded-lg border border-secondary/10 hover:bg-secondary/10 transition-colors cursor-default group">
                 <div className="bg-white p-1 md:p-1.5 rounded-full shadow-sm group-hover:scale-110 transition-transform">
                   <ShieldCheck className="w-4 h-4 md:w-6 md:h-6 text-accent" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] md:text-xs font-bold text-primary leading-tight tracking-tight">ISO 9001:2015</span>
-                  <span className="hidden sm:block text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
+                  <span className="hidden lg:block text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
                 </div>
               </div>
               <div className="flex items-center gap-1.5 md:gap-3 px-1.5 py-1 md:px-3 md:py-1.5 bg-secondary/5 rounded-lg border border-secondary/10 hover:bg-secondary/10 transition-colors cursor-default group">
@@ -137,13 +137,13 @@ const ElectricalNavbar: React.FC = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] md:text-xs font-bold text-primary leading-tight tracking-tight">ISO 45001:2018</span>
-                  <span className="hidden sm:block text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
+                  <span className="hidden lg:block text-[10px] text-muted-foreground font-semibold uppercase tracking-wider">Certified Company</span>
                 </div>
               </div>
 
               {/* Mobile Toggle */}
               <button
-                className="md:hidden ml-1 text-black p-2 hover:bg-black/5 rounded-lg transition-colors"
+                className="xl:hidden ml-1 text-black p-2 hover:bg-black/5 rounded-lg transition-colors"
                 aria-label="Toggle menu"
                 onClick={() => setOpen((s) => !s)}
               >
@@ -161,8 +161,8 @@ const ElectricalNavbar: React.FC = () => {
           </div>
 
           {/* BOTTOM ROW: Navigation (Desktop) */}
-          <div className="hidden md:block border-t border-transparent relative flex-1">
-            <div className="w-full px-4 md:px-10 lg:px-16 relative h-full">
+          <div className="hidden xl:block border-t border-transparent relative flex-1">
+            <div className="w-full px-2 xl:px-4 2xl:px-10 relative h-full">
               {/* Electric Flow Effects (Full Width of Container) */}
               <div className="absolute inset-0 pointer-events-none z-10">
                 <div
@@ -190,7 +190,7 @@ const ElectricalNavbar: React.FC = () => {
               </div>
 
               {/* Nav Items Container */}
-              <div className="flex items-center justify-between py-2 relative z-20">
+              <div className="flex flex-wrap items-center justify-between gap-1 py-2 relative z-20">
                 {navItems.map((item) => {
                   const active = isActive(item.path);
 
@@ -203,7 +203,7 @@ const ElectricalNavbar: React.FC = () => {
                           to={item.path}
                           onMouseEnter={(e) => handleMouseEnter(e)}
                           onMouseLeave={handleMouseLeave}
-                          className={`electric-link text-sm font-bold uppercase tracking-wide relative px-4 py-2 rounded-md transition-colors ${isAboutActive
+                          className={`electric-link shrink-0 text-[13px] 2xl:text-sm font-bold uppercase tracking-normal 2xl:tracking-wide whitespace-nowrap relative px-2 xl:px-3 2xl:px-4 py-2 rounded-md transition-colors ${isAboutActive
                             ? 'text-accent bg-accent/10 hover:bg-accent/20'
                             : hoverActive
                               ? 'text-black hover:bg-secondary/50'
@@ -247,7 +247,7 @@ const ElectricalNavbar: React.FC = () => {
                           to={item.path}
                           onMouseEnter={(e) => handleMouseEnter(e)}
                           onMouseLeave={handleMouseLeave}
-                          className={`electric-link text-sm font-bold uppercase tracking-wide relative px-4 py-2 rounded-md transition-colors ${isGroupActive
+                          className={`electric-link shrink-0 text-[13px] 2xl:text-sm font-bold uppercase tracking-normal 2xl:tracking-wide whitespace-nowrap relative px-2 xl:px-3 2xl:px-4 py-2 rounded-md transition-colors ${isGroupActive
                             ? 'text-accent bg-accent/10 hover:bg-accent/20'
                             : hoverActive
                               ? 'text-black hover:bg-secondary/50'
@@ -288,7 +288,7 @@ const ElectricalNavbar: React.FC = () => {
                       to={item.path}
                       onMouseEnter={(e) => handleMouseEnter(e)}
                       onMouseLeave={handleMouseLeave}
-                      className={`electric-link text-sm font-bold uppercase tracking-wide relative px-4 py-2 rounded-md transition-colors ${active
+                      className={`electric-link shrink-0 text-[13px] 2xl:text-sm font-bold uppercase tracking-normal 2xl:tracking-wide whitespace-nowrap relative px-2 xl:px-3 2xl:px-4 py-2 rounded-md transition-colors ${active
                         ? 'text-accent bg-accent/10 hover:bg-accent/20'
                         : hoverActive
                           ? 'text-black hover:bg-secondary/50'
@@ -308,7 +308,7 @@ const ElectricalNavbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden py-4 border-t border-gray-100 max-h-[80vh] overflow-y-auto">
+        <div className="xl:hidden py-4 border-t border-gray-100 max-h-[80vh] overflow-y-auto">
           <div className="flex flex-col gap-2 container mx-auto px-4">
             {navItems.map((item) => {
               const active = isActive(item.path);
